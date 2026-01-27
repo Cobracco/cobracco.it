@@ -1,0 +1,13 @@
+﻿services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/health').then(r=>{if(!r.ok) process.exit(1);}).catch(()=>process.exit(1));"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped

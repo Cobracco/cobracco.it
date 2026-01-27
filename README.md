@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# Cobracco - Deploy Production
 
-## Getting Started
+## Requisiti server
+- Docker
+- Docker Compose (plugin `docker compose`)
 
-First, run the development server:
+## DNS
+- Record A: `cobracco.it` -> IP del server
+- Record CNAME: `www` -> `cobracco.it` (oppure record A sullo stesso IP)
 
+## Configurazione env
+1) Copia il file esempio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.production.example .env.production
+```
+2) Compila i valori SMTP e reCAPTCHA.
+
+### Note reCAPTCHA v3
+- `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` e la chiave pubblica (client).
+- `RECAPTCHA_SECRET` resta solo sul server.
+
+## Avvio production (Caddy + app)
+```bash
+docker compose -f docker-compose.prod.yml up -d --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Logs
+```bash
+docker compose -f docker-compose.prod.yml logs -f
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stato container
+```bash
+docker compose -f docker-compose.prod.yml ps
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stop
+```bash
+docker compose -f docker-compose.prod.yml down
+```
 
-## Learn More
+## Health check
+- URL: `https://cobracco.it/health`
+- Risposta: `{ "status": "ok" }`
+- Non indicizzabile (cache disabilitata)
 
-To learn more about Next.js, take a look at the following resources:
+## Test API (senza reCAPTCHA)
+```bash
+curl -X POST https://cobracco.it/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Test","email":"test@example.com","message":"test","token":""}'
+```
+Atteso: errore generico (reCAPTCHA obbligatorio).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Note Let's Encrypt
+- Caddy gestisce automaticamente i certificati HTTPS.
+- Non serve configurare email, Caddy usa Let's Encrypt in automatico.
