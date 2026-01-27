@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { siteContent } from "@/content/siteContent";
-import { openConsentManager } from "@/lib/consentEvents";
+import { openConsentManager } from "@/lib/consentController";
 
 const socialLinks = [
   {

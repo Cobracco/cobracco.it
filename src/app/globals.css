@@ -28,8 +28,8 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -52,7 +52,7 @@ section {
 button,
 input,
 textarea {
-  font-family: inheri;
+  font-family: inherit;
 }
 
 .prose-lite {

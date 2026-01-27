@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ConsentState, getConsent, setConsent } from "@/lib/consent";
-import { CONSENT_OPEN_EVENT } from "@/lib/consentEvents";
+import { registerConsentOpener } from "@/lib/consentController";
 
 const dispatchConsentEvent = (state: ConsentState) => {
   if (typeof window === "undefined") {
@@ -24,14 +24,13 @@ export default function ConsentBanner() {
   }, []);
 
   useEffect(() => {
-    const reopen = (_event: Event) => {
+    const unregister = registerConsentOpener(() => {
       const stored = getConsent();
       setConsentState(stored);
       setIsVisible(true);
-    };
-    window.addEventListener(CONSENT_OPEN_EVENT, reopen);
+    });
     return () => {
-      window.removeEventListener(CONSENT_OPEN_EVENT, reopen);
+      unregister();
     };
   }, []);
 
