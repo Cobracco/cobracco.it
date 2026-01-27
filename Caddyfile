@@ -1,5 +1,8 @@
-﻿(cobracco.it) {
+cobracco.it, www.cobracco.it {
   encode gzip zstd
+
+  @www host www.cobracco.it
+  redir @www https://cobracco.it{uri} permanent
 
   header {
     X-Content-Type-Options "nosniff"
@@ -7,15 +10,11 @@
     Referrer-Policy "strict-origin-when-cross-origin"
     Permissions-Policy "geolocation=(), microphone=(), camera=()"
     Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https: https://www.google.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
   }
 
   @staticAssets path /_next/static/* /favicon.ico
   header @staticAssets Cache-Control "public, max-age=31536000, immutable"
 
   reverse_proxy app:3000
-}
-
-www.cobracco.it {
-  redir https://cobracco.it{uri} permanent
 }

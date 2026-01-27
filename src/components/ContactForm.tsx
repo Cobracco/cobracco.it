@@ -1,7 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Button from "@/components/Button";
+import { hasAcceptedConsent } from "@/lib/consent";
 
 const initialState = {
   name: "",
@@ -16,6 +17,7 @@ declare global {
       execute: (siteKey: string, options: { action: string }) => Promise<string>;
       ready: (cb: () => void) => void;
     };
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -81,6 +83,12 @@ export default function ContactForm() {
 
       setSuccess(true);
       setValues(initialState);
+
+      if (typeof window !== "undefined" && hasAcceptedConsent()) {
+        window.gtag?.("event", "generate_lead", {
+          method: "contact_form",
+        });
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Errore durante l'invio.");
     } finally {
@@ -147,9 +155,7 @@ export default function ContactForm() {
       </div>
       {error ? <p className="text-sm text-red-600">{error}</p> : null}
       {success ? (
-        <p className="text-sm text-emerald-700">
-          Grazie, ti ricontatteremo.
-        </p>
+        <p className="text-sm text-emerald-700">Grazie, ti ricontatteremo.</p>
       ) : null}
       <Button label={isSending ? "Invio..." : "Invia"} type="submit" />
     </form>

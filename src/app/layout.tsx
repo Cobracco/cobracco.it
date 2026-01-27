@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ConsentBanner from "@/components/ConsentBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import PageView from "@/components/PageView";
 import { siteContent } from "@/content/siteContent";
 
-const manrope = Manrope({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -36,7 +39,15 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  alternates: {
+    canonical: "/",
+    languages: {
+      it: "/",
+    },
+  },
 };
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -61,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
-      <body className={`${manrope.variable} ${playfair.variable} antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -69,8 +80,11 @@ export default function RootLayout({
           }}
         />
         <Header />
+        <GoogleAnalytics gaId={GA_ID} />
+        <PageView />
         <main>{children}</main>
         <Footer />
+        <ConsentBanner />
       </body>
     </html>
   );

@@ -43,12 +43,11 @@ export default function ContattiPage() {
             </div>
             <div className="space-y-2 text-sm text-[var(--color-ink-soft)]">
               <p>{footer.address}</p>
-              <p>{footer.email}</p>
-              <p>{footer.phone}</p>
+              <p>Il team risponde attraverso il form e le call programmate, ti ricontattiamo entro 1-2 giorni.</p>
             </div>
             <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-ink-soft)]">
-              <p className="font-semibold text-[var(--color-ink)]">Preferisci email?</p>
-              <p>Scrivici a {footer.email} o chiamaci al {footer.phone}.</p>
+              <p className="font-semibold text-[var(--color-ink)]">Preferisci un messaggio diretto?</p>
+              <p>Usa il form accanto o prenota una call per raccontarci il progetto.</p>
             </div>
           </div>
         </div>

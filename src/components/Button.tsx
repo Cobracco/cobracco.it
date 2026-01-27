@@ -14,7 +14,7 @@ const baseStyles =
 
 const variants = {
   primary:
-    "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-dark)]",
+    "bg-gradient-to-r from-[#0b3d91] to-[#00b0ff] text-white shadow-lg shadow-[rgba(11,61,145,0.4)]",
   secondary:
     "border border-[var(--color-border)] bg-white text-[var(--color-ink)] hover:border-slate-300",
   ghost:
