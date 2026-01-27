@@ -1,6 +1,6 @@
 import { gtagConsentDefault } from "@/lib/consent";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.GA_ID || process.env.NEXT_PUBLIC_GA_ID;
 const baseGtagSnippet =
   GA_ID
     ? `
