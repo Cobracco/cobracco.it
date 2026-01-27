@@ -15,8 +15,8 @@ export default function Section({
   className,
 }: SectionProps) {
   return (
-    <section className={cn("py-10 sm:py-14 mb-10 sm:mb-12", className)}>
-      <div className="space-y-3">
+    <section className={cn("py-10 sm:py-14 mb-12 sm:mb-16", className)}>
+      <div className="space-y-6">
         {title ? (
           <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>
         ) : null}
