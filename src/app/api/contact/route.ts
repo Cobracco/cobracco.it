@@ -1,8 +1,6 @@
 ﻿import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const MIN_RECAPTCHA_SCORE = 0.5;
-
 type RateLimitEntry = {
   count: number;
   start: number;
@@ -43,7 +41,6 @@ export async function POST(request: Request) {
     const name = String(body.name || "").trim();
     const email = String(body.email || "").trim();
     const message = String(body.message || "").trim();
-    const token = String(body.token || "").trim();
     const website = String(body.website || "").trim();
 
     if (!name || !email || !message) {
@@ -66,89 +63,6 @@ export async function POST(request: Request) {
         { error: "Troppe richieste. Riprova tra poco." },
         { status: 429 }
       );
-    }
-
-    const enterpriseProject =
-      process.env.RECAPTCHA_ENTERPRISE_PROJECT_ID || "";
-    const enterpriseApiKey =
-      process.env.RECAPTCHA_ENTERPRISE_API_KEY || "";
-    const useEnterprise = Boolean(enterpriseProject || enterpriseApiKey);
-
-    if (!token) {
-      return NextResponse.json(
-        { error: "Verifica anti-spam fallita." },
-        { status: 400 }
-      );
-    }
-
-    if (useEnterprise) {
-      if (!enterpriseProject || !enterpriseApiKey) {
-        return NextResponse.json(
-          { error: "Configurazione reCAPTCHA Enterprise mancante." },
-          { status: 500 }
-        );
-      }
-
-      const enterpriseUrl =
-        `https://recaptchaenterprise.googleapis.com/v1/projects/${encodeURIComponent(
-          enterpriseProject
-        )}/assessments?key=${encodeURIComponent(enterpriseApiKey)}`;
-
-      const verifyResponse = await fetch(enterpriseUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          event: {
-            token,
-            siteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
-            expectedAction: "contact",
-          },
-        }),
-      });
-
-      const verifyData = await verifyResponse.json();
-      const tokenValid = Boolean(verifyData?.tokenProperties?.valid);
-      const actionMatch =
-        verifyData?.tokenProperties?.action === "contact";
-      const score = Number(verifyData?.riskAnalysis?.score || 0);
-
-      if (!tokenValid || !actionMatch || score < MIN_RECAPTCHA_SCORE) {
-        return NextResponse.json(
-          { error: "Verifica anti-spam fallita." },
-          { status: 400 }
-        );
-      }
-    } else {
-      const secret =
-        process.env.RECAPTCHA_SECRET ||
-        process.env.RECAPTCHA_SECRET_KEY ||
-        "";
-      if (!secret) {
-        return NextResponse.json(
-          { error: "Verifica anti-spam fallita." },
-          { status: 400 }
-        );
-      }
-
-      const verifyResponse = await fetch(
-        "https://www.google.com/recaptcha/api/siteverify",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `secret=${encodeURIComponent(
-            secret
-          )}&response=${encodeURIComponent(token)}`,
-        }
-      );
-      const verifyData = await verifyResponse.json();
-
-      const score = typeof verifyData.score === "number" ? verifyData.score : 0;
-      if (!verifyData.success || score < MIN_RECAPTCHA_SCORE) {
-        return NextResponse.json(
-          { error: "Verifica anti-spam fallita." },
-          { status: 400 }
-        );
-      }
     }
 
     const transporter = nodemailer.createTransport({

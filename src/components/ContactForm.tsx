@@ -13,17 +13,6 @@ const initialState = {
 
 declare global {
   interface Window {
-    grecaptcha?: {
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-      ready: (cb: () => void) => void;
-      enterprise?: {
-        execute: (
-          siteKey: string,
-          options: { action: string }
-        ) => Promise<string>;
-        ready: (cb: () => void) => void;
-      };
-    };
     gtag?: (...args: unknown[]) => void;
   }
 }
@@ -50,26 +39,6 @@ export default function ContactForm() {
     return null;
   };
 
-  const getRecaptchaToken = async () => {
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
-    if (!siteKey || !window.grecaptcha) {
-      return "";
-    }
-    await new Promise<void>((resolve) => {
-      if (window.grecaptcha?.enterprise) {
-        window.grecaptcha.enterprise.ready(() => resolve());
-        return;
-      }
-      window.grecaptcha?.ready(() => resolve());
-    });
-    if (window.grecaptcha?.enterprise) {
-      return window.grecaptcha.enterprise.execute(siteKey, {
-        action: "contact",
-      });
-    }
-    return window.grecaptcha.execute(siteKey, { action: "contact" });
-  };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationError = validate();
@@ -84,12 +53,10 @@ export default function ContactForm() {
     setSuccess(false);
 
     try {
-      const token = await getRecaptchaToken();
-
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, token }),
+        body: JSON.stringify({ ...values }),
       });
 
       if (!response.ok) {

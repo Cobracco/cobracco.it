@@ -2,7 +2,6 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
-import Script from "next/script";
 import { siteContent } from "@/content/siteContent";
 
 export const metadata: Metadata = {
@@ -13,16 +12,8 @@ export const metadata: Metadata = {
 export default function ContattiPage() {
   const { hero, info, form } = siteContent.pages.contatti;
   const { footer } = siteContent;
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
-
   return (
     <Container>
-      {siteKey ? (
-        <Script
-          src={`https://www.google.com/recaptcha/enterprise.js?render=${siteKey}`}
-          strategy="afterInteractive"
-        />
-      ) : null}
       <Section title={hero.title} description={hero.subtitle}>
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
