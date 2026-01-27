@@ -68,7 +68,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const secret = process.env.RECAPTCHA_SECRET || "";
+    const secret =
+      process.env.RECAPTCHA_SECRET ||
+      process.env.RECAPTCHA_SECRET_KEY ||
+      "";
     if (!secret || !token) {
       return NextResponse.json(
         { error: "Verifica anti-spam fallita." },
@@ -106,8 +109,8 @@ export async function POST(request: Request) {
       },
     });
 
-    const to = process.env.SMTP_TO || "";
-    const from = process.env.SMTP_FROM || "";
+    const to = process.env.SMTP_TO || process.env.CONTACT_TO || "";
+    const from = process.env.SMTP_FROM || process.env.CONTACT_FROM || "";
 
     if (!to || !from) {
       return NextResponse.json(
