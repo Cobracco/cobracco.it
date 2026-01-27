@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
         <div className="space-y-3">
           <p className="text-sm font-semibold">Navigazione</p>
-          <nav aria-label="Footer" className="grid gap-2 text-sm">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {siteContent.navigation.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}

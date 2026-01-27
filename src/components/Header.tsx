@@ -29,7 +29,7 @@ export default function Header() {
         </Link>
         <nav
           aria-label="Navigazione principale"
-          className="hidden flex-wrap gap-4 text-sm lg:flex"
+          className="hidden flex-wrap gap-4 text-sm xl:flex"
         >
           {siteContent.navigation.map((item) => {
             const isActive = pathname === item.href;
@@ -49,26 +49,26 @@ export default function Header() {
             );
           })}
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Button label="Parla con noi" href="/contatti" variant="primary" />
         </div>
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-ink)] lg:hidden"
+          className="ml-auto flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-accent)] shadow-sm xl:hidden"
           aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           {isOpen ? (
-            <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
               <path
                 fill="currentColor"
                 d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.7 2.88 18.29 9.17 12 2.88 5.71 4.29 4.3l6.3 6.29 6.29-6.29z"
               />
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
               <path
                 fill="currentColor"
                 d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"
@@ -78,7 +78,7 @@ export default function Header() {
         </button>
       </Container>
       {isOpen ? (
-        <div id="mobile-menu" className="border-t border-[var(--color-border)] bg-white lg:hidden">
+        <div id="mobile-menu" className="border-t border-[var(--color-border)] bg-white xl:hidden">
           <Container className="flex flex-col gap-3 py-4 text-sm">
             {siteContent.navigation.map((item) => {
               const isActive = pathname === item.href;
