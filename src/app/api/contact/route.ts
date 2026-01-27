@@ -68,35 +68,87 @@ export async function POST(request: Request) {
       );
     }
 
-    const secret =
-      process.env.RECAPTCHA_SECRET ||
-      process.env.RECAPTCHA_SECRET_KEY ||
-      "";
-    if (!secret || !token) {
+    const enterpriseProject =
+      process.env.RECAPTCHA_ENTERPRISE_PROJECT_ID || "";
+    const enterpriseApiKey =
+      process.env.RECAPTCHA_ENTERPRISE_API_KEY || "";
+    const useEnterprise = Boolean(enterpriseProject || enterpriseApiKey);
+
+    if (!token) {
       return NextResponse.json(
         { error: "Verifica anti-spam fallita." },
         { status: 400 }
       );
     }
 
-    const verifyResponse = await fetch(
-      "https://www.google.com/recaptcha/api/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${encodeURIComponent(secret)}&response=${encodeURIComponent(
-          token
-        )}`,
+    if (useEnterprise) {
+      if (!enterpriseProject || !enterpriseApiKey) {
+        return NextResponse.json(
+          { error: "Configurazione reCAPTCHA Enterprise mancante." },
+          { status: 500 }
+        );
       }
-    );
-    const verifyData = await verifyResponse.json();
 
-    const score = typeof verifyData.score === "number" ? verifyData.score : 0;
-    if (!verifyData.success || score < MIN_RECAPTCHA_SCORE) {
-      return NextResponse.json(
-        { error: "Verifica anti-spam fallita." },
-        { status: 400 }
+      const enterpriseUrl =
+        `https://recaptchaenterprise.googleapis.com/v1/projects/${encodeURIComponent(
+          enterpriseProject
+        )}/assessments?key=${encodeURIComponent(enterpriseApiKey)}`;
+
+      const verifyResponse = await fetch(enterpriseUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: {
+            token,
+            siteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
+            expectedAction: "contact",
+          },
+        }),
+      });
+
+      const verifyData = await verifyResponse.json();
+      const tokenValid = Boolean(verifyData?.tokenProperties?.valid);
+      const actionMatch =
+        verifyData?.tokenProperties?.action === "contact";
+      const score = Number(verifyData?.riskAnalysis?.score || 0);
+
+      if (!tokenValid || !actionMatch || score < MIN_RECAPTCHA_SCORE) {
+        return NextResponse.json(
+          { error: "Verifica anti-spam fallita." },
+          { status: 400 }
+        );
+      }
+    } else {
+      const secret =
+        process.env.RECAPTCHA_SECRET ||
+        process.env.RECAPTCHA_SECRET_KEY ||
+        "";
+      if (!secret) {
+        return NextResponse.json(
+          { error: "Verifica anti-spam fallita." },
+          { status: 400 }
+        );
+      }
+
+      const verifyResponse = await fetch(
+        "https://www.google.com/recaptcha/api/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `secret=${encodeURIComponent(
+            secret
+          )}&response=${encodeURIComponent(token)}`,
+        }
       );
+      const verifyData = await verifyResponse.json();
+
+      const score = typeof verifyData.score === "number" ? verifyData.score : 0;
+      if (!verifyData.success || score < MIN_RECAPTCHA_SCORE) {
+        return NextResponse.json(
+          { error: "Verifica anti-spam fallita." },
+          { status: 400 }
+        );
+      }
     }
 
     const transporter = nodemailer.createTransport({

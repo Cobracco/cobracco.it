@@ -16,6 +16,13 @@ declare global {
     grecaptcha?: {
       execute: (siteKey: string, options: { action: string }) => Promise<string>;
       ready: (cb: () => void) => void;
+      enterprise?: {
+        execute: (
+          siteKey: string,
+          options: { action: string }
+        ) => Promise<string>;
+        ready: (cb: () => void) => void;
+      };
     };
     gtag?: (...args: unknown[]) => void;
   }
@@ -49,8 +56,17 @@ export default function ContactForm() {
       return "";
     }
     await new Promise<void>((resolve) => {
+      if (window.grecaptcha?.enterprise) {
+        window.grecaptcha.enterprise.ready(() => resolve());
+        return;
+      }
       window.grecaptcha?.ready(() => resolve());
     });
+    if (window.grecaptcha?.enterprise) {
+      return window.grecaptcha.enterprise.execute(siteKey, {
+        action: "contact",
+      });
+    }
     return window.grecaptcha.execute(siteKey, { action: "contact" });
   };
 
