@@ -46,10 +46,6 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const handleManageConsent = () => {
-    openConsentManager();
-  };
-
   return (
     <footer className="border-t border-[var(--color-border)] bg-white">
       <Container className="grid gap-8 py-12 lg:grid-cols-3">
@@ -90,8 +86,8 @@ export default function Footer() {
           <p className="text-sm font-semibold">Consenso & social</p>
           <button
             type="button"
-            className="relative z-10 text-xs font-semibold uppercase tracking-wide text-[var(--color-ink-soft)] underline-offset-2 hover:text-[var(--color-ink)]"
-            onClick={handleManageConsent}
+            className="relative z-10 cursor-pointer pointer-events-auto text-xs font-semibold uppercase tracking-wide text-[var(--color-ink-soft)] underline-offset-2 hover:text-[var(--color-ink)]"
+            onClick={() => openConsentManager()}
           >
             Gestisci consenso
           </button>

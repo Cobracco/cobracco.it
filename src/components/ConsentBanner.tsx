@@ -24,7 +24,7 @@ export default function ConsentBanner() {
   }, []);
 
   useEffect(() => {
-    const reopen = () => {
+    const reopen = (_event: Event) => {
       const stored = getConsent();
       setConsentState(stored);
       setIsVisible(true);
