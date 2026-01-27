@@ -1,14 +1,7 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
-import Script from "next/script";
-import {
-  ConsentState,
-  gtagConsentDefault,
-  gtagConsentGranted,
-  mapConsentToGtag,
-  getConsent,
-} from "@/lib/consent";
+import { useEffect } from "react";
+import { gtagConsentGranted, mapConsentToGtag } from "@/lib/consent";
 
 type GoogleAnalyticsProps = {
   gaId?: string;
@@ -16,16 +9,18 @@ type GoogleAnalyticsProps = {
 
 export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
   useEffect(() => {
+    if (!gaId) {
+      return;
+    }
     const handler = (event: Event) => {
       if (!(event instanceof CustomEvent)) {
         return;
       }
 
-      const state = event.detail as ConsentState;
       if (!window.gtag) {
         return;
       }
-
+      const state = event.detail as "accepted" | "rejected" | null;
       if (state === "accepted") {
         window.gtag("consent", "update", gtagConsentGranted());
       } else {
@@ -35,37 +30,7 @@ export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
 
     window.addEventListener("consent:changed", handler);
     return () => window.removeEventListener("consent:changed", handler);
-  }, []);
-
-  const baseSnippet = useMemo(() => {
-    if (!gaId) {
-      return "";
-    }
-
-    const denied = JSON.stringify(gtagConsentDefault());
-
-    return `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent','default', ${denied});
-      gtag('js', new Date());
-      gtag('config','${gaId}', { anonymize_ip: true, send_page_view: false });
-    `;
   }, [gaId]);
 
-  if (!gaId) {
-    return null;
-  }
-
-  return (
-    <>
-      <Script id="gtag-base" strategy="beforeInteractive">
-        {baseSnippet}
-      </Script>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        strategy="beforeInteractive"
-      />
-    </>
-  );
+  return null;
 }

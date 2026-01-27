@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,6 +8,7 @@ import ConsentBanner from "@/components/ConsentBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PageView from "@/components/PageView";
 import { siteContent } from "@/content/siteContent";
+import { gtagConsentDefault } from "@/lib/consent";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -48,6 +50,17 @@ export const metadata: Metadata = {
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const defaultConsent = gtagConsentDefault();
+const baseGtagSnippet =
+  GA_ID
+    ? `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default', ${JSON.stringify(defaultConsent)});
+      gtag('js', new Date());
+      gtag('config','${GA_ID}', { anonymize_ip: true, send_page_view: false });
+    `
+    : "";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -79,6 +92,17 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd),
           }}
         />
+        {GA_ID ? (
+          <>
+            <Script id="gtag-base" strategy="beforeInteractive">
+              {baseGtagSnippet}
+            </Script>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="beforeInteractive"
+            />
+          </>
+        ) : null}
         <Header />
         <GoogleAnalytics gaId={GA_ID} />
         <PageView />
