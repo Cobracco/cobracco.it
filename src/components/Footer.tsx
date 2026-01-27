@@ -5,6 +5,7 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import { siteContent } from "@/content/siteContent";
 import { openConsentManager } from "@/lib/consentController";
+import Button from "@/components/Button";
 
 const socialLinks = [
   {
@@ -84,13 +85,12 @@ export default function Footer() {
         </div>
         <div className="space-y-3">
           <p className="text-sm font-semibold">Consenso & social</p>
-          <button
+          <Button
+            label="Gestisci consenso"
             type="button"
-            className="relative z-10 cursor-pointer pointer-events-auto text-xs font-semibold uppercase tracking-wide text-[var(--color-ink-soft)] underline-offset-2 hover:text-[var(--color-ink)]"
+            size="sm"
             onClick={() => openConsentManager()}
-          >
-            Gestisci consenso
-          </button>
+          />
           <div className="flex items-center gap-3">
             {socialLinks.map((social) => (
               <Link

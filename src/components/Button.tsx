@@ -5,30 +5,39 @@ type ButtonProps = {
   label: string;
   href?: string;
   variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md";
   className?: string;
   type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
+  "inline-flex items-center justify-center rounded-full font-semibold tracking-wide !text-white hover:!text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
+
+const sizes = {
+  sm: "px-5 py-2 text-xs",
+  md: "px-6 py-3 text-sm",
+};
 
 const variants = {
   primary:
-    "bg-gradient-to-r from-[#0b3d91] to-[#00b0ff] text-white shadow-lg shadow-[rgba(11,61,145,0.4)]",
+    "bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] text-white shadow-lg shadow-[rgba(11,61,145,0.45)] hover:from-[#0b2f6a] hover:to-[#0092d6] active:from-[#0b2f6a] active:to-[#0092d6]",
   secondary:
-    "border border-[var(--color-border)] bg-white text-[var(--color-ink)] hover:border-slate-300",
+    "bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] text-white shadow-lg shadow-[rgba(11,61,145,0.45)] hover:from-[#0b2f6a] hover:to-[#0092d6] active:from-[#0b2f6a] active:to-[#0092d6]",
   ghost:
-    "text-[var(--color-ink)] hover:bg-[rgba(15,118,110,0.08)]",
+    "bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] text-white shadow-lg shadow-[rgba(11,61,145,0.45)] hover:from-[#0b2f6a] hover:to-[#0092d6] active:from-[#0b2f6a] active:to-[#0092d6]",
 };
 
 export default function Button({
   label,
   href,
   variant = "primary",
+  size = "sm",
   className,
   type = "button",
+  onClick,
 }: ButtonProps) {
-  const classes = cn(baseStyles, variants[variant], className);
+  const classes = cn(baseStyles, sizes[size], variants[variant], className);
 
   if (href) {
     return (
@@ -39,7 +48,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} className={classes}>
+    <button type={type} className={classes} onClick={onClick}>
       {label}
     </button>
   );

@@ -16,8 +16,6 @@ cp .env.production.example .env.production
 2) Compila i valori SMTP e reCAPTCHA.
 
 ### Note reCAPTCHA v3
-- `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` e la chiave pubblica (client).
-- `RECAPTCHA_SECRET` resta solo sul server.
 
 ## Avvio production (Caddy + app)
 ```bash

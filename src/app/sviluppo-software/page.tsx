@@ -76,7 +76,7 @@ export default function SviluppoSoftwarePage() {
       </Section>
 
       <Section title="Approfondimenti">
-        <div className="space-y-2 text-sm text-[var(--color-ink-soft)]">
+        <div className="flex flex-col gap-3 text-sm text-[var(--color-ink-soft)]">
           <Link href="/blog/sviluppo-software-su-misura-pmi">
             Sviluppo software su misura per PMI: quando conviene davvero
           </Link>

@@ -140,7 +140,7 @@ export default function ContactForm() {
       {success ? (
         <p className="text-sm text-emerald-700">Grazie, ti ricontatteremo.</p>
       ) : null}
-      <Button label={isSending ? "Invio..." : "Invia"} type="submit" />
+      <Button label={isSending ? "Invio..." : "Invia"} type="submit" size="sm" />
     </form>
   );
 }

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: siteContent.brand.description,
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon-2026.png",
   },
   openGraph: {
     title: siteContent.brand.name,

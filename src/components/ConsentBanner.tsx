@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ConsentState, getConsent, setConsent } from "@/lib/consent";
 import { registerConsentOpener } from "@/lib/consentController";
+import Button from "@/components/Button";
 
 const dispatchConsentEvent = (state: ConsentState) => {
   if (typeof window === "undefined") {
@@ -16,11 +17,14 @@ const dispatchConsentEvent = (state: ConsentState) => {
 export default function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const [consentState, setConsentState] = useState<ConsentState>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
 
   useEffect(() => {
     const stored = getConsent();
     setConsentState(stored);
     setIsVisible(stored === null);
+    setAnalyticsEnabled(stored === "accepted");
   }, []);
 
   useEffect(() => {
@@ -28,6 +32,8 @@ export default function ConsentBanner() {
       const stored = getConsent();
       setConsentState(stored);
       setIsVisible(true);
+      setAnalyticsEnabled(stored === "accepted");
+      setIsDialogOpen(true);
     });
     return () => {
       unregister();
@@ -38,13 +44,28 @@ export default function ConsentBanner() {
     setConsent(state);
     setIsVisible(false);
     setConsentState(state);
+    setAnalyticsEnabled(state === "accepted");
     dispatchConsentEvent(state);
   };
 
   const handleManage = () => {
-    const stored = getConsent();
-    setConsentState(stored);
-    setIsVisible(true);
+    setIsDialogOpen(true);
+  };
+
+  const handleSavePreferences = () => {
+    const nextState: Exclude<ConsentState, null> = analyticsEnabled
+      ? "accepted"
+      : "rejected";
+    setConsent(nextState);
+    setConsentState(nextState);
+    setIsVisible(false);
+    setIsDialogOpen(false);
+    dispatchConsentEvent(nextState);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+    setIsVisible(consentState === null);
   };
 
   if (!isVisible) {
@@ -52,41 +73,92 @@ export default function ConsentBanner() {
   }
 
   return (
-    <div className="fixed bottom-6 left-1/2 z-[60] w-[min(480px,90vw)] -translate-x-1/2 rounded-2xl border border-[var(--color-border)] bg-white/95 p-5 shadow-lg shadow-[rgba(15,23,42,0.2)]">
+    <div className="fixed bottom-6 left-1/2 z-[60] w-[min(520px,92vw)] -translate-x-1/2 rounded-2xl border border-[var(--color-border)] bg-white/95 p-5 shadow-lg shadow-[rgba(15,23,42,0.2)]">
       <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]">
         Stato attuale:{" "}
         {consentState === "accepted"
           ? "Accettato"
           : consentState === "rejected"
           ? "Rifiutato"
-          : "Non deciso"}
+          : "Non impostato"}
       </p>
       <p className="text-sm leading-relaxed text-[var(--color-ink-soft)]">
-        Usiamo cookie per misurare l’uso del sito (Analytics). Puoi accettare o rifiutare.
+        Usiamo cookie tecnici necessari e, se lo consenti, cookie di analytics per
+        misurare l'uso del sito. Puoi accettare, rifiutare o gestire le preferenze.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <button
+        <Button
+          label="Accetta"
           type="button"
-          className="rounded-full bg-[var(--color-gradient)] px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white"
+          size="sm"
           onClick={() => handleDecision("accepted")}
-        >
-          Accetta
-        </button>
-        <button
+        />
+        <Button
+          label="Rifiuta"
           type="button"
-          className="rounded-full border border-[var(--color-border)] px-5 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]"
+          size="sm"
           onClick={() => handleDecision("rejected")}
-        >
-          Rifiuta
-        </button>
-        <button
+        />
+        <Button
+          label="Gestisci"
           type="button"
-          className="rounded-full border border-transparent px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)] transition hover:border-[var(--color-border)] hover:text-[var(--color-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+          size="sm"
           onClick={handleManage}
-        >
-          Gestisci
-        </button>
+        />
       </div>
+      {isDialogOpen ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="consent-title"
+          className="mt-4 rounded-xl border border-[var(--color-border)] bg-white p-4 shadow-sm"
+        >
+          <h3 id="consent-title" className="text-sm font-semibold text-[var(--color-ink)]">
+            Preferenze cookie
+          </h3>
+          <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
+            I cookie tecnici sono sempre attivi. Puoi scegliere se attivare i cookie
+            di analytics.
+          </p>
+          <div className="mt-3 flex items-center justify-between rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2">
+            <div>
+              <p className="text-sm font-medium text-[var(--color-ink)]">Analytics</p>
+              <p className="text-xs text-[var(--color-ink-soft)]">
+                Misurazione anonima dell'uso del sito.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setAnalyticsEnabled((prev) => !prev)}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${
+                analyticsEnabled ? "bg-[var(--color-accent)]" : "bg-slate-300"
+              }`}
+              aria-pressed={analyticsEnabled}
+              aria-label="Attiva o disattiva analytics"
+            >
+              <span
+                className={`inline-block h-5 w-5 transform rounded-full bg-white transition ${
+                  analyticsEnabled ? "translate-x-5" : "translate-x-1"
+                }`}
+              />
+            </button>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Button
+              label="Salva preferenze"
+              type="button"
+              size="sm"
+              onClick={handleSavePreferences}
+            />
+            <Button
+              label="Annulla"
+              type="button"
+              size="sm"
+              onClick={handleCloseDialog}
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

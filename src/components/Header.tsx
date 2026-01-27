@@ -50,7 +50,7 @@ export default function Header() {
           })}
         </nav>
         <div className="hidden xl:block">
-          <Button label="Parla con noi" href="/contatti" variant="primary" />
+          <Button label="Parla con noi" href="/contatti" variant="primary" size="sm" />
         </div>
         <button
           type="button"
@@ -103,6 +103,7 @@ export default function Header() {
                 label="Parla con noi"
                 href="/contatti"
                 variant="primary"
+                size="sm"
                 className="w-full justify-center"
               />
             </div>
