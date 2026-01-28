@@ -10,7 +10,7 @@ import Button from "@/components/Button";
 const socialLinks = [
   {
     label: "LinkedIn",
-    href: "/",
+    href: "https://www.linkedin.com/company/cobracco",
     icon: (
       <svg viewBox="0 0 448 512" className="h-4 w-4">
         <path
@@ -22,7 +22,7 @@ const socialLinks = [
   },
   {
     label: "Instagram",
-    href: "/",
+    href: "https://www.instagram.com/cobracco/",
     icon: (
       <svg viewBox="0 0 448 512" className="h-4 w-4">
         <path
@@ -34,7 +34,7 @@ const socialLinks = [
   },
   {
     label: "Facebook",
-    href: "/",
+    href: "https://www.facebook.com/profile.php?id=61586837837909",
     icon: (
       <svg viewBox="0 0 320 512" className="h-4 w-4">
         <path
@@ -91,17 +91,37 @@ export default function Footer() {
             size="sm"
             onClick={() => openConsentManager()}
           />
+          <div className="flex flex-col gap-1 text-sm">
+            <Link
+              href="/trattamento-dati"
+              className="text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
+            >
+              Trattamento dei dati
+            </Link>
+            <Link
+              href="/cookie"
+              className="text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
+            >
+              Gestione cookie
+            </Link>
+          </div>
           <div className="flex items-center gap-3">
-            {socialLinks.map((social) => (
-              <Link
-                key={social.label}
-                href={social.href}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-ink-soft)] transition hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </Link>
-            ))}
+            {socialLinks.map((social) => {
+              const isExternal = social.href.startsWith("http");
+
+              return (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer" : undefined}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-ink-soft)] transition hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </Container>
