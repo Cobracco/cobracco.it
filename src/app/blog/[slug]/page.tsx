@@ -6,6 +6,8 @@ import Button from "@/components/Button";
 import { getPostBySlug, type BlogPost } from "@/content/blog";
 import { siteContent } from "@/content/siteContent";
 
+export const dynamic = "force-dynamic";
+
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -47,7 +49,7 @@ export async function generateMetadata({
 function renderBlock(block: BlogPost["body"][number], index: number) {
   if (block.type === "paragraph") {
     return (
-      <p key={index} className="mt-6 text-base leading-7 text-[var(--color-ink-soft)]">
+    <p key={index} className="mt-4 text-base leading-7 text-[var(--color-ink-soft)]">
         {block.text}
       </p>
     );
@@ -55,7 +57,7 @@ function renderBlock(block: BlogPost["body"][number], index: number) {
 
   if (block.type === "list") {
     return (
-      <ul key={index} className="mt-6 ml-4 list-disc space-y-2 text-[var(--color-ink-soft)]">
+    <ul key={index} className="mt-4 ml-4 list-disc space-y-2 text-[var(--color-ink-soft)]">
         {block.items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -65,7 +67,7 @@ function renderBlock(block: BlogPost["body"][number], index: number) {
 
   if (block.type === "cta") {
     return (
-      <div key={index} className="mt-8 flex flex-col gap-3 rounded-[var(--radius-lg)] bg-[var(--color-surface)] p-6 shadow-sm">
+    <div key={index} className="mt-6 flex flex-col gap-3 rounded-[var(--radius-lg)] bg-[var(--color-surface)] p-6 shadow-sm">
         <p className="text-sm font-semibold text-[var(--color-ink)]">{block.text}</p>
         <Button href={block.href} variant="ghost" label={block.label} className="self-start" />
       </div>
@@ -99,7 +101,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           <span>-</span>
           <span>{post.readingTime}</span>
         </div>
-        <div className="mt-6 space-y-4">
+        <div className="mt-4 space-y-4">
           {post.body.map((block, index) => renderBlock(block, index))}
         </div>
       </Section>

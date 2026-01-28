@@ -15,8 +15,8 @@ export default function ContattiPage() {
   return (
     <Container>
       <Section title={hero.title} description={hero.subtitle}>
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-4">
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-3">
             <div>
               <h3 className="text-lg font-semibold">{form.title}</h3>
               <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
@@ -25,7 +25,7 @@ export default function ContattiPage() {
             </div>
             <ContactForm />
           </div>
-          <div className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-6 shadow-sm">
+          <div className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-5 shadow-sm">
             <div>
               <h3 className="text-lg font-semibold">{info.title}</h3>
               <p className="mt-2 text-sm text-[var(--color-ink-soft)]">

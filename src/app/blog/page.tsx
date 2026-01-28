@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     "Articoli pratici su sviluppo software, MVP e AI per PMI e startup italiane.",
 };
 
+export const dynamic = "force-dynamic";
+
 function PostCard({ post }: { post: BlogPost }) {
   return (
     <Card title={post.title} text={post.description}>

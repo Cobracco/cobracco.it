@@ -27,9 +27,9 @@ export default function Home() {
 
   return (
     <>
-      <section className="py-20">
-        <Container className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <div className="space-y-6">
+      <section className="py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="space-y-5">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-ink-soft)]">
               {siteContent.brand.tagline}
             </p>
@@ -53,7 +53,7 @@ export default function Home() {
               </Link>
             </p>
           </div>
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-8 shadow-sm">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <Image
                 src="/logos/logo-primary.png"
@@ -66,10 +66,10 @@ export default function Home() {
                 Artigiani del software
               </div>
             </div>
-            <p className="mt-6 text-sm text-[var(--color-ink-soft)]">
+            <p className="mt-5 text-sm text-[var(--color-ink-soft)]">
               {siteContent.brand.description}
             </p>
-            <div className="mt-6 space-y-4">
+            <div className="mt-5 space-y-3">
               {highlights.map((item) => (
                 <div key={item.title} className="space-y-2">
                   <h3 className="text-lg font-semibold">{item.title}</h3>

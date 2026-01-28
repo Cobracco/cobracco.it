@@ -13,7 +13,7 @@ export type BlogPost = {
   body: BlogBodyBlock[];
 };
 
-const posts: BlogPost[] = [
+const seedPosts: BlogPost[] = [
   {
     slug: "sviluppo-software-su-misura-pmi",
     title: "Sviluppo software su misura per PMI: quando conviene davvero",
@@ -233,13 +233,47 @@ const posts: BlogPost[] = [
   },
 ];
 
+function getGeneratedPosts(): BlogPost[] {
+  if (typeof process === "undefined") {
+    return [];
+  }
+
+  try {
+    const fs = require("node:fs");
+    const path = require("node:path");
+    const filePath = path.join(process.cwd(), "data", "blog.json");
+
+    if (!fs.existsSync(filePath)) {
+      return [];
+    }
+
+    const raw = fs.readFileSync(filePath, "utf8");
+    const parsed = JSON.parse(raw);
+
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function mergePosts(seed: BlogPost[], generated: BlogPost[]) {
+  const map = new Map<string, BlogPost>();
+
+  seed.forEach((post) => map.set(post.slug, post));
+  generated.forEach((post) => map.set(post.slug, post));
+
+  return Array.from(map.values());
+}
+
 export function getAllPosts() {
-  return [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const generated = getGeneratedPosts();
+  return mergePosts(seedPosts, generated).sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getPostBySlug(slug: string) {
-  return posts.find((post) => post.slug === slug);
+  const generated = getGeneratedPosts();
+  return mergePosts(seedPosts, generated).find((post) => post.slug === slug);
 }
 
-export { posts };
+export { seedPosts };
 

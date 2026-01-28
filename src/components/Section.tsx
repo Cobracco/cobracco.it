@@ -15,8 +15,8 @@ export default function Section({
   className,
 }: SectionProps) {
   return (
-    <section className={cn("py-8 sm:py-10 mb-4 sm:mb-6", className)}>
-      <div className="space-y-4">
+    <section className={cn("py-6 sm:py-8 mb-2 sm:mb-4", className)}>
+      <div className="space-y-3">
         {title ? (
           <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>
         ) : null}
@@ -26,7 +26,7 @@ export default function Section({
           </p>
         ) : null}
       </div>
-      {children ? <div className="mt-6">{children}</div> : null}
+      {children ? <div className="mt-4">{children}</div> : null}
     </section>
   );
 }
