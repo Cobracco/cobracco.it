@@ -169,7 +169,7 @@ export default function Header() {
                 <details
                   key={group.href}
                   className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]"
-                  defaultOpen={isGroupActive}
+                  open={isGroupActive}
                 >
                   <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-[var(--color-ink)]">
                     <span className="font-medium">{group.label}</span>
