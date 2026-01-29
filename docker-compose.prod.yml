@@ -18,15 +18,19 @@
     restart: unless-stopped
     labels:
       - traefik.enable=true
+      # Explicitly bind the routers to the app's listening port.
+      - traefik.http.services.cobracco.loadbalancer.server.port=3000
       - traefik.http.routers.app.rule=Host(`www.cobracco.it`)
       - traefik.http.routers.app.entrypoints=websecure
       - traefik.http.routers.app.tls.certresolver=le
+      - traefik.http.routers.app.service=cobracco
       - traefik.http.routers.app.middlewares=security-headers
 
 
       - traefik.http.routers.static.rule=Host(`www.cobracco.it`) && (PathPrefix(`/_next/static/`) || Path(`/favicon.ico`))
       - traefik.http.routers.static.entrypoints=websecure
       - traefik.http.routers.static.tls.certresolver=le
+      - traefik.http.routers.static.service=cobracco
       - traefik.http.routers.static.middlewares=security-headers,static-cache
 
       - traefik.http.middlewares.static-cache.headers.customResponseHeaders.Cache-Control=public, max-age=31536000, immutable
