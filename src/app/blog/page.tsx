@@ -54,7 +54,7 @@ function PostCard({ post }: { post: BlogPost }) {
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)]"
         >
           Leggi l'articolo
-          <span aria-hidden="true">-></span>
+          <span aria-hidden="true">{"->"}</span>
         </Link>
       </div>
     </Card>
