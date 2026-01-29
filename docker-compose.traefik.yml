@@ -4,6 +4,8 @@ services:
     command:
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
+      # Only watch containers on the shared proxy network (where apps attach).
+      - --providers.docker.network=proxy
       # API/dashboard only on localhost (useful for debugging).
       - --api.insecure=true
       - --api.dashboard=true
