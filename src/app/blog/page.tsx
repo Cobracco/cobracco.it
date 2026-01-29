@@ -14,17 +14,47 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+function formatDate(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+  return new Intl.DateTimeFormat("it-IT", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
 function PostCard({ post }: { post: BlogPost }) {
   return (
-    <Card title={post.title} text={post.description}>
-      <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-[var(--color-ink-soft)]">
-        <span>{post.date}</span>
+    <Card
+      title={post.title}
+      text={post.description}
+      className="flex h-full flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-md"
+    >
+      <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--color-ink-soft)]">
+        <span>{formatDate(post.date)}</span>
         <span>-</span>
         <span>{post.readingTime}</span>
       </div>
-      <div className="mt-4">
-        <Link href={`/blog/${post.slug}`} className="text-sm font-semibold">
+      <div className="mt-4 flex flex-wrap gap-2">
+        {post.keywords.map((keyword) => (
+          <span
+            key={keyword}
+            className="rounded-full border border-[var(--color-border)] px-3 py-1 text-[11px] font-semibold text-[var(--color-ink-soft)]"
+          >
+            {keyword}
+          </span>
+        ))}
+      </div>
+      <div className="mt-6">
+        <Link
+          href={`/blog/${post.slug}`}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)]"
+        >
           Leggi l'articolo
+          <span aria-hidden="true">-></span>
         </Link>
       </div>
     </Card>
@@ -40,7 +70,7 @@ export default function BlogIndexPage() {
         title="Blog"
         description="Guide rapide e concrete per decisioni software migliori."
       >
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}

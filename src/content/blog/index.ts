@@ -15,6 +15,120 @@ export type BlogPost = {
 
 const seedPosts: BlogPost[] = [
   {
+    slug: "mvp-vertical-slice-example",
+    title: "Building an MVP without painting yourself into a corner",
+    description:
+      "Perche un MVP puo restare manutenibile: un esempio pratico di vertical slice e trade-off chiari.",
+    date: "2026-01-29",
+    readingTime: "6 min",
+    keywords: ["MVP", "architettura", "vertical slice", "startup"],
+    body: [
+      {
+        type: "paragraph",
+        text: "Un MVP spesso si rompe prima di trovare il product-market fit: feature fatte in fretta, confini sfocati e un primo refactor che diventa riscrittura. Questo post mostra come evitarlo senza rallentare il time-to-market.",
+      },
+      {
+        type: "paragraph",
+        text: "### Il problema: MVP che invecchiano in settimane",
+      },
+      {
+        type: "paragraph",
+        text: "Quando tutto vive nello stesso modulo e le dipendenze sono casuali, ogni nuova feature diventa piu costosa. Il risultato e che l'MVP non scala nemmeno a se stesso.",
+      },
+      {
+        type: "paragraph",
+        text: "### Perche una Vertical Slice Architecture",
+      },
+      {
+        type: "paragraph",
+        text: "Nel repository ogni feature e una slice verticale: API, logica e UI sono organizzate per caso d'uso. Invece di costruire una base generica, si cresce per funzionalita reali, con confini chiari e meno accoppiamento.",
+      },
+      {
+        type: "paragraph",
+        text: "### Trade-off intenzionali",
+      },
+      {
+        type: "list",
+        items: [
+          "Semplicita rispetto a completezza: pochi casi d'uso ben delimitati",
+          "Coerenza dei confini invece di astrazioni premature",
+          "Test mirati sulle slice, non su ogni strato astratto",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "### Stack e riferimento",
+      },
+      {
+        type: "paragraph",
+        text: "Lo stack e leggero (Python, FastAPI, Vite, React) e serve solo a mostrare le scelte architetturali. Il repository non e un boilerplate: e un riferimento ragionato per impostare MVP solidi.",
+      },
+      {
+        type: "paragraph",
+        text: "Repository: https://github.com/Cobracco/cobracco-mvp-saas-example",
+      },
+      {
+        type: "paragraph",
+        text: "Per Cobracco un MVP valido e un prodotto minimo ma strutturato: abbastanza semplice per validare rapidamente, abbastanza chiaro da non vincolare la crescita futura.",
+      },
+    ],
+  },
+  {
+    slug: "clean-architecture-dotnet-example",
+    title: "Clean Architecture in practice: a concrete .NET example",
+    description:
+      "Un esempio concreto di Clean Architecture in .NET per rendere confini e responsabilita davvero verificabili.",
+    date: "2026-01-28",
+    readingTime: "6 min",
+    keywords: ["Clean Architecture", ".NET", "architettura", "DDD"],
+    body: [
+      {
+        type: "paragraph",
+        text: "Clean Architecture e spesso raccontata in modo teorico: diagrammi perfetti e poco codice. Questo esempio mostra come rendere i confini espliciti, senza trasformare il progetto in un esercizio accademico.",
+      },
+      {
+        type: "paragraph",
+        text: "### Il problema: teoria senza confini reali",
+      },
+      {
+        type: "paragraph",
+        text: "Quando tutto compila ma le dipendenze sono ambigue, il team perde tempo a discutere dove mettere le cose. Qui le regole sono verificabili e il codice le rispetta.",
+      },
+      {
+        type: "paragraph",
+        text: "### Confini pratici: layer, ports/adapters, use case",
+      },
+      {
+        type: "paragraph",
+        text: "L'esempio separa chiaramente i layer, usa porte e adattatori per isolare infrastruttura e framework, e modella i use case come punti di ingresso. Il risultato e una dipendenza unidirezionale comprensibile al primo sguardo.",
+      },
+      {
+        type: "paragraph",
+        text: "### Chiarezza > astuzia",
+      },
+      {
+        type: "paragraph",
+        text: "L'obiettivo non e introdurre piu astrazioni possibili, ma rendere il flusso di decisioni leggibile. Se una regola non e evidente nel codice, non e un vantaggio architetturale.",
+      },
+      {
+        type: "paragraph",
+        text: "### Quando ha senso (e quando no)",
+      },
+      {
+        type: "paragraph",
+        text: "Questo approccio funziona per domini con logica centrale e team che devono evolvere la base nel tempo. E sovradimensionato per prototipi usa-e-getta o micro-servizi banali.",
+      },
+      {
+        type: "paragraph",
+        text: "Repository: https://github.com/Cobracco/cobracco-architecture-example",
+      },
+      {
+        type: "paragraph",
+        text: "Il progetto e un riferimento didattico: non promette scorciatoie, ma un esempio concreto di separazione delle responsabilita in .NET.",
+      },
+    ],
+  },
+  {
     slug: "sviluppo-software-su-misura-pmi",
     title: "Sviluppo software su misura per PMI: quando conviene davvero",
     description:

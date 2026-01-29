@@ -13,6 +13,28 @@
     { label: "AI", href: "/ai" },
     { label: "Metodo", href: "/metodo" },
     { label: "Chi siamo", href: "/chi-siamo" },
+    { label: "Lavora con noi", href: "/lavora-con-noi" },
+    { label: "Blog", href: "/blog" },
+  ],
+  navigationGroups: [
+    {
+      label: "Servizi",
+      href: "/servizi",
+      items: [
+        { label: "Sviluppo Software", href: "/sviluppo-software" },
+        { label: "MVP Startup", href: "/mvp-startup" },
+        { label: "AI", href: "/ai" },
+      ],
+    },
+    {
+      label: "Azienda",
+      href: "/chi-siamo",
+      items: [
+        { label: "Chi siamo", href: "/chi-siamo" },
+        { label: "Metodo", href: "/metodo" },
+        { label: "Lavora con noi", href: "/lavora-con-noi" },
+      ],
+    },
     { label: "Blog", href: "/blog" },
   ],
   footer: {
@@ -522,6 +544,135 @@
         title: "Inviaci una richiesta",
         helper:
           "Compila il form e raccontaci cosa vuoi costruire. Ti rispondiamo entro 1-2 giorni lavorativi.",
+      },
+    },
+
+    lavoraConNoi: {
+      meta: {
+        title: "Lavora con noi",
+        description:
+          "Lavora con Cobracco: cerchiamo professionisti senior e ad alto profilo per progetti software complessi e di valore.",
+      },
+      hero: {
+        title: "Lavora con noi",
+        subtitle:
+          "Cerchiamo persone di altissimo livello: autonomia, responsabilita e standard elevati. Se vuoi giocare una partita difficile, e il posto giusto.",
+        text:
+          "Costruiamo software critico per PMI ambiziose. Lavoriamo con chi porta esperienza reale, cura dei dettagli e visione tecnica e di prodotto.",
+        points: [
+          "Seniorita reale, non solo anni di lavoro.",
+          "Capacita di decisione tecnica e ownership end-to-end.",
+          "Comunicazione chiara con team e stakeholder.",
+        ],
+        highlight: {
+          title: "Profilo alto, impatto reale",
+          text:
+            "Non cerchiamo un esecutore. Cerchiamo chi alza il livello del team, del codice e dei risultati.",
+          items: [
+            "Architetture complesse e sistemi integrati",
+            "Qualita del codice, test e performance",
+            "Responsabilita diretta sui risultati",
+          ],
+        },
+      },
+      profile: {
+        title: "Il profilo che cerchiamo",
+        text: "Se ti riconosci in questi punti, vogliamo parlare con te.",
+        items: [
+          {
+            title: "Senior full-stack o tech lead",
+            text: "Esperienza solida su web app, API e integrazioni. Sai scegliere e motivare le scelte.",
+          },
+          {
+            title: "Product mindset",
+            text: "Capisci il business, trasformi esigenze in soluzioni chiare e misurabili.",
+          },
+          {
+            title: "Qualita e disciplina",
+            text: "Test, review, documentazione essenziale e attenzione alle performance.",
+          },
+          {
+            title: "Comunicazione efficace",
+            text: "Parli chiaro, riduci ambiguita, gestisci le aspettative con maturita.",
+          },
+        ],
+      },
+      roles: {
+        title: "Ruoli tipici che valutiamo",
+        items: [
+          {
+            title: "Senior Full-Stack Engineer",
+            text: "Costruisci feature end-to-end e guidi decisioni tecniche.",
+          },
+          {
+            title: "Tech Lead / Solution Architect",
+            text: "Definisci architetture, roadmap tecniche e standard di qualita.",
+          },
+          {
+            title: "Product & UX Specialist",
+            text: "Progetti flussi e interfacce con rigore e sensibilita al business.",
+          },
+          {
+            title: "AI / Data Engineer",
+            text: "Porti l'AI dove crea valore reale, con metriche e governance chiare.",
+          },
+        ],
+      },
+      process: {
+        title: "Come valutiamo",
+        steps: [
+          {
+            title: "1. Colloquio conoscitivo",
+            text: "Parliamo di esperienza, progetti e modo di lavorare.",
+          },
+          {
+            title: "2. Challenge pratica mirata",
+            text: "Un esercizio breve, orientato a decisioni e qualita.",
+          },
+          {
+            title: "3. Review tecnica",
+            text: "Ragioniamo su scelte, trade-off e impatto reale.",
+          },
+          {
+            title: "4. Allineamento finale",
+            text: "Obiettivi, modalita e aspettative chiare da entrambe le parti.",
+          },
+        ],
+      },
+
+      offer: {
+        title: "Cosa offriamo",
+        items: [
+          {
+            title: "Progetti ad alta complessita",
+            text: "Sistemi integrati, processi critici, clienti con obiettivi seri.",
+          },
+          {
+            title: "Autonomia e ownership",
+            text: "Le decisioni tecniche contano, e chi decide si prende la responsabilita.",
+          },
+          {
+            title: "Team senior e selettivo",
+            text: "Collabori con persone competenti che alzano il livello.",
+          },
+          {
+            title: "Remote-first con ritmi sostenibili",
+            text: "Focus, profondita, poche riunioni e lavoro ben pianificato.",
+          },
+        ],
+      },
+      form: {
+        title: "Invia la tua candidatura",
+        helper:
+          "Raccontaci i progetti piu complessi che hai guidato, responsabilita e risultati. Puoi allegare il CV (PDF/DOC). Rispondiamo entro 1-2 giorni lavorativi.",
+        note:
+          "Valutiamo solo profili senior con forte autonomia e senso di ownership.",
+      },
+      callToAction: {
+        title: "Se ti riconosci, scrivici",
+        text: "Raccontaci i tuoi progetti piu complessi e il tuo livello di responsabilita. Valutiamo solo profili davvero senior.",
+        buttonLabel: "Candidati ora",
+        buttonHref: "/contatti",
       },
     },
   },

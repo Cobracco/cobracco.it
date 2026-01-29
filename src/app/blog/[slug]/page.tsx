@@ -8,6 +8,18 @@ import { siteContent } from "@/content/siteContent";
 
 export const dynamic = "force-dynamic";
 
+function formatDate(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+  return new Intl.DateTimeFormat("it-IT", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -46,18 +58,55 @@ export async function generateMetadata({
   };
 }
 
-function renderBlock(block: BlogPost["body"][number], index: number) {
-  if (block.type === "paragraph") {
+function renderParagraph(text: string, index: number) {
+  if (text.startsWith("### ")) {
     return (
-    <p key={index} className="mt-4 text-base leading-7 text-[var(--color-ink-soft)]">
-        {block.text}
+      <h3 key={index} className="mt-8 text-lg font-semibold text-[var(--color-ink)]">
+        {text.replace(/^###\s+/, "")}
+      </h3>
+    );
+  }
+
+  if (text.startsWith("## ")) {
+    return (
+      <h2 key={index} className="mt-8 text-xl font-semibold text-[var(--color-ink)]">
+        {text.replace(/^##\s+/, "")}
+      </h2>
+    );
+  }
+
+  if (text.startsWith("Repository:")) {
+    const url = text.replace(/^Repository:\s*/, "").trim();
+    return (
+      <p key={index} className="mt-6 text-sm font-semibold text-[var(--color-ink)]">
+        <a
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-[var(--color-accent)]"
+        >
+          Repository
+          <span className="break-all text-[var(--color-ink-soft)]">{url}</span>
+        </a>
       </p>
     );
   }
 
+  return (
+    <p key={index} className="mt-4 text-base leading-7 text-[var(--color-ink-soft)]">
+      {text}
+    </p>
+  );
+}
+
+function renderBlock(block: BlogPost["body"][number], index: number) {
+  if (block.type === "paragraph") {
+    return renderParagraph(block.text, index);
+  }
+
   if (block.type === "list") {
     return (
-    <ul key={index} className="mt-4 ml-4 list-disc space-y-2 text-[var(--color-ink-soft)]">
+      <ul key={index} className="mt-4 ml-4 list-disc space-y-2 text-[var(--color-ink-soft)]">
         {block.items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -67,7 +116,7 @@ function renderBlock(block: BlogPost["body"][number], index: number) {
 
   if (block.type === "cta") {
     return (
-    <div key={index} className="mt-6 flex flex-col gap-3 rounded-[var(--radius-lg)] bg-[var(--color-surface)] p-6 shadow-sm">
+      <div key={index} className="mt-8 flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
         <p className="text-sm font-semibold text-[var(--color-ink)]">{block.text}</p>
         <Button href={block.href} variant="ghost" label={block.label} className="self-start" />
       </div>
@@ -96,13 +145,25 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   return (
     <Container>
       <Section title={post.title} description={post.description}>
-        <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wide text-[var(--color-ink-soft)]">
-          <span>{post.date}</span>
-          <span>-</span>
-          <span>{post.readingTime}</span>
-        </div>
-        <div className="mt-4 space-y-4">
-          {post.body.map((block, index) => renderBlock(block, index))}
+        <div className="mt-6 max-w-3xl">
+          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--color-ink-soft)]">
+            <span>{formatDate(post.date)}</span>
+            <span>-</span>
+            <span>{post.readingTime}</span>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {post.keywords.map((keyword) => (
+              <span
+                key={keyword}
+                className="rounded-full border border-[var(--color-border)] px-3 py-1 text-[11px] font-semibold text-[var(--color-ink-soft)]"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
+          <div className="mt-6 space-y-4">
+            {post.body.map((block, index) => renderBlock(block, index))}
+          </div>
         </div>
       </Section>
     </Container>
