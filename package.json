@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node -e \"if(!process.env.NEXT_PUBLIC_GA_ID){console.error('NEXT_PUBLIC_GA_ID missing');process.exit(1)}\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

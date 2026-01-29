@@ -15,6 +15,7 @@ cp .env.production.example .env.production
 ```
 2) Compila i valori SMTP e reCAPTCHA.
 3) Imposta `LETSENCRYPT_EMAIL` per i certificati HTTPS.
+4) Per i build arg di Docker Compose, usa `--env-file .env.production` o esporta `NEXT_PUBLIC_GA_ID` nella shell (altrimenti il tag GA non viene iniettato in build).
 
 ### Note reCAPTCHA v3
 
