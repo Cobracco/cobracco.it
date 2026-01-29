@@ -1,0 +1,35 @@
+services:
+  traefik:
+    image: traefik:v2.11
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      # API/dashboard only on localhost (useful for debugging).
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --log.level=INFO
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
+      - --certificatesresolvers.le.acme.email=${LETSENCRYPT_EMAIL}
+      - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.le.acme.httpchallenge=true
+      - --certificatesresolvers.le.acme.httpchallenge.entrypoint=web
+    ports:
+      - "80:80"
+      - "443:443"
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    networks:
+      - proxy
+    restart: unless-stopped
+
+volumes:
+  traefik_letsencrypt:
+
+networks:
+  proxy:
+    external: true
