@@ -18,21 +18,21 @@
     restart: unless-stopped
     labels:
       - traefik.enable=true
-      - traefik.http.routers.app.rule=Host(`cobracco.it`)
+      - traefik.http.routers.app.rule=Host(`www.cobracco.it`)
       - traefik.http.routers.app.entrypoints=websecure
       - traefik.http.routers.app.tls.certresolver=le
       - traefik.http.routers.app.middlewares=security-headers
 
-      - traefik.http.routers.www.rule=Host(`www.cobracco.it`)
-      - traefik.http.routers.www.entrypoints=websecure
-      - traefik.http.routers.www.tls.certresolver=le
-      - traefik.http.routers.www.middlewares=www-to-apex
+      - traefik.http.routers.apex.rule=Host(`cobracco.it`)
+      - traefik.http.routers.apex.entrypoints=websecure
+      - traefik.http.routers.apex.tls.certresolver=le
+      - traefik.http.routers.apex.middlewares=apex-to-www
 
-      - traefik.http.middlewares.www-to-apex.redirectregex.regex=^https://www\\.cobracco\\.it/(.*)
-      - traefik.http.middlewares.www-to-apex.redirectregex.replacement=https://cobracco.it/$${1}
-      - traefik.http.middlewares.www-to-apex.redirectregex.permanent=true
+      - traefik.http.middlewares.apex-to-www.redirectregex.regex=^https://cobracco\\.it/(.*)
+      - traefik.http.middlewares.apex-to-www.redirectregex.replacement=https://www.cobracco.it/$${1}
+      - traefik.http.middlewares.apex-to-www.redirectregex.permanent=true
 
-      - traefik.http.routers.static.rule=Host(`cobracco.it`) && (PathPrefix(`/_next/static/`) || Path(`/favicon.ico`))
+      - traefik.http.routers.static.rule=Host(`www.cobracco.it`) && (PathPrefix(`/_next/static/`) || Path(`/favicon.ico`))
       - traefik.http.routers.static.entrypoints=websecure
       - traefik.http.routers.static.tls.certresolver=le
       - traefik.http.routers.static.middlewares=security-headers,static-cache
