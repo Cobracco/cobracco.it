@@ -6,7 +6,7 @@
 
 ## DNS
 - Record A: `cobracco.it` -> IP del server
-- Record CNAME: `www` -> `cobracco.it` (oppure record A sullo stesso IP); Caddy reindirizza automaticamente `https://www.cobracco.it` su `https://cobracco.it`.
+- Record CNAME: `www` -> `cobracco.it` (oppure record A sullo stesso IP); Traefik reindirizza automaticamente `https://www.cobracco.it` su `https://cobracco.it`.
 
 ## Configurazione env
 1) Copia il file esempio:
@@ -14,10 +14,11 @@
 cp .env.production.example .env.production
 ```
 2) Compila i valori SMTP e reCAPTCHA.
+3) Imposta `LETSENCRYPT_EMAIL` per i certificati HTTPS.
 
 ### Note reCAPTCHA v3
 
-## Avvio production (Caddy + app)
+## Avvio production (Traefik + app)
 ```bash
 docker compose -f docker-compose.prod.yml up -d --build
 ```
@@ -51,8 +52,8 @@ curl -X POST https://cobracco.it/api/contact \
 Atteso: errore generico (reCAPTCHA obbligatorio).
 
 ## Note Let's Encrypt
-- Caddy gestisce automaticamente i certificati HTTPS.
-- Non serve configurare email, Caddy usa Let's Encrypt in automatico.
+- Traefik gestisce automaticamente i certificati HTTPS.
+- Serve un'email valida in `LETSENCRYPT_EMAIL` per Let's Encrypt.
 
 ## Analytics + consenso
 - Google Analytics 4 (`G-40B3CN7851`) viene caricato subito (gtag.js è sempre incluso) ma con il `consent default` impostato su `denied` per tutte le categorie (basic mode). Gli eventi `page_view`, `generate_lead` e analoghi vengono inviati solo dopo che l’utente accetta il consenso.
