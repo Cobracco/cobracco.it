@@ -49,6 +49,10 @@
     command:
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
+      # Debug/diagnostics: expose Traefik API/dashboard only on localhost.
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --log.level=DEBUG
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --entrypoints.web.http.redirections.entrypoint.to=websecure
@@ -60,6 +64,7 @@
     ports:
       - "80:80"
       - "443:443"
+      - "127.0.0.1:8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - traefik_letsencrypt:/letsencrypt
