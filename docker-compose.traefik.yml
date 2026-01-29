@@ -6,10 +6,12 @@ services:
       - --providers.docker.exposedbydefault=false
       # Only watch containers on the shared proxy network (where apps attach).
       - --providers.docker.network=proxy
+      # Ensure routers/services still show up even if a container is (temporarily) unhealthy.
+      - --providers.docker.allowEmptyServices=true
       # API/dashboard only on localhost (useful for debugging).
       - --api.insecure=true
       - --api.dashboard=true
-      - --log.level=INFO
+      - --log.level=DEBUG
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --entrypoints.web.http.redirections.entrypoint.to=websecure
