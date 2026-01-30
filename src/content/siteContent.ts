@@ -54,7 +54,7 @@
       hero: {
         title: "Applicazioni su misura per PMI, senza compromessi.",
         subtitle:
-          "Cobracco e il partner che trasforma le esigenze di business in software affidabile, con un team full-stack senior e un approccio da artigiani del digitale.",
+          "Cobracco è il partner che trasforma le esigenze di business in software affidabile, con un team full-stack senior e un approccio da artigiani del digitale.",
         ctaLabel: "Parla con noi",
         ctaHref: "/contatti",
         secondaryLabel: "Scopri i servizi",
