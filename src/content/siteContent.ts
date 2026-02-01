@@ -537,6 +537,10 @@
             linkLabel: "Visita SkillsCloud",
             description:
               "Recruiter SkillsCloud: il sistema di gestione delle candidature di SkillsCloud.",
+            image: {
+              src: "/projects/skillscloud.png",
+              alt: "Screenshot piattaforma SkillsCloud",
+            },
             highlights: [
               "Gestione posizioni e candidature (ATS)",
               "Pubblicazione annunci e contenuti",

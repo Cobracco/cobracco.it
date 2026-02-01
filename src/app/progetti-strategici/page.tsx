@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
@@ -31,22 +32,37 @@ export default function ProgettiStrategiciPage() {
           <div className="grid gap-6">
             {projects.items.map((project) => (
               <Card key={project.title} title={project.title} text={project.description}>
-                {project.highlights?.length ? (
-                  <ul className="mt-3 space-y-2 text-sm text-[var(--color-ink-soft)]">
-                    {project.highlights.map((item) => (
-                      <li key={item}>- {item}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                <div className="mt-5">
-                  <Link
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] px-6 py-3 text-sm font-semibold tracking-wide !text-white shadow-lg shadow-[rgba(11,61,145,0.45)] transition hover:!text-white"
-                  >
-                    {project.linkLabel}
-                  </Link>
+                <div className="mt-5 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+                  <div>
+                    {project.highlights?.length ? (
+                      <ul className="space-y-2 text-sm text-[var(--color-ink-soft)]">
+                        {project.highlights.map((item) => (
+                          <li key={item}>- {item}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    <div className="mt-5">
+                      <Link
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] px-6 py-3 text-sm font-semibold tracking-wide !text-white shadow-lg shadow-[rgba(11,61,145,0.45)] transition hover:!text-white"
+                      >
+                        {project.linkLabel}
+                      </Link>
+                    </div>
+                  </div>
+                  {project.image?.src ? (
+                    <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white shadow-sm">
+                      <Image
+                        src={project.image.src}
+                        alt={project.image.alt}
+                        width={920}
+                        height={520}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               </Card>
             ))}
@@ -63,4 +79,3 @@ export default function ProgettiStrategiciPage() {
     </>
   );
 }
-
