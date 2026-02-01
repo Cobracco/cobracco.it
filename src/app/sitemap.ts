@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/mvp-startup",
     "/ai",
     "/metodo",
+    "/progetti-strategici",
     "/chi-siamo",
     "/lavora-con-noi",
     "/blog",

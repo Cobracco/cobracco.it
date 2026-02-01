@@ -12,6 +12,7 @@
     { label: "MVP Startup", href: "/mvp-startup" },
     { label: "AI", href: "/ai" },
     { label: "Metodo", href: "/metodo" },
+    { label: "Progetti strategici", href: "/progetti-strategici" },
     { label: "Chi siamo", href: "/chi-siamo" },
     { label: "Lavora con noi", href: "/lavora-con-noi" },
     { label: "Blog", href: "/blog" },
@@ -32,6 +33,7 @@
       items: [
         { label: "Chi siamo", href: "/chi-siamo" },
         { label: "Metodo", href: "/metodo" },
+        { label: "Progetti strategici", href: "/progetti-strategici" },
         { label: "Lavora con noi", href: "/lavora-con-noi" },
       ],
     },
@@ -494,6 +496,63 @@
           text: "Monitoraggio, manutenzione evolutiva e nuove funzionalita basate su dati reali.",
         },
       ],
+    },
+    progettiStrategici: {
+      meta: {
+        title: "Progetti strategici",
+        description:
+          "Una selezione di progetti strategici sviluppati da Cobracco: iniziative ad alto valore tecnologico, con impatto reale e requisiti elevati.",
+      },
+      hero: {
+        title: "Progetti strategici",
+        subtitle:
+          "Realizziamo piattaforme e prodotti con alto valore tecnologico e strategico: sistemi che devono scalare, integrarsi e restare affidabili nel tempo.",
+      },
+      pillars: {
+        title: "Cosa significa “strategico” per noi",
+        text:
+          "Non è solo tecnologia: è continuità, impatto e responsabilità end-to-end sulle scelte.",
+        items: [
+          {
+            title: "Robustezza e qualità",
+            text: "Architetture solide, standard elevati e attenzione alle performance.",
+          },
+          {
+            title: "Integrazioni e dati",
+            text: "API, flussi critici e governance dei dati per sistemi che devono dialogare.",
+          },
+          {
+            title: "Evoluzione continua",
+            text: "Roadmap, osservabilità e manutenzione evolutiva per risultati che durano.",
+          },
+        ],
+      },
+      projects: {
+        title: "Progetti",
+        text: "Alcuni esempi di iniziative su cui mettiamo competenza e responsabilità.",
+        items: [
+          {
+            title: "SkillsCloud",
+            href: "https://skillscloud.it",
+            linkLabel: "Visita SkillsCloud",
+            description:
+              "Recruiter SkillsCloud: il sistema di gestione delle candidature di SkillsCloud.",
+            highlights: [
+              "Gestione posizioni e candidature (ATS)",
+              "Pubblicazione annunci e contenuti",
+              "Questionari e workflow di selezione",
+              "Statistiche e analisi operative",
+              "Matching assistito (AI)",
+            ],
+          },
+        ],
+      },
+      callToAction: {
+        title: "Hai un progetto strategico?",
+        text: "Raccontaci obiettivi e vincoli: definiamo insieme un percorso chiaro e realizzabile.",
+        buttonLabel: "Parla con noi",
+        buttonHref: "/contatti",
+      },
     },
     chiSiamo: {
       meta: {
