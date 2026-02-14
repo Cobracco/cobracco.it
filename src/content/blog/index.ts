@@ -15,6 +15,66 @@ export type BlogPost = {
 
 const seedPosts: BlogPost[] = [
   {
+    slug: "home-assistant-aruba-ddns-addon",
+    title: "Home Assistant + Aruba DDNS: add-on pronto per DNS dinamico e certificati",
+    description:
+      "Panoramica pratica del repository Cobracco per aggiornare Aruba DDNS e gestire Let's Encrypt via DNS-01.",
+    date: "2026-02-14",
+    readingTime: "5 min",
+    keywords: ["Home Assistant", "Aruba", "DDNS", "Let's Encrypt"],
+    body: [
+      {
+        type: "paragraph",
+        text: "Quando ospiti servizi in casa o in ufficio, IP dinamico e certificati SSL sono due problemi ricorrenti. Il repository `home-assistant-aruba-ddns` nasce per risolverli in modo operativo dentro Home Assistant.",
+      },
+      {
+        type: "paragraph",
+        text: "### Cosa fa l'add-on Aruba DDNS",
+      },
+      {
+        type: "paragraph",
+        text: "L'add-on incluso aggiorna automaticamente il DNS dinamico su Aruba e integra la gestione certificati Let's Encrypt con challenge DNS-01. In pratica: dominio sempre aggiornato e certificati rinnovabili senza passaggi manuali.",
+      },
+      {
+        type: "paragraph",
+        text: "### Installazione rapida in Home Assistant",
+      },
+      {
+        type: "list",
+        items: [
+          "Aggiungi il repository custom negli Add-ons di Home Assistant",
+          "Seleziona e installa l'add-on `Aruba DDNS`",
+          "Configura credenziali e parametri dominio",
+          "Verifica log e primo aggiornamento DNS",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Il repository e strutturato in modo essenziale: `repository.yaml` per i metadata del catalogo add-on e cartella `aruba-ddns/` con la logica dell'add-on.",
+      },
+      {
+        type: "paragraph",
+        text: "### Compatibilita e target",
+      },
+      {
+        type: "paragraph",
+        text: "Il progetto e pensato per installazioni Home Assistant OS/Supervised e dichiara supporto multi-architettura (`aarch64`, `amd64`, `armv7`, `armhf`, `i386`).",
+      },
+      {
+        type: "paragraph",
+        text: "### Perche e utile",
+      },
+      {
+        type: "paragraph",
+        text: "Riduce errori manuali su DNS e certificati, migliora continuita dei servizi esposti e semplifica la manutenzione operativa nel tempo.",
+      },
+      {
+        type: "paragraph",
+        text: "Repository: https://github.com/Cobracco/home-assistant-aruba-ddns",
+      },
+    ],
+  },
+  {
     slug: "mvp-vertical-slice-example",
     title: "Building an MVP without painting yourself into a corner",
     description:
@@ -390,4 +450,3 @@ export function getPostBySlug(slug: string) {
 }
 
 export { seedPosts };
-
