@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/servizi",
     "/sviluppo-software",
     "/mvp-startup",
+    "/freelance-sviluppatore-software",
     "/ai",
     "/metodo",
     "/progetti-strategici",

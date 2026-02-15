@@ -12,6 +12,19 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.home.meta.title,
   description: siteContent.pages.home.meta.description,
+  keywords: [
+    ...siteContent.seo.primaryKeywords,
+    ...siteContent.seo.startupKeywords,
+    ...siteContent.seo.freelanceKeywords,
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Sviluppo software su misura per PMI e startup",
+    description: siteContent.pages.home.meta.description,
+    url: "/",
+  },
 };
 
 export default function Home() {
@@ -20,6 +33,7 @@ export default function Home() {
     highlights,
     services,
     plans,
+    seoLinks,
     methodSummary,
     aiSummary,
     callToAction,
@@ -93,6 +107,35 @@ export default function Home() {
         </Section>
 
         <Plans title={plans.title} description={plans.text} items={plans.items} />
+
+        <Section title={seoLinks.title} description={seoLinks.text}>
+          <div className="grid gap-4 md:grid-cols-3">
+            <Card
+              title="Sviluppo software su misura"
+              text="Per PMI che vogliono un software affidabile, integrato con CRM, ERP e processi reali."
+            >
+              <Link href="/sviluppo-software" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
+                Vai alla pagina sviluppo software
+              </Link>
+            </Card>
+            <Card
+              title="MVP per startup"
+              text="Per founder che devono validare un prodotto digitale con tempi e budget controllati."
+            >
+              <Link href="/mvp-startup" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
+                Vai alla pagina MVP startup
+              </Link>
+            </Card>
+            <Card
+              title="Supporto freelance senior"
+              text="Per team che cercano un partner freelance full-stack su parti critiche del progetto."
+            >
+              <Link href="/freelance-sviluppatore-software" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
+                Vai alla pagina freelance software
+              </Link>
+            </Card>
+          </div>
+        </Section>
 
         <Section title={methodSummary.title} description={methodSummary.text}>
           <div className="grid gap-6 md:grid-cols-2">

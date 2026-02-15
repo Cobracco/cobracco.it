@@ -15,17 +15,13 @@ const dispatchConsentEvent = (state: ConsentState) => {
 };
 
 export default function ConsentBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [consentState, setConsentState] = useState<ConsentState>(null);
+  const initialConsent = getConsent();
+  const [isVisible, setIsVisible] = useState(initialConsent === null);
+  const [consentState, setConsentState] = useState<ConsentState>(initialConsent);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
-
-  useEffect(() => {
-    const stored = getConsent();
-    setConsentState(stored);
-    setIsVisible(stored === null);
-    setAnalyticsEnabled(stored === "accepted");
-  }, []);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(
+    initialConsent === "accepted"
+  );
 
   useEffect(() => {
     const unregister = registerConsentOpener(() => {
@@ -84,7 +80,7 @@ export default function ConsentBanner() {
       </p>
       <p className="text-sm leading-relaxed text-[var(--color-ink-soft)]">
         Usiamo cookie tecnici necessari e, se lo consenti, cookie di analytics per
-        misurare l'uso del sito. Puoi accettare, rifiutare o gestire le preferenze.
+        misurare l&apos;uso del sito. Puoi accettare, rifiutare o gestire le preferenze.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <Button
@@ -124,7 +120,7 @@ export default function ConsentBanner() {
             <div>
               <p className="text-sm font-medium text-[var(--color-ink)]">Analytics</p>
               <p className="text-xs text-[var(--color-ink-soft)]">
-                Misurazione anonima dell'uso del sito.
+                Misurazione anonima dell&apos;uso del sito.
               </p>
             </div>
             <button

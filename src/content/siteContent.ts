@@ -6,10 +6,37 @@
       "Sviluppiamo applicazioni e software chiavi in mano per PMI, con un team full-stack senior e un approccio artigianale che valorizza ogni progetto.",
     siteUrl: "https://cobracco.it",
   },
+  seo: {
+    primaryKeywords: [
+      "sviluppo software",
+      "sviluppo software su misura",
+      "software house",
+      "software house roma",
+      "sviluppo applicazioni web",
+      "sviluppo app mobile",
+      "integrazioni API",
+      "sviluppo software pmi",
+    ],
+    startupKeywords: [
+      "mvp startup",
+      "sviluppo mvp",
+      "sviluppo prodotto digitale",
+      "software per startup",
+      "team tecnico startup",
+    ],
+    freelanceKeywords: [
+      "sviluppatore software freelance",
+      "freelance sviluppo software",
+      "consulente software freelance",
+      "sviluppatore freelance startup",
+      "freelance full stack",
+    ],
+  },
   navigation: [
     { label: "Servizi", href: "/servizi" },
     { label: "Sviluppo Software", href: "/sviluppo-software" },
     { label: "MVP Startup", href: "/mvp-startup" },
+    { label: "Freelance Software", href: "/freelance-sviluppatore-software" },
     { label: "AI", href: "/ai" },
     { label: "Metodo", href: "/metodo" },
     { label: "Progetti strategici", href: "/progetti-strategici" },
@@ -24,6 +51,7 @@
       items: [
         { label: "Sviluppo Software", href: "/sviluppo-software" },
         { label: "MVP Startup", href: "/mvp-startup" },
+        { label: "Freelance Software", href: "/freelance-sviluppatore-software" },
         { label: "AI", href: "/ai" },
       ],
     },
@@ -51,7 +79,7 @@
       meta: {
         title: "Cobracco",
         description:
-          "Software house a Roma, operativa in tutta Italia, specializzata in applicazioni e software chiavi in mano per PMI.",
+          "Sviluppo software su misura per PMI e startup: team senior, approccio artigianale, supporto freelance e delivery chiavi in mano.",
       },
       hero: {
         title: "Applicazioni su misura per PMI, senza compromessi.",
@@ -106,6 +134,10 @@
             text: "Automazioni intelligenti e assistenti operativi per ridurre il lavoro manuale.",
           },
         ],
+      },
+      seoLinks: {
+        title: "Percorsi consigliati per chi deve sviluppare software",
+        text: "Scegli il percorso in base al tuo obiettivo: prodotto startup, software su misura o supporto freelance senior.",
       },
       plans: {
         title: "Piani",
@@ -164,7 +196,7 @@
       meta: {
         title: "Servizi",
         description:
-          "Servizi di sviluppo software per PMI: analisi, design, sviluppo chiavi in mano e supporto continuo.",
+          "Servizi di sviluppo software per PMI e startup: analisi, UX, sviluppo chiavi in mano, supporto freelance e manutenzione evolutiva.",
       },
       hero: {
         title: "Servizi completi per PMI che vogliono software affidabile.",
@@ -254,7 +286,7 @@
       meta: {
         title: "Sviluppo Software",
         description:
-          "Sviluppo software chiavi in mano per PMI italiane: tempi chiari, supporto continuo, team senior full-stack.",
+          "Sviluppo software su misura per PMI e startup: team senior full-stack, approccio chiavi in mano e supporto freelance su progetti complessi.",
       },
       hero: {
         title: "Sviluppo software chiavi in mano per PMI.",
@@ -328,7 +360,7 @@
       meta: {
         title: "MVP per Startup",
         description:
-          "Sviluppo MVP per startup: piano minimale, tempi rapidi, costo competitivo, qualita da team senior.",
+          "Sviluppo MVP per startup con team senior e supporto freelance: piano minimale, tempi rapidi, costo competitivo e base tecnica solida.",
       },
       hero: {
         title: "MVP per startup, senza sprechi.",

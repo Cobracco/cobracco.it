@@ -8,6 +8,15 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.sviluppoSoftware.meta.title,
   description: siteContent.pages.sviluppoSoftware.meta.description,
+  keywords: [
+    ...siteContent.seo.primaryKeywords,
+    "sviluppo software roma",
+    "software su misura pmi",
+    ...siteContent.seo.freelanceKeywords,
+  ],
+  alternates: {
+    canonical: "/sviluppo-software",
+  },
 };
 
 export default function SviluppoSoftwarePage() {
@@ -34,8 +43,27 @@ export default function SviluppoSoftwarePage() {
     })),
   };
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Sviluppo software su misura",
+    serviceType: "Sviluppo software per PMI e startup",
+    areaServed: "IT",
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteContent.brand.name,
+      url: siteContent.brand.siteUrl,
+      email: siteContent.footer.email,
+      telephone: siteContent.footer.phone,
+    },
+  };
+
   return (
     <Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -88,4 +116,3 @@ export default function SviluppoSoftwarePage() {
     </Container>
   );
 }
-

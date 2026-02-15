@@ -8,6 +8,15 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.servizi.meta.title,
   description: siteContent.pages.servizi.meta.description,
+  keywords: [
+    ...siteContent.seo.primaryKeywords,
+    "servizi sviluppo software",
+    "consulenza sviluppo software",
+    ...siteContent.seo.freelanceKeywords,
+  ],
+  alternates: {
+    canonical: "/servizi",
+  },
 };
 
 export default function ServiziPage() {
@@ -35,4 +44,3 @@ export default function ServiziPage() {
     </Container>
   );
 }
-

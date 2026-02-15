@@ -9,6 +9,15 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.mvpStartup.meta.title,
   description: siteContent.pages.mvpStartup.meta.description,
+  keywords: [
+    ...siteContent.seo.startupKeywords,
+    "sviluppatore startup",
+    "team freelance startup",
+    ...siteContent.seo.freelanceKeywords,
+  ],
+  alternates: {
+    canonical: "/mvp-startup",
+  },
 };
 
 export default function MvpStartupPage() {
@@ -136,4 +145,3 @@ export default function MvpStartupPage() {
     </>
   );
 }
-

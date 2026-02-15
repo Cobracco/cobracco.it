@@ -1,4 +1,7 @@
-﻿export type BlogBodyBlock =
+﻿import fs from "node:fs";
+import path from "node:path";
+
+export type BlogBodyBlock =
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] }
   | { type: "cta"; text: string; href: string; label: string };
@@ -413,8 +416,6 @@ function getGeneratedPosts(): BlogPost[] {
   }
 
   try {
-    const fs = require("node:fs");
-    const path = require("node:path");
     const filePath = path.join(process.cwd(), "data", "blog.json");
 
     if (!fs.existsSync(filePath)) {

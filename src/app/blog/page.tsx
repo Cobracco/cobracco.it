@@ -10,6 +10,16 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Articoli pratici su sviluppo software, MVP e AI per PMI e startup italiane.",
+  keywords: [
+    "blog sviluppo software",
+    "guida mvp startup",
+    "freelance sviluppo software",
+    "software per pmi",
+    "integrazioni api",
+  ],
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export const dynamic = "force-dynamic";
@@ -53,7 +63,7 @@ function PostCard({ post }: { post: BlogPost }) {
           href={`/blog/${post.slug}`}
           className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)]"
         >
-          Leggi l'articolo
+          Leggi l&apos;articolo
           <span aria-hidden="true">{"->"}</span>
         </Link>
       </div>
@@ -79,4 +89,3 @@ export default function BlogIndexPage() {
     </Container>
   );
 }
-

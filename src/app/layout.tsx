@@ -25,6 +25,23 @@ export const metadata: Metadata = {
     template: "%s | Cobracco",
   },
   description: siteContent.brand.description,
+  keywords: [
+    ...siteContent.seo.primaryKeywords,
+    ...siteContent.seo.startupKeywords,
+    ...siteContent.seo.freelanceKeywords,
+  ],
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: "/favicon-2026.png",
   },
@@ -35,9 +52,20 @@ export const metadata: Metadata = {
     siteName: siteContent.brand.name,
     locale: "it_IT",
     type: "website",
+    images: [
+      {
+        url: "/logos/logo-primary.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteContent.brand.name} - sviluppo software`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: siteContent.brand.name,
+    description: siteContent.brand.description,
+    images: ["/logos/logo-primary.png"],
   },
   alternates: {
     canonical: "/",
@@ -62,7 +90,19 @@ const organizationJsonLd = {
     addressCountry: "IT",
   },
   areaServed: "IT",
-  sameAs: [],
+  sameAs: [
+    "https://www.linkedin.com/company/cobracco",
+    "https://github.com/Cobracco",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteContent.brand.name,
+  url: siteContent.brand.siteUrl,
+  inLanguage: "it-IT",
+  description: siteContent.brand.description,
 };
 
 export default function RootLayout({
@@ -77,6 +117,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
           }}
         />
         <Header />
