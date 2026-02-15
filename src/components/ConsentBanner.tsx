@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { ConsentState, getConsent, setConsent } from "@/lib/consent";
 import { registerConsentOpener } from "@/lib/consentController";
-import Button from "@/components/Button";
 
 const dispatchConsentEvent = (state: ConsentState) => {
   if (typeof window === "undefined") {
@@ -68,8 +67,11 @@ export default function ConsentBanner() {
     return null;
   }
 
+  const actionButtonClass =
+    "inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-lg shadow-[rgba(11,61,145,0.45)] transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
+
   return (
-    <div className="fixed bottom-6 left-1/2 z-[60] w-[min(520px,92vw)] -translate-x-1/2 rounded-2xl border border-[var(--color-border)] bg-white/95 p-5 shadow-lg shadow-[rgba(15,23,42,0.2)]">
+    <div className="pointer-events-auto fixed bottom-6 left-1/2 z-[90] w-[min(520px,92vw)] -translate-x-1/2 rounded-2xl border border-[var(--color-border)] bg-white/95 p-5 shadow-lg shadow-[rgba(15,23,42,0.2)]">
       <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]">
         Stato attuale:{" "}
         {consentState === "accepted"
@@ -83,24 +85,23 @@ export default function ConsentBanner() {
         misurare l&apos;uso del sito. Puoi accettare, rifiutare o gestire le preferenze.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <Button
-          label="Accetta"
+        <button
           type="button"
-          size="sm"
+          className={actionButtonClass}
           onClick={() => handleDecision("accepted")}
-        />
-        <Button
-          label="Rifiuta"
+        >
+          Accetta
+        </button>
+        <button
           type="button"
-          size="sm"
+          className={actionButtonClass}
           onClick={() => handleDecision("rejected")}
-        />
-        <Button
-          label="Gestisci"
-          type="button"
-          size="sm"
-          onClick={handleManage}
-        />
+        >
+          Rifiuta
+        </button>
+        <button type="button" className={actionButtonClass} onClick={handleManage}>
+          Gestisci
+        </button>
       </div>
       {isDialogOpen ? (
         <div
@@ -140,18 +141,20 @@ export default function ConsentBanner() {
             </button>
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Button
-              label="Salva preferenze"
+            <button
               type="button"
-              size="sm"
+              className={actionButtonClass}
               onClick={handleSavePreferences}
-            />
-            <Button
-              label="Annulla"
+            >
+              Salva preferenze
+            </button>
+            <button
               type="button"
-              size="sm"
+              className={actionButtonClass}
               onClick={handleCloseDialog}
-            />
+            >
+              Annulla
+            </button>
           </div>
         </div>
       ) : null}
