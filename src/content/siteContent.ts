@@ -549,6 +549,20 @@
               "Matching assistito (AI)",
             ],
           },
+          {
+            title: "Redemptor",
+            href: "https://www.redemptor.it",
+            linkLabel: "Visita Redemptor",
+            description:
+              "Marketplace AI per talenti tech: pubblicazione progetti, selezione professionisti e monitoraggio continuo del delivery software.",
+            highlights: [
+              "Assistente AI per definizione requisiti e roadmap",
+              "Monitoraggio GitHub su commit, CI/CD e avanzamento",
+              "Controlli automatici su qualita e compliance del codice",
+              "Workflow legali e NDA integrati in piattaforma",
+              "Pagamenti a tranche basati su SAL",
+            ],
+          },
         ],
       },
       callToAction: {
