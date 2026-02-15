@@ -555,6 +555,10 @@
             linkLabel: "Visita Redemptor",
             description:
               "Marketplace AI per talenti tech: pubblicazione progetti, selezione professionisti e monitoraggio continuo del delivery software.",
+            image: {
+              src: "/projects/redemptor.png",
+              alt: "Screenshot piattaforma Redemptor",
+            },
             highlights: [
               "Assistente AI per definizione requisiti e roadmap",
               "Monitoraggio GitHub su commit, CI/CD e avanzamento",
