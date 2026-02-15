@@ -68,10 +68,10 @@ export default function ConsentBanner() {
   }
 
   const actionButtonClass =
-    "inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-lg shadow-[rgba(11,61,145,0.45)] transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
+    "inline-flex touch-manipulation items-center justify-center rounded-full bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-lg shadow-[rgba(11,61,145,0.45)] transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
 
   return (
-    <div className="pointer-events-auto fixed bottom-6 left-1/2 z-[90] w-[min(520px,92vw)] -translate-x-1/2 rounded-2xl border border-[var(--color-border)] bg-white/95 p-5 shadow-lg shadow-[rgba(15,23,42,0.2)]">
+    <div className="pointer-events-auto fixed inset-x-0 bottom-4 z-[90] mx-auto w-[min(520px,calc(100vw-1rem))] rounded-2xl border border-[var(--color-border)] bg-white/95 p-5 shadow-lg shadow-[rgba(15,23,42,0.2)]">
       <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]">
         Stato attuale:{" "}
         {consentState === "accepted"
