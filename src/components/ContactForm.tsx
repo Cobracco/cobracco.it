@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/Button";
 import { hasAcceptedConsent } from "@/lib/consent";
+import { trackAdsConversion, trackEvent } from "@/lib/tracking";
 
 const initialState = {
   name: "",
@@ -10,12 +11,9 @@ const initialState = {
   message: "",
   website: "",
 };
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+const GOOGLE_ADS_CONVERSION_LABEL_CONTACT =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_CONTACT ||
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
 
 export default function ContactForm() {
   const [values, setValues] = useState(initialState);
@@ -67,9 +65,13 @@ export default function ContactForm() {
       setSuccess(true);
       setValues(initialState);
 
-      if (typeof window !== "undefined" && hasAcceptedConsent()) {
-        window.gtag?.("event", "generate_lead", {
+      if (hasAcceptedConsent()) {
+        trackEvent("generate_lead", {
           method: "contact_form",
+        });
+        trackAdsConversion(GOOGLE_ADS_CONVERSION_LABEL_CONTACT, {
+          event_category: "lead",
+          event_label: "contact_form_submit",
         });
       }
     } catch (err) {

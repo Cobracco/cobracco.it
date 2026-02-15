@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ConsentBanner from "@/components/ConsentBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PageView from "@/components/PageView";
+import AdsClickTracker from "@/components/AdsClickTracker";
 import { siteContent } from "@/content/siteContent";
 
 const inter = Inter({
@@ -76,6 +77,7 @@ export const metadata: Metadata = {
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -126,8 +128,9 @@ export default function RootLayout({
           }}
         />
         <Header />
-        <GoogleAnalytics gaId={GA_ID} />
+        <GoogleAnalytics gaId={GA_ID} googleAdsId={GOOGLE_ADS_ID} />
         <PageView />
+        <AdsClickTracker />
         <main>{children}</main>
         <Footer />
         <ConsentBanner />

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/Button";
 import { hasAcceptedConsent } from "@/lib/consent";
+import { trackAdsConversion, trackEvent } from "@/lib/tracking";
 
 const initialState = {
   name: "",
@@ -17,12 +18,9 @@ const initialState = {
   message: "",
   website: "",
 };
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+const GOOGLE_ADS_CONVERSION_LABEL_CANDIDATURA =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_CANDIDATURA ||
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
 
 export default function CandidaturaForm() {
   const [values, setValues] = useState(initialState);
@@ -89,9 +87,13 @@ export default function CandidaturaForm() {
       setValues(initialState);
       setAttachment(null);
 
-      if (typeof window !== "undefined" && hasAcceptedConsent()) {
-        window.gtag?.("event", "career_application", {
+      if (hasAcceptedConsent()) {
+        trackEvent("career_application", {
           method: "candidatura_form",
+        });
+        trackAdsConversion(GOOGLE_ADS_CONVERSION_LABEL_CANDIDATURA, {
+          event_category: "career",
+          event_label: "candidatura_form_submit",
         });
       }
     } catch (err) {

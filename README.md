@@ -16,6 +16,10 @@ cp .env.production.example .env.production
 2) Compila i valori SMTP e reCAPTCHA.
 3) Imposta `LETSENCRYPT_EMAIL` per i certificati HTTPS.
 4) Per i build arg di Docker Compose, usa `--env-file .env.production` o esporta `NEXT_PUBLIC_GA_ID` nella shell (altrimenti il tag GA non viene iniettato in build).
+5) Se vuoi tracciare conversioni Google Ads, imposta anche `NEXT_PUBLIC_GOOGLE_ADS_ID` (formato `AW-...`) e almeno una label conversione:
+   - `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_CONTACT`
+   - `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL_CANDIDATURA`
+   - fallback: `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL`
 
 ### Note reCAPTCHA v3
 
@@ -58,5 +62,11 @@ Atteso: errore generico (reCAPTCHA obbligatorio).
 
 ## Analytics + consenso
 - Google Analytics 4 (`G-40B3CN7851`) viene caricato subito (gtag.js è sempre incluso) ma con il `consent default` impostato su `denied` per tutte le categorie (basic mode). Gli eventi `page_view`, `generate_lead` e analoghi vengono inviati solo dopo che l’utente accetta il consenso.
+- Google Ads usa lo stesso `gtag` e rispetta lo stesso consenso. Se configuri `NEXT_PUBLIC_GOOGLE_ADS_ID`, il tag Ads viene inizializzato; se configuri anche le label conversione (`..._CONTACT`, `..._CANDIDATURA` oppure fallback globale), al submit dei form viene inviato l'evento `conversion`.
+- Mappa eventi Ads implementata:
+  - remarketing page view: `page_view` con `send_to=AW-...` su ogni pagina
+  - micro-conversioni pagina: `view_contact_page`, `view_mvp_page`, `view_sviluppo_software_page`, `view_freelance_software_page`, `view_blog_article_page`
+  - micro-conversioni click CTA: `cta_contact_click`, `cta_mvp_click`, `cta_sviluppo_software_click`, `cta_freelance_software_click`
+  - conversioni hard: `conversion` su submit `ContactForm` e `CandidaturaForm` (con label dedicate se presenti)
 - Il cookie di preferenza `cobracco_consent` può valere `accepted` o `rejected` e resta valido 180 giorni. Il banner e il pulsante “Gestisci consenso” nel footer permettono di riaprire la scelta in qualsiasi momento.
 - Per testare: cancella `cobracco_consent`, ricarica la pagina e osserva che `gtag.js` viene caricato ma non invia eventi finché non accetti. Dopo aver accettato, controlla in DevTools > Network che venga inviato `gtag('consent','update', ...)` e che partano i `page_view` e il `generate_lead` al submit del form.

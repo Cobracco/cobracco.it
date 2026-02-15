@@ -1,16 +1,35 @@
 "use client";
 
-"use client";
-
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { hasAcceptedConsent } from "@/lib/consent";
+import { trackAdsMicroConversion, trackAdsRemarketingPageView } from "@/lib/tracking";
+
+function getIntentEventForPath(path: string) {
+  if (path === "/contatti") {
+    return "view_contact_page";
+  }
+  if (path === "/mvp-startup") {
+    return "view_mvp_page";
+  }
+  if (path === "/sviluppo-software") {
+    return "view_sviluppo_software_page";
+  }
+  if (path === "/freelance-sviluppatore-software") {
+    return "view_freelance_software_page";
+  }
+  if (path.startsWith("/blog/")) {
+    return "view_blog_article_page";
+  }
+  return null;
+}
 
 export default function PageView() {
   const pathname = usePathname();
   const lastSentRef = useRef<string | null>(null);
+  const lastIntentSentRef = useRef<string | null>(null);
 
-  const sendPageView = (path: string) => {
+  const sendPageView = useCallback((path: string) => {
     if (
       typeof window === "undefined" ||
       !hasAcceptedConsent() ||
@@ -32,14 +51,30 @@ export default function PageView() {
       page_path: path,
       page_location: window.location.href,
     });
+    trackAdsRemarketingPageView(path);
     lastSentRef.current = path;
     return true;
-  };
+  }, []);
+
+  const sendIntentEvent = useCallback((path: string) => {
+    const eventName = getIntentEventForPath(path);
+    if (!eventName || lastIntentSentRef.current === `${eventName}:${path}`) {
+      return;
+    }
+
+    trackAdsMicroConversion(eventName, {
+      event_category: "page_intent",
+      event_label: path,
+    });
+    lastIntentSentRef.current = `${eventName}:${path}`;
+  }, []);
 
   useEffect(() => {
     if (!pathname) {
       return;
     }
+
+    sendIntentEvent(pathname);
 
     if (sendPageView(pathname)) {
       return;
@@ -52,7 +87,7 @@ export default function PageView() {
     }, 200);
 
     return () => clearInterval(interval);
-  }, [pathname]);
+  }, [pathname, sendIntentEvent, sendPageView]);
 
   useEffect(() => {
     const handler = (event: Event) => {
@@ -63,12 +98,13 @@ export default function PageView() {
       const state = event.detail as "accepted" | "rejected" | null;
       if (state === "accepted" && pathname) {
         sendPageView(pathname);
+        sendIntentEvent(pathname);
       }
     };
 
     window.addEventListener("consent:changed", handler);
     return () => window.removeEventListener("consent:changed", handler);
-  }, [pathname]);
+  }, [pathname, sendIntentEvent, sendPageView]);
 
   return null;
 }

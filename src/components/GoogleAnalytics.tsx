@@ -5,11 +5,15 @@ import { gtagConsentGranted, mapConsentToGtag } from "@/lib/consent";
 
 type GoogleAnalyticsProps = {
   gaId?: string;
+  googleAdsId?: string;
 };
 
-export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
+export default function GoogleAnalytics({
+  gaId,
+  googleAdsId,
+}: GoogleAnalyticsProps) {
   useEffect(() => {
-    if (!gaId) {
+    if (!gaId && !googleAdsId) {
       return;
     }
     const handler = (event: Event) => {
@@ -30,7 +34,7 @@ export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
 
     window.addEventListener("consent:changed", handler);
     return () => window.removeEventListener("consent:changed", handler);
-  }, [gaId]);
+  }, [gaId, googleAdsId]);
 
   return null;
 }
