@@ -16,7 +16,7 @@ export default function Card({ title, text, children, className }: CardProps) {
         className
       )}
     >
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="break-words text-xl font-semibold">{title}</h3>
       {text ? (
         <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{text}</p>
       ) : null}
@@ -24,4 +24,3 @@ export default function Card({ title, text, children, className }: CardProps) {
     </div>
   );
 }
-

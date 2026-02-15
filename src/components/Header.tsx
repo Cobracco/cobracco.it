@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
 import { siteContent } from "@/content/siteContent";
@@ -18,25 +18,41 @@ type NavigationGroup = {
 
 export default function Header() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const [mobileMenuState, setMobileMenuState] = useState({
+    open: false,
+    path: pathname,
+  });
+  const isOpen = mobileMenuState.open && mobileMenuState.path === pathname;
 
   const navigationGroups: NavigationGroup[] =
     siteContent.navigationGroups ??
     siteContent.navigation.map((item) => ({ label: item.label, href: item.href }));
 
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur">
-      <Container className="flex flex-wrap items-center justify-between gap-4 py-5">
-        <Link href="/" className="flex items-center gap-3 text-lg font-semibold">
+      <Container className="flex flex-nowrap items-center justify-between gap-3 py-4 sm:gap-4 sm:py-5 xl:flex-wrap">
+        <Link href="/" className="flex min-w-0 items-center gap-2 text-base font-semibold sm:gap-3 sm:text-lg">
           <Image
             src="/logos/logo-primary.png"
             alt="Cobracco logo"
             width={56}
             height={56}
-            className="h-14 w-14"
+            className="h-10 w-10 sm:h-14 sm:w-14"
             priority
           />
-          <span>{siteContent.brand.name}</span>
+          <span className="truncate">{siteContent.brand.name}</span>
         </Link>
         <nav
           aria-label="Navigazione principale"
@@ -115,11 +131,16 @@ export default function Header() {
         </div>
         <button
           type="button"
-          className="ml-auto flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-accent)] shadow-sm xl:hidden"
+          className="ml-auto shrink-0 flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-accent)] shadow-sm xl:hidden"
           aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={() =>
+            setMobileMenuState((prev) => ({
+              open: !(prev.open && prev.path === pathname),
+              path: pathname,
+            }))
+          }
         >
           {isOpen ? (
             <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
@@ -140,7 +161,8 @@ export default function Header() {
       </Container>
       {isOpen ? (
         <div id="mobile-menu" className="border-t border-[var(--color-border)] bg-white xl:hidden">
-          <Container className="flex flex-col gap-3 py-4 text-sm">
+          <Container className="max-h-[70vh] overflow-y-auto py-4 text-sm">
+            <div className="flex flex-col gap-3">
             {navigationGroups.map((group) => {
               const hasItems = Boolean(group.items?.length);
               const isGroupActive =
@@ -158,7 +180,7 @@ export default function Header() {
                       isGroupActive &&
                         "bg-[var(--color-surface)] text-[var(--color-ink)] shadow-sm ring-1 ring-[var(--color-border)]"
                     )}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setMobileMenuState({ open: false, path: pathname })}
                   >
                     {group.label}
                   </Link>
@@ -187,7 +209,7 @@ export default function Header() {
                         "rounded-xl px-3 py-2 text-[var(--color-ink-soft)] transition hover:bg-white hover:text-[var(--color-ink)]",
                         pathname === group.href && "bg-white text-[var(--color-ink)]"
                       )}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => setMobileMenuState({ open: false, path: pathname })}
                     >
                       Panoramica {group.label}
                     </Link>
@@ -202,7 +224,9 @@ export default function Header() {
                             "rounded-xl px-3 py-2 text-[var(--color-ink-soft)] transition hover:bg-white hover:text-[var(--color-ink)]",
                             isActive && "bg-white text-[var(--color-ink)]"
                           )}
-                          onClick={() => setIsOpen(false)}
+                          onClick={() =>
+                            setMobileMenuState({ open: false, path: pathname })
+                          }
                         >
                           {item.label}
                         </Link>
@@ -220,6 +244,7 @@ export default function Header() {
                 size="sm"
                 className="w-full justify-center"
               />
+            </div>
             </div>
           </Container>
         </div>
