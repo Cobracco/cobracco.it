@@ -14,13 +14,23 @@ const dispatchConsentEvent = (state: ConsentState) => {
 };
 
 export default function ConsentBanner() {
-  const initialConsent = getConsent();
-  const [isVisible, setIsVisible] = useState(initialConsent === null);
-  const [consentState, setConsentState] = useState<ConsentState>(initialConsent);
+  const [isVisible, setIsVisible] = useState(false);
+  const [consentState, setConsentState] = useState<ConsentState>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(
-    initialConsent === "accepted"
-  );
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+
+  useEffect(() => {
+    const stored = getConsent();
+    const rafId = window.requestAnimationFrame(() => {
+      setConsentState(stored);
+      setIsVisible(stored === null);
+      setAnalyticsEnabled(stored === "accepted");
+    });
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   useEffect(() => {
     const unregister = registerConsentOpener(() => {
