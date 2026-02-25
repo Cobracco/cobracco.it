@@ -30,15 +30,6 @@
       - traefik.http.routers.app.service=cobracco
       - traefik.http.routers.app.middlewares=security-headers
 
-
-      - traefik.http.routers.static.rule=Host(`www.cobracco.it`) && (PathPrefix(`/_next/static/`) || Path(`/favicon.ico`))
-      - traefik.http.routers.static.entrypoints=websecure
-      - traefik.http.routers.static.tls.certresolver=le
-      - traefik.http.routers.static.service=cobracco
-      - traefik.http.routers.static.middlewares=security-headers,static-cache
-
-      - traefik.http.middlewares.static-cache.headers.customResponseHeaders.Cache-Control=public, max-age=31536000, immutable
-
       - traefik.http.middlewares.security-headers.headers.contentTypeNosniff=true
       - traefik.http.middlewares.security-headers.headers.frameDeny=true
       - traefik.http.middlewares.security-headers.headers.referrerPolicy=strict-origin-when-cross-origin
