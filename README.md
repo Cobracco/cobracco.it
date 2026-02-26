@@ -12,6 +12,7 @@
 1) Copia il file esempio:
 ```bash
 cp .env.production.example .env.production
+cp .deploy/deploy.env.example .deploy/deploy.env
 ```
 2) Compila i valori SMTP e reCAPTCHA.
 3) Imposta `LETSENCRYPT_EMAIL` per i certificati HTTPS.
@@ -25,7 +26,7 @@ cp .env.production.example .env.production
 
 ## Avvio production (Traefik + app)
 ```bash
-docker compose -f docker-compose.prod.yml up -d --build
+bash scripts/deploy/ubuntu/release.sh
 ```
 
 ## Logs

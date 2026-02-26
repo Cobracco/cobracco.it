@@ -18,6 +18,72 @@ export type BlogPost = {
 
 const seedPosts: BlogPost[] = [
   {
+    slug: "stripe-lab-webhook-stripe-locale",
+    title: "Stripe Lab: testare webhook Stripe locali su piu app senza caos",
+    description:
+      "Panoramica pratica del repository Cobracco/stripe-lab: registry centralizzato, listener dedicati e workflow PowerShell per test webhook in locale.",
+    date: "2026-02-26",
+    readingTime: "5 min",
+    keywords: ["Stripe", "webhook", "PowerShell", "Windows Server", "testing"],
+    body: [
+      {
+        type: "paragraph",
+        text: "Quando un team lavora su piu applicazioni che dipendono da Stripe, il testing locale dei webhook puo diventare fragile: listener sovrapposti, chiavi non isolate e segreti sparsi. `stripe-lab` nasce per standardizzare questo flusso in modo ripetibile.",
+      },
+      {
+        type: "paragraph",
+        text: "### Cosa risolve stripe-lab",
+      },
+      {
+        type: "list",
+        items: [
+          "Registry centralizzato delle app in `config/apps.json`",
+          "Listener Stripe CLI dedicato per ogni applicazione",
+          "Start/stop singolo o batch con script PowerShell",
+          "Estrazione del webhook secret runtime in file locale",
+          "Log e PID separati per ogni app",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "### Sicurezza e confini del progetto",
+      },
+      {
+        type: "paragraph",
+        text: "Il repository e dichiaratamente demo/local testing: usa solo chiavi `sk_test_*`, blocca le `sk_live_*` e non versione segreti. Questo riduce errori operativi quando si onboardano nuovi repo o ambienti di test.",
+      },
+      {
+        type: "paragraph",
+        text: "### Flusso operativo tipico",
+      },
+      {
+        type: "list",
+        items: [
+          "Installazione Stripe CLI",
+          "Inizializzazione cartelle di lavoro",
+          "Configurazione app in `apps.json`",
+          "Avvio listener per app target",
+          "Trigger eventi test (es. `checkout.session.completed`)",
+          "Controllo stato globale e log",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Per team che sviluppano software su misura o MVP con pagamenti Stripe, questo approccio evita configurazioni ad hoc su ogni macchina e rende il debugging webhook molto piu veloce.",
+      },
+      {
+        type: "paragraph",
+        text: "Repository: https://github.com/Cobracco/stripe-lab",
+      },
+      {
+        type: "cta",
+        text: "Vuoi integrare Stripe in modo robusto nel tuo prodotto?",
+        href: "/contatti",
+        label: "Parla con noi",
+      },
+    ],
+  },
+  {
     slug: "home-assistant-aruba-ddns-addon",
     title: "Home Assistant + Aruba DDNS: add-on pronto per DNS dinamico e certificati",
     description:
