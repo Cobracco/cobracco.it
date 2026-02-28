@@ -24,11 +24,17 @@
       - traefik.docker.network=proxy
       # Explicitly bind the routers to the app's listening port.
       - traefik.http.services.cobracco.loadbalancer.server.port=3000
-      - traefik.http.routers.app.rule=Host(`cobracco.it`) || Host(`www.cobracco.it`)
-      - traefik.http.routers.app.entrypoints=websecure
-      - traefik.http.routers.app.tls.certresolver=le
-      - traefik.http.routers.app.service=cobracco
-      - traefik.http.routers.app.middlewares=security-headers
+      - traefik.http.routers.app-www.rule=Host(`www.cobracco.it`)
+      - traefik.http.routers.app-www.entrypoints=websecure
+      - traefik.http.routers.app-www.tls.certresolver=le
+      - traefik.http.routers.app-www.service=cobracco
+      - traefik.http.routers.app-www.middlewares=security-headers
+
+      - traefik.http.routers.app-root.rule=Host(`cobracco.it`)
+      - traefik.http.routers.app-root.entrypoints=websecure
+      - traefik.http.routers.app-root.tls.certresolver=le
+      - traefik.http.routers.app-root.service=cobracco
+      - traefik.http.routers.app-root.middlewares=security-headers
 
       - traefik.http.middlewares.security-headers.headers.contentTypeNosniff=true
       - traefik.http.middlewares.security-headers.headers.frameDeny=true
