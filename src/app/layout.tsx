@@ -7,6 +7,7 @@ import ConsentBanner from "@/components/ConsentBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PageView from "@/components/PageView";
 import AdsClickTracker from "@/components/AdsClickTracker";
+import ChunkErrorRecovery from "@/components/ChunkErrorRecovery";
 import { siteContent } from "@/content/siteContent";
 
 const inter = Inter({
@@ -128,6 +129,7 @@ export default function RootLayout({
           }}
         />
         <Header />
+        <ChunkErrorRecovery />
         <GoogleAnalytics gaId={GA_ID} googleAdsId={GOOGLE_ADS_ID} />
         <PageView />
         <AdsClickTracker />
