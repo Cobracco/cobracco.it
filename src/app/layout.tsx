@@ -135,9 +135,9 @@ export default function RootLayout({
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
-              strategy="afterInteractive"
+              strategy="beforeInteractive"
             />
-            <Script id="gtag-bootstrap" strategy="afterInteractive">
+            <Script id="gtag-bootstrap" strategy="beforeInteractive">
               {gtagInlineScript}
             </Script>
           </>
