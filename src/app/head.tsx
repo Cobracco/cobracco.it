@@ -1,6 +1,7 @@
 import { gtagConsentDefault } from "@/lib/consent";
 
-const GA_ID = process.env.GA_ID || process.env.NEXT_PUBLIC_GA_ID;
+const DEFAULT_GA_ID = "G-G3QT8YJTBB";
+const GA_ID = process.env.GA_ID || process.env.NEXT_PUBLIC_GA_ID || DEFAULT_GA_ID;
 const GOOGLE_ADS_ID =
   process.env.GOOGLE_ADS_ID || process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 const GTAG_ID = GA_ID || GOOGLE_ADS_ID;

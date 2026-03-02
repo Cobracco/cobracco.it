@@ -62,7 +62,7 @@ Atteso: errore generico (reCAPTCHA obbligatorio).
 - Serve un'email valida in `LETSENCRYPT_EMAIL` per Let's Encrypt.
 
 ## Analytics + consenso
-- Google Analytics 4 (`G-40B3CN7851`) viene caricato subito (gtag.js è sempre incluso) ma con il `consent default` impostato su `denied` per tutte le categorie (basic mode). Gli eventi `page_view`, `generate_lead` e analoghi vengono inviati solo dopo che l’utente accetta il consenso.
+- Google Analytics 4 (`G-G3QT8YJTBB`) viene caricato subito (gtag.js è sempre incluso) ma con il `consent default` impostato su `denied` per tutte le categorie (basic mode). Gli eventi `page_view`, `generate_lead` e analoghi vengono inviati solo dopo che l’utente accetta il consenso.
 - Google Ads usa lo stesso `gtag` e rispetta lo stesso consenso. Se configuri `NEXT_PUBLIC_GOOGLE_ADS_ID`, il tag Ads viene inizializzato; se configuri anche le label conversione (`..._CONTACT`, `..._CANDIDATURA` oppure fallback globale), al submit dei form viene inviato l'evento `conversion`.
 - Mappa eventi Ads implementata:
   - remarketing page view: `page_view` con `send_to=AW-...` su ogni pagina
