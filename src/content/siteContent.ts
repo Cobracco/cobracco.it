@@ -1,21 +1,24 @@
 ﻿export const siteContent = {
   brand: {
     name: "Cobracco",
-    tagline: "Artigiani del software per PMI italiane.",
+    tagline: "Software engineering partner per medie e grandi imprese.",
     description:
-      "Sviluppiamo applicazioni e software chiavi in mano per PMI, con un team full-stack senior e un approccio artigianale che valorizza ogni progetto.",
+      "Progettiamo e sviluppiamo piattaforme digitali mission-critical per medie e grandi imprese, con team senior full-stack, governance tecnica e delivery end-to-end.",
     siteUrl: "https://cobracco.it",
   },
   seo: {
     primaryKeywords: [
       "sviluppo software",
       "sviluppo software su misura",
+      "sviluppo software enterprise",
       "software house",
       "software house roma",
+      "software enterprise",
       "sviluppo applicazioni web",
       "sviluppo app mobile",
       "integrazioni API",
-      "sviluppo software pmi",
+      "integrazione sistemi aziendali",
+      "modernizzazione applicativa",
     ],
     startupKeywords: [
       "mvp startup",
@@ -35,9 +38,9 @@
   navigation: [
     { label: "Servizi", href: "/servizi" },
     { label: "Sviluppo Software", href: "/sviluppo-software" },
+    { label: "AI", href: "/ai" },
     { label: "MVP Startup", href: "/mvp-startup" },
     { label: "Freelance Software", href: "/freelance-sviluppatore-software" },
-    { label: "AI", href: "/ai" },
     { label: "Metodo", href: "/metodo" },
     { label: "Progetti strategici", href: "/progetti-strategici" },
     { label: "Chi siamo", href: "/chi-siamo" },
@@ -50,9 +53,9 @@
       href: "/servizi",
       items: [
         { label: "Sviluppo Software", href: "/sviluppo-software" },
+        { label: "AI", href: "/ai" },
         { label: "MVP Startup", href: "/mvp-startup" },
         { label: "Freelance Software", href: "/freelance-sviluppatore-software" },
-        { label: "AI", href: "/ai" },
       ],
     },
     {
@@ -69,7 +72,7 @@
   ],
   footer: {
     headline: "Cobracco, software house.",
-    copy: "Artigiani del software. Soluzioni che durano.",
+    copy: "Engineering rigoroso. Soluzioni che durano.",
     address: "Roma (operativi in tutta Italia)",
     email: "contatto@brachini.com",
     phone: "3933370960",
@@ -79,12 +82,12 @@
       meta: {
         title: "Cobracco",
         description:
-          "Sviluppo software su misura per PMI e startup: team senior, approccio artigianale, supporto freelance e delivery chiavi in mano.",
+          "Sviluppo software enterprise su misura: team senior, integrazioni complesse, sicurezza e delivery end-to-end.",
       },
       hero: {
-        title: "Applicazioni su misura per PMI, senza compromessi.",
+        title: "Applicazioni su misura per medie e grandi imprese.",
         subtitle:
-          "Cobracco è il partner che trasforma le esigenze di business in software affidabile, con un team full-stack senior e un approccio da artigiani del digitale.",
+          "Cobracco e il partner tecnologico che trasforma obiettivi di business in piattaforme affidabili, con team senior full-stack, governance tecnica e responsabilita end-to-end.",
         ctaLabel: "Parla con noi",
         ctaHref: "/contatti",
         secondaryLabel: "Scopri i servizi",
@@ -97,7 +100,7 @@
         },
         {
           title: "Team senior full-stack",
-          text: "Professionisti con esperienza pluriennale su web, mobile e sistemi integrati per PMI italiane.",
+          text: "Professionisti con esperienza pluriennale su web, mobile e sistemi integrati per organizzazioni con processi complessi.",
         },
         {
           title: "AI dove crea valore",
@@ -107,7 +110,7 @@
       services: {
         title: "Servizi principali",
         text:
-          "Dalla strategia alla manutenzione evolutiva, accompagniamo le PMI con un servizio continuo e trasparente.",
+          "Dalla strategia alla manutenzione evolutiva, affianchiamo medie e grandi imprese con un modello operativo continuo e trasparente.",
         items: [
           {
             title: "Sviluppo web app",
@@ -137,22 +140,14 @@
       },
       seoLinks: {
         title: "Percorsi consigliati per chi deve sviluppare software",
-        text: "Scegli il percorso in base al tuo obiettivo: prodotto startup, software su misura o supporto freelance senior.",
+        text: "Scegli il percorso in base alla fase: programma enterprise, iniziativa MVP o supporto specialistico senior.",
       },
       plans: {
         title: "Piani",
-        text: "Tre percorsi chiari, pensati per startup e PMI con obiettivi diversi.",
+        text: "Tre percorsi modulari, progettati per obiettivi e contesti operativi diversi.",
         items: [
           {
-            title: "MVP per Startup",
-            description:
-              "Piano minimale per validare in tempi rapidi con un prodotto solido.",
-            bullets: ["4-6 settimane", "scope essenziale", "pronto per validare"],
-            href: "/mvp-startup",
-            ctaLabel: "Scopri il piano",
-          },
-          {
-            title: "Software su misura per PMI",
+            title: "Software enterprise su misura",
             description:
               "Soluzioni chiavi in mano per processi critici e integrazioni complesse.",
             bullets: [
@@ -175,11 +170,19 @@
             href: "/ai",
             ctaLabel: "Scopri l'AI",
           },
+          {
+            title: "MVP per Startup",
+            description:
+              "Piano minimale per validare in tempi rapidi con un prodotto solido.",
+            bullets: ["4-6 settimane", "scope essenziale", "pronto per validare"],
+            href: "/mvp-startup",
+            ctaLabel: "Scopri il piano",
+          },
         ],
       },
       methodSummary: {
         title: "Metodo snello, risultati concreti",
-        text: "Partiamo dalla discovery, definiamo un MVP solido e iteriamo con rilasci frequenti e feedback continui.",
+        text: "Partiamo dalla discovery, definiamo una roadmap esecutiva e iteriamo con rilasci frequenti, metriche chiare e feedback continui.",
       },
       aiSummary: {
         title: "AI integrata con criterio",
@@ -187,7 +190,7 @@
       },
       callToAction: {
         title: "Raccontaci il tuo progetto",
-        text: "Siamo a Roma ma lavoriamo in tutta Italia. Organizziamo una call per valutare obiettivi, tempi e budget.",
+        text: "Siamo a Roma ma lavoriamo in tutta Italia. Organizziamo una call per allineare obiettivi, vincoli, tempi e governance del progetto.",
         buttonLabel: "Richiedi una consulenza",
         buttonHref: "/contatti",
       },
@@ -196,17 +199,17 @@
       meta: {
         title: "Servizi",
         description:
-          "Servizi di sviluppo software per PMI e startup: analisi, UX, sviluppo chiavi in mano, supporto freelance e manutenzione evolutiva.",
+          "Servizi di sviluppo software enterprise: analisi, UX, delivery chiavi in mano, integrazioni e manutenzione evolutiva.",
       },
       hero: {
-        title: "Servizi completi per PMI che vogliono software affidabile.",
+        title: "Servizi completi per medie e grandi imprese che vogliono software affidabile.",
         subtitle:
           "Dalla prima analisi al supporto post-lancio, lavoriamo come partner tecnologico e non come fornitore a volume.",
       },
       sections: [
         {
           title: "Consulenza e discovery",
-          text: "Raccogliamo obiettivi, vincoli e processi chiave. Definiamo roadmap, priorita e un piano sostenibile per la tua PMI.",
+          text: "Raccogliamo obiettivi, vincoli e processi chiave. Definiamo roadmap, priorita e un piano sostenibile per la tua organizzazione.",
         },
         {
           title: "Progettazione e UX",
@@ -248,15 +251,7 @@
         text: "Scegli il percorso piu adatto in base a maturita del progetto e obiettivi.",
         items: [
           {
-            title: "MVP per Startup",
-            description:
-              "Piano minimale per validare in tempi rapidi con un prodotto solido.",
-            bullets: ["4-6 settimane", "scope essenziale", "pronto per validare"],
-            href: "/mvp-startup",
-            ctaLabel: "Scopri il piano",
-          },
-          {
-            title: "Software su misura per PMI",
+            title: "Software enterprise su misura",
             description:
               "Soluzioni chiavi in mano per processi critici e integrazioni complesse.",
             bullets: [
@@ -279,6 +274,14 @@
             href: "/ai",
             ctaLabel: "Scopri l'AI",
           },
+          {
+            title: "MVP per Startup",
+            description:
+              "Piano minimale per validare in tempi rapidi con un prodotto solido.",
+            bullets: ["4-6 settimane", "scope essenziale", "pronto per validare"],
+            href: "/mvp-startup",
+            ctaLabel: "Scopri il piano",
+          },
         ],
       },
     },
@@ -286,10 +289,10 @@
       meta: {
         title: "Sviluppo Software",
         description:
-          "Sviluppo software su misura per PMI e startup: team senior full-stack, approccio chiavi in mano e supporto freelance su progetti complessi.",
+          "Sviluppo software enterprise su misura: team senior full-stack, delivery chiavi in mano e integrazione di sistemi complessi.",
       },
       hero: {
-        title: "Sviluppo software chiavi in mano per PMI.",
+        title: "Sviluppo software chiavi in mano per medie e grandi imprese.",
         subtitle:
           "Dalla strategia al rilascio: un team full-stack senior che segue il progetto dall'inizio alla fine, a Roma o da remoto in tutta Italia.",
       },
@@ -314,7 +317,7 @@
       },
       timing: {
         title: "Tempi",
-        text: "Per una PMI tipica, un MVP solido richiede 6-12 settimane. Progetti piu complessi vengono pianificati per fasi, con risultati progressivi.",
+        text: "Un primo rilascio solido richiede spesso 6-12 settimane. Progetti piu complessi vengono pianificati per fasi, con risultati progressivi.",
       },
       technologies: {
         title: "Tecnologie",
@@ -326,7 +329,7 @@
           {
             question: "Lavorate solo su Roma?",
             answer:
-              "No. La sede e a Roma, ma lavoriamo remote-first con PMI in tutta Italia, con call regolari e presenza quando serve.",
+              "No. La sede e a Roma, ma lavoriamo remote-first con organizzazioni in tutta Italia, con call regolari e presenza quando serve.",
           },
           {
             question: "Qual e il budget minimo per un progetto?",
@@ -465,10 +468,10 @@
       meta: {
         title: "AI",
         description:
-          "Soluzioni AI applicate ai processi di PMI: RAG, estrazione dati, assistenti digitali e automazioni.",
+          "Soluzioni AI applicate ai processi aziendali: RAG, estrazione dati, assistenti digitali e automazioni.",
       },
       hero: {
-        title: "AI pratica per le PMI.",
+        title: "AI operativa per medie e grandi imprese.",
         subtitle:
           "Portiamo l'intelligenza artificiale nei processi dove serve: meno lavori manuali, piu velocita e dati piu utili.",
       },
@@ -506,7 +509,7 @@
           "Il metodo Cobracco: discovery, progettazione, delivery ed evoluzione con un team senior full-stack.",
       },
       hero: {
-        title: "Un metodo artigianale e trasparente.",
+        title: "Un metodo strutturato e trasparente.",
         subtitle:
           "Ogni fase e pensata per ridurre rischi e mantenere alta la qualita, con un dialogo costante con il team cliente.",
       },
@@ -615,9 +618,9 @@
           "Cobracco e una software house di Roma con team senior full-stack e operativita in tutta Italia.",
       },
       hero: {
-        title: "Un team senior, vicino alle PMI.",
+        title: "Un team senior per sistemi ad alta responsabilita.",
         subtitle:
-          "Siamo artigiani del software: progetti su misura, cura dei dettagli e responsabilita diretta su ogni consegna.",
+          "Operiamo con metodo strutturato: progetti su misura, standard elevati e responsabilita diretta su ogni consegna.",
       },
       values: [
         {
@@ -635,7 +638,7 @@
       ],
       location: {
         title: "Roma e tutta Italia",
-        text: "La sede e a Roma, ma lavoriamo remote-first con PMI su tutto il territorio nazionale, con la stessa cura e presenza.",
+        text: "La sede e a Roma, ma lavoriamo remote-first con medie e grandi imprese su tutto il territorio nazionale, con governance condivisa e presenza quando serve.",
       },
     },
     contatti: {
@@ -671,7 +674,7 @@
         subtitle:
           "Cerchiamo persone di altissimo livello: autonomia, responsabilita e standard elevati. Se vuoi giocare una partita difficile, e il posto giusto.",
         text:
-          "Costruiamo software critico per PMI ambiziose. Lavoriamo con chi porta esperienza reale, cura dei dettagli e visione tecnica e di prodotto.",
+          "Costruiamo software critico per medie e grandi imprese. Lavoriamo con chi porta esperienza reale, disciplina operativa e visione tecnica e di prodotto.",
         points: [
           "Seniorita reale, non solo anni di lavoro.",
           "Capacita di decisione tecnica e ownership end-to-end.",

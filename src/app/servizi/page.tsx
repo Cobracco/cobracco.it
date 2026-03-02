@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     ...siteContent.seo.primaryKeywords,
     "servizi sviluppo software",
     "consulenza sviluppo software",
-    ...siteContent.seo.freelanceKeywords,
+    "delivery software enterprise",
+    "governance progetto software",
   ],
   alternates: {
     canonical: "/servizi",

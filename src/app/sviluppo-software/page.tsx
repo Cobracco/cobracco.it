@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   keywords: [
     ...siteContent.seo.primaryKeywords,
     "sviluppo software roma",
-    "software su misura pmi",
-    ...siteContent.seo.freelanceKeywords,
+    "software enterprise su misura",
+    "integrazione sistemi enterprise",
   ],
   alternates: {
     canonical: "/sviluppo-software",
@@ -47,7 +47,7 @@ export default function SviluppoSoftwarePage() {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Sviluppo software su misura",
-    serviceType: "Sviluppo software per PMI e startup",
+    serviceType: "Sviluppo software enterprise e integrazione sistemi",
     areaServed: "IT",
     provider: {
       "@type": "LocalBusiness",
@@ -106,7 +106,7 @@ export default function SviluppoSoftwarePage() {
       <Section title="Approfondimenti">
         <div className="flex flex-col gap-3 text-sm text-[var(--color-ink-soft)]">
           <Link href="/blog/sviluppo-software-su-misura-pmi">
-            Sviluppo software su misura per PMI: quando conviene davvero
+            Sviluppo software su misura per medie e grandi imprese: quando conviene davvero
           </Link>
           <Link href="/blog/integrazioni-api-crm-erp">
             Integrazioni API tra CRM ed ERP: errori comuni e come evitarli

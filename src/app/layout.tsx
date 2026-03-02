@@ -27,11 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Cobracco",
   },
   description: siteContent.brand.description,
-  keywords: [
-    ...siteContent.seo.primaryKeywords,
-    ...siteContent.seo.startupKeywords,
-    ...siteContent.seo.freelanceKeywords,
-  ],
+  keywords: [...siteContent.seo.primaryKeywords],
   category: "technology",
   robots: {
     index: true,

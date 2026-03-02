@@ -259,16 +259,16 @@ const seedPosts: BlogPost[] = [
   },
   {
     slug: "sviluppo-software-su-misura-pmi",
-    title: "Sviluppo software su misura per PMI: quando conviene davvero",
+    title: "Sviluppo software su misura per medie e grandi imprese: quando conviene davvero",
     description:
-      "Capire se costruire un software su misura ha senso: segnali, costi nascosti e vantaggi per le PMI.",
+      "Capire se costruire un software su misura ha senso: segnali, costi nascosti e vantaggi per organizzazioni con processi complessi.",
     date: "2026-01-15",
     readingTime: "6 min",
-    keywords: ["software su misura", "PMI", "sviluppo", "processi"],
+    keywords: ["software su misura", "medie e grandi imprese", "sviluppo", "processi"],
     body: [
       {
         type: "paragraph",
-        text: "Molte PMI iniziano con strumenti generici: fogli di calcolo, software verticali non adattabili, processi manuali. Funziona fino a quando la crescita rende evidente il costo nascosto di inefficienze e errori.",
+        text: "Molte organizzazioni iniziano con strumenti generici: fogli di calcolo, software verticali non adattabili, processi manuali. Funziona fino a quando la crescita rende evidente il costo nascosto di inefficienze e errori.",
       },
       {
         type: "paragraph",
@@ -305,7 +305,7 @@ const seedPosts: BlogPost[] = [
       },
       {
         type: "cta",
-        text: "Vuoi capire se un progetto su misura ha senso per la tua PMI?",
+        text: "Vuoi capire se un progetto su misura ha senso per la tua organizzazione?",
         href: "/contatti",
         label: "Parla con noi",
       },
@@ -367,16 +367,16 @@ const seedPosts: BlogPost[] = [
   },
   {
     slug: "ai-in-azienda-casi-uso-pmi",
-    title: "AI in azienda: 5 casi d'uso concreti per PMI (senza fuffa)",
+    title: "AI in azienda: 5 casi d'uso concreti per medie e grandi imprese",
     description:
-      "Dalla ricerca documentale alla classificazione ticket: casi d'uso concreti per portare AI nelle PMI.",
+      "Dalla ricerca documentale alla classificazione ticket: casi d'uso concreti per portare AI nei processi aziendali.",
     date: "2026-01-21",
     readingTime: "6 min",
-    keywords: ["AI", "PMI", "automazioni", "RAG"],
+    keywords: ["AI", "medie e grandi imprese", "automazioni", "RAG"],
     body: [
       {
         type: "paragraph",
-        text: "L'AI non e una magia: funziona quando automatizza compiti ripetitivi o accelera decisioni basate su dati. Per le PMI, il valore e spesso immediato.",
+        text: "L'AI non e una magia: funziona quando automatizza compiti ripetitivi o accelera decisioni basate su dati. Per le medie e grandi imprese, il valore e spesso immediato.",
       },
       {
         type: "paragraph",

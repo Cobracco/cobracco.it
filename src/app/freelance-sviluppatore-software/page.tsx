@@ -9,7 +9,7 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: "Sviluppatore Software Freelance",
   description:
-    "Supporto freelance per sviluppo software: affiancamento senior full-stack per startup e PMI su MVP, integrazioni API e moduli critici.",
+    "Supporto freelance per sviluppo software: affiancamento senior full-stack per startup e medie e grandi imprese su MVP, integrazioni API e moduli critici.",
   keywords: [
     ...siteContent.seo.freelanceKeywords,
     ...siteContent.seo.primaryKeywords,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: "/freelance-sviluppatore-software",
   },
   openGraph: {
-    title: "Sviluppatore software freelance per startup e PMI",
+    title: "Sviluppatore software freelance per startup e medie e grandi imprese",
     description:
       "Affiancamento freelance senior su MVP, sviluppo software su misura e integrazioni API.",
     url: "/freelance-sviluppatore-software",
@@ -43,9 +43,9 @@ const valuePoints = [
 
 const fitCases = [
   "Startup che devono chiudere un MVP in tempi rapidi senza compromettere la base tecnica.",
-  "PMI con software interno da evolvere, integrare o stabilizzare.",
+  "Medie e grandi imprese con software interno da evolvere, integrare o stabilizzare.",
   "Team tecnici che cercano un freelance senior full-stack su una fase ad alta complessita.",
-  "Founder non tecnici che vogliono un referente unico per decisioni tecniche e roadmap.",
+  "Responsabili prodotto o IT che vogliono un referente unico per decisioni tecniche e roadmap.",
 ];
 
 const faqItems = [
@@ -60,9 +60,9 @@ const faqItems = [
       "Si. Facciamo audit rapido del codice, definiamo rischi e priorita, poi impostiamo una roadmap con rilasci incrementali.",
   },
   {
-    question: "Supportate sia startup sia PMI?",
+    question: "Supportate sia startup sia medie e grandi imprese?",
     answer:
-      "Si. Per startup lavoriamo su MVP e validazione; per PMI su software su misura, integrazioni API e manutenzione evolutiva.",
+      "Si. Per startup lavoriamo su MVP e validazione; per medie e grandi imprese su software su misura, integrazioni API e manutenzione evolutiva.",
   },
   {
     question: "Qual e il modello di collaborazione?",
@@ -112,7 +112,7 @@ export default function FreelanceSviluppatoreSoftwarePage() {
       />
       <Container>
         <Section
-          title="Sviluppatore software freelance per startup e PMI"
+          title="Sviluppatore software freelance per startup e medie e grandi imprese"
           description="Quando serve accelerare lo sviluppo software senza perdere qualita: supporto senior full-stack, operativo su tutta Italia."
         >
           <div className="grid gap-6 md:grid-cols-3">

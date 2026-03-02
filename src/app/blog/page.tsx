@@ -9,12 +9,12 @@ import Card from "@/components/Card";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Articoli pratici su sviluppo software, MVP e AI per PMI e startup italiane.",
+    "Articoli pratici su sviluppo software enterprise, integrazioni, AI operativa e strategie MVP.",
   keywords: [
     "blog sviluppo software",
-    "guida mvp startup",
-    "freelance sviluppo software",
-    "software per pmi",
+    "sviluppo software enterprise",
+    "integrazione sistemi aziendali",
+    "ai operativa",
     "integrazioni api",
   ],
   alternates: {

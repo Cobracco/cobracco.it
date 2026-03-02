@@ -12,16 +12,12 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.home.meta.title,
   description: siteContent.pages.home.meta.description,
-  keywords: [
-    ...siteContent.seo.primaryKeywords,
-    ...siteContent.seo.startupKeywords,
-    ...siteContent.seo.freelanceKeywords,
-  ],
+  keywords: [...siteContent.seo.primaryKeywords],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Sviluppo software su misura per PMI e startup",
+    title: "Sviluppo software enterprise su misura",
     description: siteContent.pages.home.meta.description,
     url: "/",
   },
@@ -61,11 +57,6 @@ export default function Home() {
                 variant="secondary"
               />
             </div>
-            <p className="text-sm text-[var(--color-ink-soft)]">
-              <Link href="/mvp-startup" className="font-medium text-[var(--color-ink)]">
-                Se sei una startup: scopri il nostro piano MVP -&gt;
-              </Link>
-            </p>
           </div>
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
@@ -77,7 +68,7 @@ export default function Home() {
                 className="h-28 w-28"
               />
               <div className="text-sm text-[var(--color-ink-soft)]">
-                Artigiani del software
+                Software engineering partner
               </div>
             </div>
             <p className="mt-5 text-sm text-[var(--color-ink-soft)]">
@@ -112,7 +103,7 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3">
             <Card
               title="Sviluppo software su misura"
-              text="Per PMI che vogliono un software affidabile, integrato con CRM, ERP e processi reali."
+              text="Per medie e grandi imprese che vogliono software affidabile, integrato con CRM, ERP e processi reali."
             >
               <Link href="/sviluppo-software" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
                 Vai alla pagina sviluppo software
@@ -120,15 +111,15 @@ export default function Home() {
             </Card>
             <Card
               title="MVP per startup"
-              text="Per founder che devono validare un prodotto digitale con tempi e budget controllati."
+              text="Per team di prodotto che devono validare una nuova iniziativa con tempi e budget controllati."
             >
               <Link href="/mvp-startup" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
                 Vai alla pagina MVP startup
               </Link>
             </Card>
             <Card
-              title="Supporto freelance senior"
-              text="Per team che cercano un partner freelance full-stack su parti critiche del progetto."
+              title="Supporto specialistico senior"
+              text="Per team che richiedono una competenza senior su parti critiche del progetto e della delivery."
             >
               <Link href="/freelance-sviluppatore-software" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
                 Vai alla pagina freelance software
@@ -142,7 +133,7 @@ export default function Home() {
             <Card title={aiSummary.title} text={aiSummary.text} />
             <Card
               title="Operativita"
-              text="Sede a Roma, lavoro remoto su tutta Italia con la stessa cura artigianale."
+              text="Sede a Roma, lavoro remoto su tutta Italia con standard operativi e governance condivisa."
             />
           </div>
         </Section>
