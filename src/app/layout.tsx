@@ -76,6 +76,7 @@ export const metadata: Metadata = {
 };
 
 const DEFAULT_GA_ID = "G-G3QT8YJTBB";
+const CONSENT_COOKIE_NAME = "cobracco_consent";
 const GA_ID =
   process.env.GA_ID || process.env.NEXT_PUBLIC_GA_ID || DEFAULT_GA_ID;
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
@@ -85,6 +86,25 @@ const gtagInlineScript = GTAG_ID
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('consent','default', ${JSON.stringify(gtagConsentDefault())});
+      (function syncConsentFromCookie() {
+        var match = document.cookie.match(/(?:^|;\\s*)${CONSENT_COOKIE_NAME}=(accepted|rejected)(?:;|$)/);
+        if (!match) return;
+        if (match[1] === "accepted") {
+          gtag('consent', 'update', {
+            analytics_storage: 'granted',
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted'
+          });
+        } else {
+          gtag('consent', 'update', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied'
+          });
+        }
+      })();
       gtag('js', new Date());
       ${
         GA_ID
