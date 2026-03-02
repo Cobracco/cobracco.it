@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +10,7 @@ import PageView from "@/components/PageView";
 import AdsClickTracker from "@/components/AdsClickTracker";
 import ChunkErrorRecovery from "@/components/ChunkErrorRecovery";
 import { siteContent } from "@/content/siteContent";
+import { gtagConsentDefault } from "@/lib/consent";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -73,8 +75,25 @@ export const metadata: Metadata = {
   },
 };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const DEFAULT_GA_ID = "G-G3QT8YJTBB";
+const GA_ID =
+  process.env.GA_ID || process.env.NEXT_PUBLIC_GA_ID || DEFAULT_GA_ID;
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+const GTAG_ID = GA_ID || GOOGLE_ADS_ID;
+const gtagInlineScript = GTAG_ID
+  ? `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent','default', ${JSON.stringify(gtagConsentDefault())});
+      gtag('js', new Date());
+      ${
+        GA_ID
+          ? `gtag('config','${GA_ID}', { anonymize_ip: true, send_page_view: false });`
+          : ""
+      }
+      ${GOOGLE_ADS_ID ? `gtag('config','${GOOGLE_ADS_ID}');` : ""}
+    `
+  : "";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -112,6 +131,17 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        {GTAG_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-bootstrap" strategy="afterInteractive">
+              {gtagInlineScript}
+            </Script>
+          </>
+        ) : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
