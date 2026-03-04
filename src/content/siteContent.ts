@@ -1,9 +1,9 @@
 ﻿export const siteContent = {
   brand: {
     name: "Cobracco",
-    tagline: "Software engineering partner per medie e grandi imprese.",
+    tagline: "AI engineering partner per imprese con sistemi complessi.",
     description:
-      "Progettiamo e sviluppiamo piattaforme digitali mission-critical per medie e grandi imprese, con team senior full-stack, governance tecnica e delivery end-to-end.",
+      "Sviluppiamo software ad alte prestazioni per imprese con sistemi complessi: AI in tutte le fasi del progetto, automazione completa sul coding e governance continua di sviluppatori senior.",
     siteUrl: "https://cobracco.it",
   },
   seo: {
@@ -19,6 +19,11 @@
       "integrazioni API",
       "integrazione sistemi aziendali",
       "modernizzazione applicativa",
+      "sviluppo software con AI",
+      "ai engineering",
+      "governance AI sviluppo software",
+      "automazione coding",
+      "quality gate software",
     ],
     startupKeywords: [
       "mvp startup",
@@ -82,12 +87,12 @@
       meta: {
         title: "Cobracco",
         description:
-          "Sviluppo software enterprise su misura: team senior, integrazioni complesse, sicurezza e delivery end-to-end.",
+          "Software ad alte prestazioni con AI sotto controllo esperto: sviluppo su misura, integrazioni complesse, test rigorosi e delivery end-to-end.",
       },
       hero: {
-        title: "Applicazioni su misura per medie e grandi imprese.",
+        title: "Software ad alte prestazioni, con AI sotto controllo esperto.",
         subtitle:
-          "Cobracco e il partner tecnologico che trasforma obiettivi di business in piattaforme affidabili, con team senior full-stack, governance tecnica e responsabilita end-to-end.",
+          "Per imprese con sistemi complessi uniamo AI e competenza senior: usiamo l'intelligenza artificiale in tutte le fasi, con automazione completa sul coding e controllo umano continuo su architettura, qualita e sicurezza.",
         ctaLabel: "Parla con noi",
         ctaHref: "/contatti",
         secondaryLabel: "Scopri i servizi",
@@ -95,64 +100,64 @@
       },
       highlights: [
         {
-          title: "Chiavi in mano",
-          text: "Analisi, UX, sviluppo e go-live. Gestiamo tutto il percorso, senza passaggi critici lasciati scoperti.",
+          title: "Governance AI senior",
+          text: "Nessuna delega cieca al modello: ogni decisione tecnica critica viene guidata da sviluppatori senior con responsabilita diretta sul risultato.",
         },
         {
-          title: "Team senior full-stack",
-          text: "Professionisti con esperienza pluriennale su web, mobile e sistemi integrati per organizzazioni con processi complessi.",
+          title: "Tooling custom ultra-performante",
+          text: "Interveniamo in ambienti eterogenei con strumenti custom ad alte prestazioni, progettati per accelerare delivery e manutenzione.",
         },
         {
-          title: "AI dove crea valore",
-          text: "Integriamo soluzioni AI solo quando migliorano tempi, costi o qualita del lavoro.",
+          title: "Qualita verificata",
+          text: "Software sempre testato, verificato e aderente alle migliori best practice, con quality gate chiari prima di ogni rilascio.",
         },
       ],
       services: {
         title: "Servizi principali",
         text:
-          "Dalla strategia alla manutenzione evolutiva, affianchiamo medie e grandi imprese con un modello operativo continuo e trasparente.",
+          "Dalla strategia alla manutenzione evolutiva, supportiamo imprese con sistemi complessi con un modello operativo AI-first, rigoroso e con costi competitivi e trasparenti.",
         items: [
           {
             title: "Sviluppo web app",
-            text: "Piattaforme gestionali, portali clienti e dashboard operative con flussi su misura.",
+            text: "Piattaforme mission-critical con processi complessi, progettate per performance, continuita operativa e scalabilita.",
           },
           {
             title: "App mobile",
-            text: "Applicazioni iOS e Android integrate ai processi aziendali e ai dati esistenti.",
+            text: "Applicazioni iOS e Android integrate ai sistemi esistenti, con pipeline di delivery automatizzata e controlli qualita continui.",
           },
           {
             title: "Integrazioni e API",
-            text: "Connessioni sicure tra software, CRM, ERP e servizi esterni.",
+            text: "Connessioni sicure tra CRM, ERP, legacy e servizi esterni, con orchestrazione robusta dei flussi dati.",
           },
           {
             title: "Modernizzazione",
-            text: "Rinnoviamo sistemi legacy migliorando performance, UX e sicurezza.",
+            text: "Evolviamo sistemi legacy con approccio incrementale, riducendo rischio e fermo operativo.",
           },
           {
             title: "Data & analytics",
-            text: "Rendiamo i dati chiari e usabili con reportistica e indicatori chiave.",
+            text: "Rendiamo i dati usabili in tempo reale per decisioni operative, forecast e controllo dei KPI.",
           },
           {
             title: "AI applicata",
-            text: "Automazioni intelligenti e assistenti operativi per ridurre il lavoro manuale.",
+            text: "AI lungo tutto il ciclo di delivery: discovery, design, coding, test e ottimizzazione continua.",
           },
         ],
       },
       seoLinks: {
-        title: "Percorsi consigliati per chi deve sviluppare software",
-        text: "Scegli il percorso in base alla fase: programma enterprise, iniziativa MVP o supporto specialistico senior.",
+        title: "Percorsi consigliati per imprese con sistemi complessi",
+        text: "Scegli il percorso in base alla maturita del progetto: delivery enterprise AI-governed, iniziativa MVP o supporto specialistico senior.",
       },
       plans: {
-        title: "Piani",
-        text: "Tre percorsi modulari, progettati per obiettivi e contesti operativi diversi.",
+        title: "Percorsi operativi",
+        text: "Tre modalita di collaborazione con governance chiara, quality gate e avanzamento misurabile.",
         items: [
           {
             title: "Software enterprise su misura",
             description:
-              "Soluzioni chiavi in mano per processi critici e integrazioni complesse.",
+              "Soluzioni chiavi in mano per processi critici, integrazioni complesse e performance elevate.",
             bullets: [
-              "chiavi in mano",
-              "integrazioni",
+              "governance tecnica senior",
+              "integrazione sistemi complessi",
               "manutenzione evolutiva",
             ],
             href: "/sviluppo-software",
@@ -161,11 +166,11 @@
           {
             title: "AI nelle applicazioni",
             description:
-              "Automazioni e assistenti intelligenti quando generano valore reale.",
+              "Pipeline AI governate da sviluppatori senior, senza delega cieca ai modelli.",
             bullets: [
-              "RAG documentale",
-              "estrazione dati",
-              "workflow intelligenti",
+              "policy e guardrail",
+              "automazione coding",
+              "quality gate software",
             ],
             href: "/ai",
             ctaLabel: "Scopri l'AI",
@@ -181,16 +186,16 @@
         ],
       },
       methodSummary: {
-        title: "Metodo snello, risultati concreti",
-        text: "Partiamo dalla discovery, definiamo una roadmap esecutiva e iteriamo con rilasci frequenti, metriche chiare e feedback continui.",
+        title: "Metodo operativo, AI governata, risultati misurabili",
+        text: "Mappiamo i processi, definiamo la strategia AI per fase, automatizziamo il coding e validiamo ogni rilascio con test, review e metriche condivise.",
       },
       aiSummary: {
-        title: "AI integrata con criterio",
-        text: "Dalla ricerca documentale ai workflow interni, adottiamo l'AI solo se crea valore misurabile.",
+        title: "AI in tutte le fasi, non in delega cieca",
+        text: "Usiamo AI in discovery, design, sviluppo e test. L'automazione completa avviene sul coding, sempre accompagnata dalla nostra competenza senior.",
       },
       callToAction: {
         title: "Raccontaci il tuo progetto",
-        text: "Siamo a Roma ma lavoriamo in tutta Italia. Organizziamo una call per allineare obiettivi, vincoli, tempi e governance del progetto.",
+        text: "Siamo a Roma ma operiamo in tutta Italia. Organizziamo una call per definire obiettivi, governance tecnica e un piano con costi competitivi e trasparenti.",
         buttonLabel: "Richiedi una consulenza",
         buttonHref: "/contatti",
       },
@@ -199,65 +204,65 @@
       meta: {
         title: "Servizi",
         description:
-          "Servizi di sviluppo software enterprise: analisi, UX, delivery chiavi in mano, integrazioni e manutenzione evolutiva.",
+          "Servizi di AI engineering e sviluppo software: governance senior, automazione coding, quality gate e delivery ad alte prestazioni.",
       },
       hero: {
-        title: "Servizi completi per medie e grandi imprese che vogliono software affidabile.",
+        title: "Servizi completi per imprese con sistemi complessi.",
         subtitle:
-          "Dalla prima analisi al supporto post-lancio, lavoriamo come partner tecnologico e non come fornitore a volume.",
+          "Dalla discovery al supporto post-lancio, usiamo AI in tutte le fasi ma manteniamo il pieno controllo tecnico con team senior, standard elevati e costi competitivi e trasparenti.",
       },
       sections: [
         {
           title: "Consulenza e discovery",
-          text: "Raccogliamo obiettivi, vincoli e processi chiave. Definiamo roadmap, priorita e un piano sostenibile per la tua organizzazione.",
+          text: "Mappiamo processi, vincoli e sistemi esistenti. Definiamo roadmap, casi d'uso AI e guardrail operativi prima di iniziare lo sviluppo.",
         },
         {
-          title: "Progettazione e UX",
-          text: "Prototipi rapidi, flussi chiari, UI accessibile. Progettiamo strumenti che il team usa davvero ogni giorno.",
+          title: "Progettazione e architettura",
+          text: "Disegniamo flussi, architettura e integrazioni con attenzione a performance, sicurezza, scalabilita e governabilita del codice.",
         },
         {
           title: "Delivery e supporto",
-          text: "Sviluppo full-stack, test, rilascio e manutenzione evolutiva. Restiamo disponibili anche dopo il go-live.",
+          text: "Automazione completa sul coding, test sistematici, rilascio controllato e manutenzione evolutiva con metriche e osservabilita continue.",
         },
       ],
       serviceList: [
         {
           title: "Applicazioni web",
-          text: "Gestionali e portali su misura per vendite, operations e customer care.",
+          text: "Gestionali e portali ad alte prestazioni per vendite, operations e customer care in ambienti complessi.",
         },
         {
           title: "App mobile",
-          text: "Soluzioni mobile per agenti, tecnici, clienti o partner.",
+          text: "Soluzioni mobile integrate ai sistemi aziendali, con cicli rapidi di rilascio e qualita verificata.",
         },
         {
           title: "Integrazioni e API",
-          text: "Flussi automatizzati tra software aziendali e servizi esterni.",
+          text: "Flussi affidabili tra software interni, ERP, CRM e servizi esterni, con controllo completo su dati e resilienza.",
         },
         {
           title: "Modernizzazione software",
-          text: "Aggiornamento stack, migrazione dati e refactoring con rischio controllato.",
+          text: "Refactoring, migrazioni e aggiornamento stack con piano incrementale, rischio controllato e continuita operativa.",
         },
         {
           title: "Data & BI",
-          text: "KPI, report e dashboard per decisioni rapide e basate sui dati.",
+          text: "KPI e dashboard per decisioni operative rapide, con modelli dati governati e tracciabilita end-to-end.",
         },
         {
-          title: "AI applicata",
-          text: "Automazioni intelligenti e assistenti intelligenti integrati nei processi di lavoro.",
+          title: "AI engineering applicata",
+          text: "Orchestrazione AI con policy, guardrail e controllo output: valore concreto senza perdere affidabilita tecnica.",
         },
       ],
       plans: {
-        title: "Piani",
-        text: "Scegli il percorso piu adatto in base a maturita del progetto e obiettivi.",
+        title: "Percorsi di delivery",
+        text: "Scegli la modalita piu adatta a obiettivi, maturita tecnica e livello di governance richiesto.",
         items: [
           {
             title: "Software enterprise su misura",
             description:
-              "Soluzioni chiavi in mano per processi critici e integrazioni complesse.",
+              "Delivery end-to-end per processi critici e sistemi complessi con ownership tecnica completa.",
             bullets: [
-              "chiavi in mano",
-              "integrazioni",
-              "manutenzione evolutiva",
+              "governance senior",
+              "integrazioni critiche",
+              "quality gate continui",
             ],
             href: "/sviluppo-software",
             ctaLabel: "Vai ai dettagli",
@@ -265,11 +270,11 @@
           {
             title: "AI nelle applicazioni",
             description:
-              "Automazioni e assistenti intelligenti quando generano valore reale.",
+              "AI governata con guardrail e osservabilita, integrata nei processi dove genera impatto reale.",
             bullets: [
-              "RAG documentale",
-              "estrazione dati",
-              "workflow intelligenti",
+              "strategia per fase",
+              "automazione coding",
+              "controllo output",
             ],
             href: "/ai",
             ctaLabel: "Scopri l'AI",
@@ -468,67 +473,71 @@
       meta: {
         title: "AI",
         description:
-          "Soluzioni AI applicate ai processi aziendali: RAG, estrazione dati, assistenti digitali e automazioni.",
+          "AI sotto controllo esperto: discovery, pipeline, automazione coding e quality gate per software affidabile in ambienti complessi.",
       },
       hero: {
-        title: "AI operativa per medie e grandi imprese.",
+        title: "AI governata da senior engineer.",
         subtitle:
-          "Portiamo l'intelligenza artificiale nei processi dove serve: meno lavori manuali, piu velocita e dati piu utili.",
+          "Usiamo AI in tutte le fasi del progetto, ma con responsabilita tecnica umana su decisioni, output e qualita. Automazione completa sul coding, governance continua su tutto il resto.",
       },
       items: [
         {
-          title: "Ricerca documentale (RAG)",
-          text: "Motori di ricerca interna che rispondono a domande sui documenti aziendali con fonti tracciabili.",
+          title: "Discovery AI e guardrail",
+          text: "Valutiamo casi d'uso, rischi e policy operative prima dell'implementazione, per evitare adozioni superficiali o non sostenibili.",
         },
         {
-          title: "Estrazione dati",
-          text: "Automazione di lettura e inserimento dati da PDF, email o moduli.",
+          title: "Pipeline AI e integrazioni",
+          text: "Progettiamo pipeline robuste collegate a ERP, CRM, documenti e servizi esterni, con tracciabilita end-to-end.",
         },
         {
-          title: "Assistenti operativi",
-          text: "Chat e tool interni per supportare vendite, customer care e team tecnici.",
+          title: "Automazione coding supervisionata",
+          text: "Automatizziamo il coding con strumenti avanzati, mantenendo review senior su architettura, sicurezza e manutenibilita.",
         },
         {
-          title: "Classificazione ticket",
-          text: "Prioritizzazione automatica delle richieste con routing al team giusto.",
+          title: "Test, quality gate e osservabilita",
+          text: "Applichiamo test automatici, verifiche strutturate e monitoraggio continuo per mantenere stabilita e qualita del software.",
         },
         {
-          title: "Workflow intelligenti",
-          text: "Automazioni che orchestrano task tra software diversi per ridurre tempi e errori.",
+          title: "Assistenti operativi su misura",
+          text: "Costruiamo assistenti e workflow intelligenti per ridurre tempi operativi senza perdere controllo su dati e decisioni.",
         },
       ],
       security: {
         title: "Sicurezza e dati",
-        text: "Valutiamo privacy, sicurezza e conformita. I dati restano sotto controllo, con policy chiare e accessi limitati.",
+        text: "Privacy, sicurezza e conformita vengono definite a monte. I dati restano sotto controllo con policy chiare, accessi limitati e auditabilita dei flussi.",
       },
     },
     metodo: {
       meta: {
         title: "Metodo",
         description:
-          "Il metodo Cobracco: discovery, progettazione, delivery ed evoluzione con un team senior full-stack.",
+          "Il metodo Cobracco: discovery, strategia AI per fase, automazione coding e quality gate con governance senior continua.",
       },
       hero: {
-        title: "Un metodo strutturato e trasparente.",
+        title: "Metodo strutturato con AI sotto controllo esperto.",
         subtitle:
-          "Ogni fase e pensata per ridurre rischi e mantenere alta la qualita, con un dialogo costante con il team cliente.",
+          "Ogni fase riduce rischio e aumenta velocita: AI dove accelera, competenza senior dove serve controllo, qualita e responsabilita tecnica.",
       },
       steps: [
         {
           title: "1. Discovery",
-          text: "Analisi del contesto, obiettivi, processi e stakeholder per definire un perimetro chiaro.",
+          text: "Analisi di processi, sistemi, vincoli e stakeholder per definire perimetro, obiettivi e criteri di successo misurabili.",
         },
         {
-          title: "2. Progettazione",
-          text: "Wireframe, prototipi e architettura tecnica. Condivisione e feedback rapidi.",
+          title: "2. Strategia AI per fase",
+          text: "Definiamo dove usare AI in discovery, design, coding e test, con policy, guardrail e responsabilita operative chiare.",
         },
         {
-          title: "3. Delivery",
-          text: "Sviluppo iterativo, test e rilasci frequenti. Tutto misurato e documentato.",
+          title: "3. Automazione coding con quality gate",
+          text: "Automazione completa del coding, con revisione senior, standard condivisi e verifiche prima dell'integrazione.",
         },
         {
-          title: "4. Evoluzione",
-          text: "Monitoraggio, manutenzione evolutiva e nuove funzionalita basate su dati reali.",
+          title: "4. Verifica, hardening e rilascio",
+          text: "Test funzionali e tecnici, hardening sicurezza/performance e rilascio controllato su ambienti reali.",
+        },
+        {
+          title: "5. Miglioramento continuo su metriche",
+          text: "Monitoriamo stabilita, performance e impatto business per guidare evoluzioni progressive senza regressioni.",
         },
       ],
     },

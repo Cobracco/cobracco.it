@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     "consulenza sviluppo software",
     "delivery software enterprise",
     "governance progetto software",
+    "sviluppo software con AI",
+    "ai engineering",
+    "governance AI sviluppo software",
+    "automazione coding",
+    "quality gate software",
   ],
   alternates: {
     canonical: "/servizi",

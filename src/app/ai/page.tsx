@@ -28,7 +28,7 @@ export default function AiPage() {
       <Section title="Approfondimenti">
         <div className="space-y-2 text-sm text-[var(--color-ink-soft)]">
           <Link href="/blog/ai-in-azienda-casi-uso-pmi">
-            AI in azienda: 5 casi d&apos;uso concreti per medie e grandi imprese
+            AI in azienda: 5 casi d&apos;uso concreti per imprese con sistemi complessi
           </Link>
         </div>
       </Section>

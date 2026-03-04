@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sviluppo software enterprise su misura",
+    title: "Software ad alte prestazioni con AI sotto controllo esperto",
     description: siteContent.pages.home.meta.description,
     url: "/",
   },
@@ -68,7 +68,7 @@ export default function Home() {
                 className="h-28 w-28"
               />
               <div className="text-sm text-[var(--color-ink-soft)]">
-                Software engineering partner
+                AI engineering partner
               </div>
             </div>
             <p className="mt-5 text-sm text-[var(--color-ink-soft)]">
@@ -103,7 +103,7 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3">
             <Card
               title="Sviluppo software su misura"
-              text="Per medie e grandi imprese che vogliono software affidabile, integrato con CRM, ERP e processi reali."
+              text="Per imprese con sistemi complessi che vogliono software ad alte prestazioni, integrato con CRM, ERP e processi reali."
             >
               <Link href="/sviluppo-software" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
                 Vai alla pagina sviluppo software
@@ -111,7 +111,7 @@ export default function Home() {
             </Card>
             <Card
               title="MVP per startup"
-              text="Per team di prodotto che devono validare una nuova iniziativa con tempi e budget controllati."
+              text="Per team di prodotto che devono validare in tempi rapidi, con base tecnica solida e controllo dei costi."
             >
               <Link href="/mvp-startup" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
                 Vai alla pagina MVP startup
@@ -119,7 +119,7 @@ export default function Home() {
             </Card>
             <Card
               title="Supporto specialistico senior"
-              text="Per team che richiedono una competenza senior su parti critiche del progetto e della delivery."
+              text="Per team che richiedono competenza senior su moduli critici, quality gate e accelerazione delivery con AI governata."
             >
               <Link href="/freelance-sviluppatore-software" className="mt-4 inline-block text-sm font-semibold text-[var(--color-accent)]">
                 Vai alla pagina freelance software
@@ -133,7 +133,7 @@ export default function Home() {
             <Card title={aiSummary.title} text={aiSummary.text} />
             <Card
               title="Operativita"
-              text="Sede a Roma, lavoro remoto su tutta Italia con standard operativi e governance condivisa."
+              text="Sede a Roma, operativita in tutta Italia con standard elevati, governance condivisa e costi competitivi e trasparenti."
             />
           </div>
         </Section>
