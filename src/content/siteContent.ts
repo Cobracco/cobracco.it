@@ -576,6 +576,24 @@
         text: "Alcuni esempi di iniziative su cui mettiamo competenza e responsabilità.",
         items: [
           {
+            title: "SuperAI",
+            href: "https://ai.cobracco.it",
+            linkLabel: "Visita SuperAI",
+            description:
+              "Piattaforma AI chat-first con API OpenAI-compatible, console admin separata e governance completa di provider, billing, configurazioni e workflow operativi.",
+            image: {
+              src: "/projects/superai.png",
+              alt: "Screenshot piattaforma SuperAI",
+            },
+            highlights: [
+              "Web app chat-first e sessioni utente tenant-scoped",
+              "API OpenAI-compatible per chat, responses, embeddings e models",
+              "Admin console per configurazioni, provider health, billing e governance",
+              "Workflow documenti, deck generation e copilot in streaming SSE",
+              "Source of truth persistente su SQL Server con audit e policy versionate",
+            ],
+          },
+          {
             title: "Redemptor",
             href: "https://www.redemptor.it",
             linkLabel: "Visita Redemptor",
