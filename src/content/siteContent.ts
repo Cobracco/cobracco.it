@@ -576,24 +576,6 @@
         text: "Alcuni esempi di iniziative su cui mettiamo competenza e responsabilità.",
         items: [
           {
-            title: "SkillsCloud",
-            href: "https://skillscloud.it",
-            linkLabel: "Visita SkillsCloud",
-            description:
-              "Recruiter SkillsCloud: il sistema di gestione delle candidature di SkillsCloud.",
-            image: {
-              src: "/projects/skillscloud.png",
-              alt: "Screenshot piattaforma SkillsCloud",
-            },
-            highlights: [
-              "Gestione posizioni e candidature (ATS)",
-              "Pubblicazione annunci e contenuti",
-              "Questionari e workflow di selezione",
-              "Statistiche e analisi operative",
-              "Matching assistito (AI)",
-            ],
-          },
-          {
             title: "Redemptor",
             href: "https://www.redemptor.it",
             linkLabel: "Visita Redemptor",
