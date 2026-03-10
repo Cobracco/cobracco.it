@@ -16,6 +16,13 @@ type BuildLinkedInSlidesResponseParams = {
   sourceFile: string;
 };
 
+type ImageSource = {
+  mimeType: string;
+  base64: string;
+};
+
+const SAFE_SOURCE_FILE_PATTERN = /^[a-z0-9-]+\.html$/;
+
 function escapeHtml(value: string): string {
   return value
     .replaceAll("&", "&amp;")
@@ -29,35 +36,64 @@ function stripHtml(value: string): string {
   return value.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-export async function buildLinkedInSlidesResponse(
-  params: BuildLinkedInSlidesResponseParams
-): Promise<Response> {
-  const canonicalUrl = `https://cobracco.it/lp/linkedin-servizi/${params.section}/${params.slug}`;
-  const sourcePath = path.join(
-    process.cwd(),
-    "public",
-    "linkedin",
-    params.sourceFile
-  );
+export function getLinkedInSourcePath(sourceFile: string): string {
+  if (!SAFE_SOURCE_FILE_PATTERN.test(sourceFile)) {
+    throw new Error("source file non valido");
+  }
 
+  return path.join(process.cwd(), "public", "linkedin", sourceFile);
+}
+
+export async function readLinkedInSlides(sourceFile: string): Promise<Slide[]> {
+  const sourcePath = getLinkedInSourcePath(sourceFile);
   const source = await fs.readFile(sourcePath, "utf8");
   const match = source.match(/const slides = (\[[\s\S]*?\]);/);
   if (!match) {
-    return new Response("Slides non trovate", { status: 500 });
+    throw new Error("Slides non trovate");
   }
 
   const slides = JSON.parse(match[1]) as Slide[];
   if (!slides.length) {
-    return new Response("Deck vuoto", { status: 500 });
+    throw new Error("Deck vuoto");
+  }
+
+  return slides;
+}
+
+export function parseInlineImageDataUri(dataUri: string): ImageSource {
+  const match = dataUri.match(/^data:(image\/[a-zA-Z0-9+.-]+);base64,(.+)$/);
+  if (!match) {
+    throw new Error("Formato immagine non supportato");
+  }
+
+  return {
+    mimeType: match[1],
+    base64: match[2],
+  };
+}
+
+export async function buildLinkedInSlidesResponse(
+  params: BuildLinkedInSlidesResponseParams
+): Promise<Response> {
+  const canonicalUrl = `https://cobracco.it/lp/linkedin-servizi/${params.section}/${params.slug}`;
+  let slides: Slide[];
+  try {
+    slides = await readLinkedInSlides(params.sourceFile);
+  } catch (error) {
+    return new Response(
+      error instanceof Error ? error.message : "Errore lettura slide",
+      { status: 500 }
+    );
   }
 
   const ogTitle = slides[0]?.title ?? "Presentazione";
   const ogDescription = stripHtml(slides[0]?.content ?? "").slice(0, 220);
-  const ogImage = slides[0]?.imgData ?? "https://cobracco.it/projects/superai.png";
+  const imageBaseUrl = `https://cobracco.it/lp/linkedin-servizi/image?file=${encodeURIComponent(params.sourceFile)}`;
+  const ogImage = `${imageBaseUrl}&index=0`;
 
   const slidesHtml = slides
     .map(
-      (slide) => `
+      (slide, index) => `
       <section class="slide">
         <div class="content">
           <span class="tag">${escapeHtml(slide.subtitle)}</span>
@@ -65,7 +101,7 @@ export async function buildLinkedInSlidesResponse(
           <div class="body">${slide.content}</div>
         </div>
         <div class="media">
-          <img src="${slide.imgData}" alt="${escapeHtml(slide.title)}" />
+          <img src="${imageBaseUrl}&index=${index}" alt="${escapeHtml(slide.title)}" loading="lazy" />
         </div>
       </section>`
     )
