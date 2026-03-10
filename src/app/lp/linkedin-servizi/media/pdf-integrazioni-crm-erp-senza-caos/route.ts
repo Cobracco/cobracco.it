@@ -1,18 +1,9 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
+import { buildLinkedInSlidesResponse } from "../../_lib/slideDeck";
 
 export async function GET() {
-  const htmlPath = path.join(
-    process.cwd(),
-    "public",
-    "linkedin",
-    "pdf-integrazioni-crm-erp-senza-caos.html"
-  );
-  const html = await fs.readFile(htmlPath, "utf8");
-
-  return new Response(html, {
-    headers: {
-      "Content-Type": "text/html; charset=utf-8",
-    },
+  return buildLinkedInSlidesResponse({
+    section: "media",
+    slug: "pdf-integrazioni-crm-erp-senza-caos",
+    sourceFile: "pdf-integrazioni-crm-erp-senza-caos.html",
   });
 }
