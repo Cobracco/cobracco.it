@@ -6,14 +6,13 @@ export async function GET() {
     process.cwd(),
     "public",
     "linkedin",
-    "cover-manifesto-servizi.html"
+    "erp-crm-non-si-parlano.html"
   );
   const html = await fs.readFile(htmlPath, "utf8");
 
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      "X-Robots-Tag": "noindex, nofollow",
     },
   });
 }
