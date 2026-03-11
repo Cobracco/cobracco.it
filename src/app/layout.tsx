@@ -80,6 +80,7 @@ const GA_ID =
   process.env.GA_ID || process.env.NEXT_PUBLIC_GA_ID || DEFAULT_GA_ID;
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 const GTAG_ID = GA_ID || GOOGLE_ADS_ID;
+const LINKEDIN_PARTNER_ID = "9699649";
 const gtagInlineScript = GTAG_ID
   ? `
       window.dataLayer = window.dataLayer || [];
@@ -113,6 +114,23 @@ const gtagInlineScript = GTAG_ID
       ${GOOGLE_ADS_ID ? `gtag('config','${GOOGLE_ADS_ID}');` : ""}
     `
   : "";
+const linkedinInsightInlineScript = `
+  _linkedin_partner_id = "${LINKEDIN_PARTNER_ID}";
+  window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  (function(l) {
+    if (!l) {
+      window.lintrk = function(a, b) { window.lintrk.q.push([a, b]); };
+      window.lintrk.q = [];
+    }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";
+    b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+  })(window.lintrk);
+`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -161,6 +179,9 @@ export default function RootLayout({
             </Script>
           </>
         ) : null}
+        <Script id="linkedin-insight" strategy="afterInteractive">
+          {linkedinInsightInlineScript}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -181,6 +202,15 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ConsentBanner />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src={`https://px.ads.linkedin.com/collect/?pid=${LINKEDIN_PARTNER_ID}&fmt=gif`}
+          />
+        </noscript>
       </body>
     </html>
   );
