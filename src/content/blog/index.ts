@@ -18,6 +18,117 @@ export type BlogPost = {
 
 const seedPosts: BlogPost[] = [
   {
+    slug: "home-assistant-termogea-integrazione-locale-zone-policy",
+    title:
+      "Home Assistant Termogea: integrazione locale con policy presenza e gestione zone",
+    description:
+      "Analisi tecnica del repository Cobracco/home-assistant-termogea: climate per zona, policy presenza, persistenza nativa e servizi operativi in Home Assistant.",
+    date: "2026-03-11",
+    readingTime: "7 min",
+    keywords: [
+      "Home Assistant",
+      "Termogea",
+      "custom integration",
+      "climate zone",
+      "presenza",
+      "automazione",
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: "Il repository `home-assistant-termogea` e una custom integration Home Assistant orientata a un caso reale: controllare impianti Termogea in locale, con logica di presenza persone e gestione multi-zona persistente. Non e un prototipo minimo, ma una base operativa con config flow, storage e servizi dedicati.",
+      },
+      {
+        type: "paragraph",
+        text: "### Architettura: integrazione locale e polling controllato",
+      },
+      {
+        type: "paragraph",
+        text: "Nel `manifest.json` l'integrazione dichiara `integration_type: hub` e `iot_class: local_polling`. Questo significa che il dialogo con il controller avviene sulla rete locale e che lo stato viene aggiornato con un ciclo di polling configurabile (default 30 secondi, range 10-300).",
+      },
+      {
+        type: "paragraph",
+        text: "Dal punto di vista operativo e un vantaggio importante: minore dipendenza da cloud esterni e comportamento piu prevedibile in ambienti residenziali o office.",
+      },
+      {
+        type: "paragraph",
+        text: "### Entita esposte: climate, sensor e binary_sensor",
+      },
+      {
+        type: "list",
+        items: [
+          "Entita `climate` per ogni zona con mapping completo",
+          "Supporto a target temperature e modalita heat/off dove disponibile",
+          "Sensori di policy per capire target effettivo, modalita attiva e zone configurate",
+          "Binary sensor per stato presenza persone, presenza rilevata e abilitazione zona",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "In pratica non hai solo il controllo temperatura: hai anche telemetria utile per dashboard e troubleshooting della logica di automazione.",
+      },
+      {
+        type: "paragraph",
+        text: "### Config flow e persistenza: meno YAML, piu governance",
+      },
+      {
+        type: "paragraph",
+        text: "Il progetto usa `config_flow` e `options flow` per gestire connessione, impostazioni globali, zone, schedule e mapping registri. La persistenza e gestita da storage interno (`TermogeaStorageManager`) e include anche import legacy da YAML.",
+      },
+      {
+        type: "paragraph",
+        text: "Questo approccio riduce errori manuali, rende le modifiche piu tracciabili e facilita la manutenzione quando il numero di zone cresce.",
+      },
+      {
+        type: "paragraph",
+        text: "### Policy di zona: persone, sensori e fallback termici",
+      },
+      {
+        type: "paragraph",
+        text: "Uno dei punti piu interessanti e il motore di policy: ogni zona puo combinare persone assegnate, sensore di presenza e parametri come common area, manual override e preset termici (comfort, eco, away, night, inactive).",
+      },
+      {
+        type: "paragraph",
+        text: "Quando l'integrazione applica una policy, calcola decisione e target effettivo e poi scrive i registri necessari sul controller (setpoint e, se previsto, stato HVAC).",
+      },
+      {
+        type: "paragraph",
+        text: "### Servizi utili in esercizio",
+      },
+      {
+        type: "list",
+        items: [
+          "`termogea.apply_zone_policy` per applicare la policy a una singola zona",
+          "`termogea.apply_all_zone_policies` per riallineare tutte le zone",
+          "`termogea.force_relogin` per forzare una nuova autenticazione",
+          "`termogea.import_legacy_yaml` per migrazione configurazioni pregresse",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Sono servizi pratici in fase di commissioning e nelle attivita di supporto, perche permettono di validare rapidamente comportamento e coerenza stato.",
+      },
+      {
+        type: "paragraph",
+        text: "### Perche questo repository e rilevante per progetti reali",
+      },
+      {
+        type: "paragraph",
+        text: "Per chi integra automazione edificio e software su misura, `home-assistant-termogea` mostra un pattern solido: logica locale, configurazione via UI, policy esplicite, telemetria leggibile e migrazione da legacy. E una base concreta per ridurre attrito operativo e aumentare controllabilita nel tempo.",
+      },
+      {
+        type: "paragraph",
+        text: "Repository: https://github.com/Cobracco/home-assistant-termogea",
+      },
+      {
+        type: "cta",
+        text: "Vuoi integrare impianti e processi operativi in modo piu robusto con Home Assistant?",
+        href: "/contatti",
+        label: "Parla con noi",
+      },
+    ],
+  },
+  {
     slug: "vantaggi-odoo-crm-per-la-direzione-commerciale",
     title: "Odoo CRM: vantaggi concreti per la direzione commerciale",
     description:
