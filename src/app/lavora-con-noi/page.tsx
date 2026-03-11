@@ -8,6 +8,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.lavoraConNoi.meta.title,
   description: siteContent.pages.lavoraConNoi.meta.description,
+  alternates: {
+    canonical: "/lavora-con-noi",
+  },
 };
 
 export default function LavoraConNoiPage() {

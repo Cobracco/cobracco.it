@@ -8,6 +8,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.ai.meta.title,
   description: siteContent.pages.ai.meta.description,
+  alternates: {
+    canonical: "/ai",
+  },
 };
 
 export default function AiPage() {

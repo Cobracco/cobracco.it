@@ -7,6 +7,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.metodo.meta.title,
   description: siteContent.pages.metodo.meta.description,
+  alternates: {
+    canonical: "/metodo",
+  },
 };
 
 export default function MetodoPage() {
@@ -24,4 +27,3 @@ export default function MetodoPage() {
     </Container>
   );
 }
-

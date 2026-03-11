@@ -68,7 +68,6 @@ export const metadata: Metadata = {
     images: ["/logos/logo-primary.png"],
   },
   alternates: {
-    canonical: "/",
     languages: {
       it: "/",
     },

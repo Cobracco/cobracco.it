@@ -7,6 +7,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.contatti.meta.title,
   description: siteContent.pages.contatti.meta.description,
+  alternates: {
+    canonical: "/contatti",
+  },
 };
 
 export default function ContattiPage() {

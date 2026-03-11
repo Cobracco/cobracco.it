@@ -10,6 +10,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.progettiStrategici.meta.title,
   description: siteContent.pages.progettiStrategici.meta.description,
+  alternates: {
+    canonical: "/progetti-strategici",
+  },
 };
 
 export default function ProgettiStrategiciPage() {

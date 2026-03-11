@@ -6,6 +6,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: `Trattamento dei dati | ${siteContent.brand.name}`,
   description: "Informativa sintetica sul trattamento dei dati personali.",
+  alternates: {
+    canonical: "/trattamento-dati",
+  },
 };
 
 export default function TrattamentoDatiPage() {

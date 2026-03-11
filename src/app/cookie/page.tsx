@@ -6,6 +6,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: `Gestione cookie | ${siteContent.brand.name}`,
   description: "Informativa sintetica sulla gestione dei cookie.",
+  alternates: {
+    canonical: "/cookie",
+  },
 };
 
 export default function CookiePage() {

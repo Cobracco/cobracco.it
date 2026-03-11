@@ -7,6 +7,9 @@ import { siteContent } from "@/content/siteContent";
 export const metadata: Metadata = {
   title: siteContent.pages.chiSiamo.meta.title,
   description: siteContent.pages.chiSiamo.meta.description,
+  alternates: {
+    canonical: "/chi-siamo",
+  },
 };
 
 export default function ChiSiamoPage() {
@@ -28,4 +31,3 @@ export default function ChiSiamoPage() {
     </Container>
   );
 }
-
