@@ -594,6 +594,24 @@
             ],
           },
           {
+            title: "FullEngage",
+            href: "https://app.fullengage.it",
+            linkLabel: "Visita FullEngage",
+            description:
+              "Piattaforma di recruiting intelligente basata su architettura monorepo e microservizi: sito pubblico, dashboard candidato, hub recruiter e console superadmin con autenticazione cross-domain e workflow AI sui dati profilo.",
+            image: {
+              src: "/projects/fullengage.png",
+              alt: "Logo piattaforma FullEngage",
+            },
+            highlights: [
+              "Monorepo npm workspaces con libreria UI condivisa e quattro frontend distinti",
+              "Dashboard candidato con profilo, documenti, LinkedIn integration e smart processing",
+              "Recruiter hub per progetti, selezioni e gestione team",
+              "Sistema pubblico profili con permessi granulari, tracking visualizzazioni e notifiche",
+              "Feature operative su WhatsApp Business, analisi documentale AI e superadmin governance",
+            ],
+          },
+          {
             title: "Redemptor",
             href: "https://www.redemptor.it",
             linkLabel: "Visita Redemptor",
