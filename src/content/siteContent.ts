@@ -4,7 +4,7 @@
     tagline: "AI engineering partner per imprese con sistemi complessi.",
     description:
       "Sviluppiamo software ad alte prestazioni per imprese con sistemi complessi: AI in tutte le fasi del progetto, automazione completa sul coding e governance continua di sviluppatori senior.",
-    siteUrl: "https://cobracco.it",
+    siteUrl: "https://www.cobracco.it",
   },
   seo: {
     primaryKeywords: [
@@ -491,7 +491,7 @@
         },
         {
           title: "Automazione coding supervisionata",
-          text: "Automatizziamo il coding con strumenti avanzati, mantenendo review senior su architettura, sicurezza e manutenibilita.",
+          text: "Operiamo con Nexus, la nostra piattaforma interna di orchestrazione multi-agente: 60 agenti specializzati, 314 tool MCP e supervisore AI continuo. Review senior su architettura, sicurezza e manutenibilita rimane sempre in carico al team.",
         },
         {
           title: "Test, quality gate e osservabilita",
@@ -609,6 +609,25 @@
               "Recruiter hub per progetti, selezioni e gestione team",
               "Sistema pubblico profili con permessi granulari, tracking visualizzazioni e notifiche",
               "Feature operative su WhatsApp Business, analisi documentale AI e superadmin governance",
+            ],
+          },
+          {
+            title: "Nexus",
+            href: "https://nexus.cobracco.it",
+            linkLabel: "Visita Nexus",
+            image: {
+              src: "/projects/nexus.png",
+              alt: "Nexus — piattaforma di orchestrazione multi-agente con Q-Learning router e Web IDE",
+            },
+            description:
+              "Piattaforma di orchestrazione multi-agente con Web IDE integrata: routing Q-Learning, 60 tipi di agente specializzati, 314 tool MCP e vector database nativo per accelerare lo sviluppo software con supervisione AI continua.",
+            highlights: [
+              "Q-Learning router con selezione agente <1ms su 60 tipi specializzati (Coder, Reviewer, Architect, SecurityArchitect, GitHub PR Manager e altri)",
+              "314 tool MCP nativi in 17 categorie: code analysis, testing, security, refactoring, deployment, database, API e memoria vettoriale",
+              "RuVector: vector database HNSW nativo Rust con ricerca semantica <5ms su 1M vettori e ottimizzazione SONA <0.05ms",
+              "12 learning worker in background: pattern extraction, audit sicurezza, consolidamento memoria, clustering e Q-value replay continuo",
+              "Supervisore AI multi-modalita (Anomaly / Interleaved / Continuous) su ogni run agente con redirect correttivo automatico",
+              "5 provider AI con routing adattivo per intent e complessita: Anthropic, OpenAI, Google, DeepSeek, Mistral",
             ],
           },
           {

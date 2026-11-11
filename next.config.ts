@@ -24,6 +24,16 @@ const linkedinDeckCsp =
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "cobracco.it" }],
+        destination: "https://www.cobracco.it/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

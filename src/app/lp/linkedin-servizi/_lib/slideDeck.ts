@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { siteContent } from "@/content/siteContent";
 
 type LinkedInDeckSection = "esempi" | "media";
 
@@ -75,7 +76,7 @@ export function parseInlineImageDataUri(dataUri: string): ImageSource {
 export async function buildLinkedInSlidesResponse(
   params: BuildLinkedInSlidesResponseParams
 ): Promise<Response> {
-  const canonicalUrl = `https://cobracco.it/lp/linkedin-servizi/${params.section}/${params.slug}`;
+  const canonicalUrl = `${siteContent.brand.siteUrl}/lp/linkedin-servizi/${params.section}/${params.slug}`;
   let slides: Slide[];
   try {
     slides = await readLinkedInSlides(params.sourceFile);
@@ -88,7 +89,7 @@ export async function buildLinkedInSlidesResponse(
 
   const ogTitle = slides[0]?.title ?? "Presentazione";
   const ogDescription = stripHtml(slides[0]?.content ?? "").slice(0, 220);
-  const imageBaseUrl = `https://cobracco.it/lp/linkedin-servizi/image?file=${encodeURIComponent(params.sourceFile)}`;
+  const imageBaseUrl = `${siteContent.brand.siteUrl}/lp/linkedin-servizi/image?file=${encodeURIComponent(params.sourceFile)}`;
   const ogImage = `${imageBaseUrl}&index=0`;
 
   const slidesHtml = slides

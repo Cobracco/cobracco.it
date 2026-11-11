@@ -34,7 +34,11 @@
       - traefik.http.routers.app-root.entrypoints=websecure
       - traefik.http.routers.app-root.tls.certresolver=le
       - traefik.http.routers.app-root.service=cobracco
-      - traefik.http.routers.app-root.middlewares=security-headers
+      - traefik.http.routers.app-root.middlewares=cobracco-root-to-www
+
+      - traefik.http.middlewares.cobracco-root-to-www.redirectregex.regex=^https://cobracco\\.it/(.*)
+      - traefik.http.middlewares.cobracco-root-to-www.redirectregex.replacement=https://www.cobracco.it/$${1}
+      - traefik.http.middlewares.cobracco-root-to-www.redirectregex.permanent=true
 
       - traefik.http.middlewares.security-headers.headers.contentTypeNosniff=true
       - traefik.http.middlewares.security-headers.headers.referrerPolicy=strict-origin-when-cross-origin
