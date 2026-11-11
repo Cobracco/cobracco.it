@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/progetti-strategici",
     "/chi-siamo",
     "/lavora-con-noi",
+    "/faq",
     "/blog",
     "/contatti",
   ];

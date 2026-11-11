@@ -43,16 +43,15 @@ export default function Header() {
   return (
     <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur">
       <Container className="flex flex-nowrap items-center justify-between gap-3 py-4 sm:gap-4 sm:py-5 xl:flex-wrap">
-        <Link href="/" className="flex min-w-0 items-center gap-2 text-base font-semibold sm:gap-3 sm:text-lg">
+        <Link href="/" className="flex min-w-0 items-center" aria-label={siteContent.brand.name}>
           <Image
-            src="/logos/logo-primary.png"
-            alt="Cobracco logo"
-            width={56}
-            height={56}
-            className="h-10 w-10 sm:h-14 sm:w-14"
+            src="/logos/cobracco-logo-full-light.png"
+            alt={siteContent.brand.name}
+            width={811}
+            height={433}
+            className="w-24 sm:w-28"
             priority
           />
-          <span className="truncate">{siteContent.brand.name}</span>
         </Link>
         <nav
           aria-label="Navigazione principale"

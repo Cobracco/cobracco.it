@@ -24,6 +24,12 @@
       "governance AI sviluppo software",
       "automazione coding",
       "quality gate software",
+      "orchestrazione AI",
+      "piattaforma orchestrazione LLM",
+      "LLM on-premise",
+      "AI on-premise aziendale",
+      "governance LLM multi-provider",
+      "sovranità del dato AI",
     ],
     startupKeywords: [
       "mvp startup",
@@ -50,6 +56,7 @@
     { label: "Progetti strategici", href: "/progetti-strategici" },
     { label: "Chi siamo", href: "/chi-siamo" },
     { label: "Lavora con noi", href: "/lavora-con-noi" },
+    { label: "FAQ", href: "/faq" },
     { label: "Blog", href: "/blog" },
   ],
   navigationGroups: [
@@ -71,6 +78,7 @@
         { label: "Metodo", href: "/metodo" },
         { label: "Progetti strategici", href: "/progetti-strategici" },
         { label: "Lavora con noi", href: "/lavora-con-noi" },
+        { label: "FAQ", href: "/faq" },
       ],
     },
     { label: "Blog", href: "/blog" },
@@ -498,6 +506,10 @@
           text: "Applichiamo test automatici, verifiche strutturate e monitoraggio continuo per mantenere stabilita e qualita del software.",
         },
         {
+          title: "Orchestrazione AI con Nexus",
+          text: "Portiamo in progetto Nexus, la piattaforma di orchestrazione che sviluppiamo internamente: un solo gateway verso più modelli, instradamento guidato dalla sensibilità del dato e tracciabilità completa di ogni chiamata.",
+        },
+        {
           title: "Assistenti operativi su misura",
           text: "Costruiamo assistenti e workflow intelligenti per ridurre tempi operativi senza perdere controllo su dati e decisioni.",
         },
@@ -576,6 +588,25 @@
         text: "Alcuni esempi di iniziative su cui mettiamo competenza e responsabilità.",
         items: [
           {
+            title: "Nexus",
+            href: "/contatti",
+            linkLabel: "Richiedi una demo di Nexus",
+            image: {
+              src: "/projects/nexus.svg",
+              alt: "Schema dell'architettura di Nexus: gateway unico tra applicazioni e fornitori di modelli",
+            },
+            description:
+              "Piattaforma di orchestrazione AI governata da policy, sviluppata internamente da Cobracco: core in Rust, instradamento verso più fornitori di modelli linguistici, quality gate automatici e tracciabilità completa di ogni decisione presa dai modelli.",
+            highlights: [
+              "Gateway unico verso i principali fornitori di LLM, con instradamento guidato dai dati invece che da regole fisse",
+              "Instradamento per livello di sensibilità: embedding, reranking e classificazione restano in locale, verso il cloud esce solo la generazione",
+              "Oscuramento dei dati personali su ogni payload in uscita e registro strutturato di ogni chiamata ai modelli",
+              "Portabilità on-premise: lo stesso impianto gira su modelli self-hosted cambiando configurazione, non codice applicativo",
+              "Quality gate automatici sul codice prodotto: nessuna modifica entra nel ramo principale senza superare la verifica completa",
+              "Motore agenti nativo in Rust con IDE web, CLI ed estensione per editor; dati su PostgreSQL, Redis e database vettoriale",
+            ],
+          },
+          {
             title: "SuperAI",
             href: "https://ai.cobracco.it",
             linkLabel: "Visita SuperAI",
@@ -634,6 +665,116 @@
       callToAction: {
         title: "Hai un progetto strategico?",
         text: "Raccontaci obiettivi e vincoli: definiamo insieme un percorso chiaro e realizzabile.",
+        buttonLabel: "Parla con noi",
+        buttonHref: "/contatti",
+      },
+    },
+    faq: {
+      meta: {
+        title: "Domande frequenti",
+        description:
+          "Risposte dirette su Cobracco: sviluppo software su misura, uso dell'AI nello sviluppo, piattaforma di orchestrazione Nexus, trattamento dei dati, tempi e modalità di avvio di un progetto.",
+      },
+      hero: {
+        title: "Domande frequenti su Cobracco",
+        subtitle:
+          "Risposte brevi e verificabili alle domande che riceviamo più spesso: come lavoriamo, come usiamo l'AI, come trattiamo i dati, quanto dura un progetto e come si parte.",
+      },
+      groups: [
+        {
+          title: "Cobracco in breve",
+          items: [
+            {
+              question: "Che cosa fa Cobracco?",
+              answer:
+                "Cobracco è una software house italiana che sviluppa software su misura per imprese con sistemi complessi. Le aree principali sono applicazioni web e mobile, integrazioni tra ERP, CRM e servizi esterni, modernizzazione di gestionali legacy, dashboard di analisi dati e soluzioni di intelligenza artificiale applicata. Ogni progetto è seguito da sviluppatori senior che mantengono la responsabilità tecnica sulle decisioni di architettura.",
+            },
+            {
+              question: "Dove ha sede Cobracco e in quali aree lavora?",
+              answer:
+                "Cobracco ha sede a Roma e lavora con clienti in tutta Italia, operando da remoto con incontri in presenza quando il progetto lo richiede. La distanza non cambia il metodo: discovery strutturata, rilasci incrementali, demo periodiche e un referente tecnico senior costante per tutta la durata del progetto.",
+            },
+            {
+              question: "Qual è la differenza tra Cobracco e uno sviluppatore freelance?",
+              answer:
+                "Cobracco porta un team e un metodo, non una singola persona. Questo significa continuità quando qualcuno non è disponibile, revisione del codice fatta da chi non lo ha scritto, quality gate automatici prima di ogni integrazione e responsabilità sull'architettura oltre che sulla singola funzionalità. Cobracco offre comunque figure freelance senior dedicate quando il cliente cerca quel tipo di collaborazione.",
+            },
+          ],
+        },
+        {
+          title: "Intelligenza artificiale e piattaforma Nexus",
+          items: [
+            {
+              question: "Come usa l'intelligenza artificiale Cobracco nello sviluppo software?",
+              answer:
+                "Cobracco usa l'AI in tutte le fasi del progetto: analisi dei requisiti, progettazione, scrittura del codice e test. L'automazione è completa sul coding, mentre le decisioni di architettura, sicurezza e manutenibilità restano in mano a sviluppatori senior. Nessun output di un modello arriva in produzione senza revisione umana e senza aver superato i controlli automatici di qualità.",
+            },
+            {
+              question: "Che cos'è Nexus, la piattaforma di Cobracco?",
+              answer:
+                "Nexus è la piattaforma di orchestrazione AI che Cobracco sviluppa internamente. Mette un gateway unico davanti ai principali fornitori di modelli linguistici, sceglie il modello in base al tipo di richiesta e alla sensibilità del dato, applica policy di oscuramento sui dati personali e registra ogni chiamata in un audit trail consultabile. Il core è scritto in Rust e comprende un motore agenti nativo, IDE web, CLI ed estensione per editor.",
+            },
+            {
+              question: "Nexus può funzionare con modelli installati in azienda, senza cloud?",
+              answer:
+                "Sì. Nexus è progettato perché il codice applicativo non sappia quale fornitore sta usando: tutto passa da un gateway unificato. Spostare il carico su modelli self-hosted installati nell'infrastruttura del cliente richiede un cambio di configurazione e dell'adattatore del fornitore, non una riscrittura. Embedding, reranking, OCR e classificatori leggeri girano già in locale per impostazione predefinita.",
+            },
+            {
+              question: "Come viene controllata la qualità del codice scritto con l'AI?",
+              answer:
+                "Ogni modifica deve superare un quality gate automatico prima di entrare nel ramo principale: compilazione, analisi statica, linting, test automatici sui componenti impattati e verifiche di sicurezza. Il gate è vincolante, non consultivo: una modifica che lo rompe non viene integrata. Sopra ai controlli automatici resta la revisione di uno sviluppatore senior sulle scelte di architettura.",
+            },
+          ],
+        },
+        {
+          title: "Dati, sicurezza e conformità",
+          items: [
+            {
+              question: "I dati aziendali finiscono nei modelli di intelligenza artificiale?",
+              answer:
+                "No, non per impostazione predefinita. Cobracco definisce a monte quali dati possono uscire verso un fornitore esterno e quali restano all'interno. I dati personali vengono oscurati prima dell'invio, le elaborazioni che non richiedono un modello di grandi dimensioni restano in locale e ogni chiamata viene registrata. Nei contesti più rigidi l'intera elaborazione può restare su infrastruttura del cliente.",
+            },
+            {
+              question: "Cobracco può lavorare su dati soggetti al GDPR?",
+              answer:
+                "Sì. Privacy, sicurezza e conformità vengono definite nella fase di discovery, prima di scrivere codice: quali dati servono davvero, dove risiedono, chi può accedervi e per quanto tempo vengono conservati. Cobracco applica minimizzazione dei dati, accessi limitati per ruolo, oscuramento delle informazioni personali verso servizi esterni e tracciabilità dei flussi, così da rendere verificabili le scelte fatte.",
+            },
+          ],
+        },
+        {
+          title: "Progetti, tempi e avvio",
+          items: [
+            {
+              question: "Quanto tempo serve per realizzare un MVP con Cobracco?",
+              answer:
+                "Per un MVP con perimetro ben definito Cobracco lavora di norma su 4-6 settimane: una o due settimane di discovery e prototipo, poi sviluppo con demo settimanali, controllo qualità e rilascio. Un primo rilascio solido su un prodotto più articolato richiede più spesso 6-12 settimane. I progetti complessi vengono divisi in fasi, ciascuna con un risultato utilizzabile.",
+            },
+            {
+              question: "Quanto costa sviluppare un software su misura?",
+              answer:
+                "Il costo dipende dal perimetro, dalle integrazioni richieste e dal livello di affidabilità atteso, quindi Cobracco non pubblica listini: dopo una prima call viene definito il perimetro e proposto un piano con costi espliciti per fase. L'approccio è incrementale, così il cliente vede risultati utilizzabili prima di impegnare l'intero budget.",
+            },
+            {
+              question: "Cobracco si integra con ERP e CRM già in uso?",
+              answer:
+                "Sì, le integrazioni sono una delle aree principali di Cobracco. I casi tipici sono ERP e CRM che non si parlano, dati duplicati tra sistemi e processi in cui qualcuno ricopia a mano informazioni da un gestionale all'altro. Cobracco costruisce connessioni sicure tra sistemi interni, applicativi legacy e servizi esterni, con orchestrazione dei flussi e tracciabilità di ciò che viene scambiato.",
+            },
+            {
+              question: "Si può modernizzare un gestionale legacy senza fermare l'operatività?",
+              answer:
+                "Sì, ed è il percorso che Cobracco adotta di norma. Il sistema esistente resta in funzione mentre le parti vengono sostituite per gradi: prima si isolano i confini del vecchio applicativo, poi si spostano i flussi uno alla volta verso i nuovi componenti, mantenendo le due versioni allineate finché la migrazione non è completa. Nessuna interruzione del servizio e nessun blocco di mesi.",
+            },
+            {
+              question: "Come si inizia un progetto con Cobracco?",
+              answer:
+                "Si parte da una call senza impegno in cui si raccontano obiettivi, vincoli e sistemi già in uso. Da lì Cobracco propone un perimetro, un piano per fasi e i relativi costi. Scrivendo dalla pagina contatti del sito la risposta arriva entro 1-2 giorni lavorativi.",
+            },
+          ],
+        },
+      ],
+      callToAction: {
+        title: "Non hai trovato la risposta che cercavi?",
+        text: "Raccontaci contesto e vincoli del tuo progetto: ti rispondiamo con una valutazione concreta, non con una brochure.",
         buttonLabel: "Parla con noi",
         buttonHref: "/contatti",
       },

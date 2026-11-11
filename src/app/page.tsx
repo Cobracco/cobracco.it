@@ -61,7 +61,7 @@ export default function Home() {
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-white p-7 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <Image
-                src="/logos/logo-primary.png"
+                src="/logos/cobracco-icon-light.png"
                 alt="Logo Cobracco"
                 width={120}
                 height={120}

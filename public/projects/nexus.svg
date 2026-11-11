@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" width="1200" height="820" role="img" aria-label="Schema dell'architettura di Nexus: applicazioni e agenti passano dal gateway unico Nexus, che instrada verso fornitori cloud o modelli self-hosted applicando routing per sensibilità, oscuramento dei dati personali, quality gate e audit trail">
+  <defs>
+    <linearGradient id="gradienteNexus" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b2f6a"/>
+      <stop offset="100%" stop-color="#0092d6"/>
+    </linearGradient>
+    <linearGradient id="gradienteSfondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3f6fb"/>
+      <stop offset="100%" stop-color="#e1ebf7"/>
+    </linearGradient>
+    <marker id="freccia" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b7794"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="820" fill="url(#gradienteSfondo)"/>
+
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="60" y="78" font-size="34" font-weight="700" fill="#0f172a">Nexus</text>
+    <text x="60" y="114" font-size="20" fill="#475569">Orchestrazione AI governata da policy</text>
+
+    <!-- Livello 1: consumatori -->
+    <g>
+      <rect x="60" y="160" width="330" height="96" rx="18" fill="#ffffff" stroke="#cbd6e0"/>
+      <text x="90" y="200" font-size="19" font-weight="600" fill="#0f172a">Applicazioni e agenti</text>
+      <text x="90" y="228" font-size="15" fill="#475569">Processi del cliente, automazioni</text>
+
+      <rect x="430" y="160" width="330" height="96" rx="18" fill="#ffffff" stroke="#cbd6e0"/>
+      <text x="460" y="200" font-size="19" font-weight="600" fill="#0f172a">IDE web, CLI, editor</text>
+      <text x="460" y="228" font-size="15" fill="#475569">Sviluppo assistito e revisione</text>
+
+      <rect x="800" y="160" width="340" height="96" rx="18" fill="#ffffff" stroke="#cbd6e0"/>
+      <text x="830" y="200" font-size="19" font-weight="600" fill="#0f172a">Motore agenti in Rust</text>
+      <text x="830" y="228" font-size="15" fill="#475569">Piani, run e strumenti</text>
+    </g>
+
+    <line x1="225" y1="256" x2="225" y2="316" stroke="#5b7794" stroke-width="2" marker-end="url(#freccia)"/>
+    <line x1="595" y1="256" x2="595" y2="316" stroke="#5b7794" stroke-width="2" marker-end="url(#freccia)"/>
+    <line x1="970" y1="256" x2="970" y2="316" stroke="#5b7794" stroke-width="2" marker-end="url(#freccia)"/>
+
+    <!-- Livello 2: gateway -->
+    <rect x="60" y="320" width="1080" height="230" rx="24" fill="url(#gradienteNexus)"/>
+    <text x="96" y="372" font-size="24" font-weight="700" fill="#ffffff">Gateway unico Nexus</text>
+    <text x="96" y="402" font-size="16" fill="#d7e9f8">Il codice applicativo non sa quale fornitore sta rispondendo</text>
+
+    <g>
+      <rect x="96" y="430" width="240" height="88" rx="16" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
+      <text x="118" y="464" font-size="16" font-weight="600" fill="#ffffff">Routing</text>
+      <text x="118" y="490" font-size="14" fill="#d7e9f8">per sensibilità del dato</text>
+
+      <rect x="356" y="430" width="240" height="88" rx="16" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
+      <text x="378" y="464" font-size="16" font-weight="600" fill="#ffffff">Oscuramento</text>
+      <text x="378" y="490" font-size="14" fill="#d7e9f8">dei dati personali</text>
+
+      <rect x="616" y="430" width="240" height="88" rx="16" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
+      <text x="638" y="464" font-size="16" font-weight="600" fill="#ffffff">Quality gate</text>
+      <text x="638" y="490" font-size="14" fill="#d7e9f8">vincolanti sul codice</text>
+
+      <rect x="876" y="430" width="228" height="88" rx="16" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
+      <text x="898" y="464" font-size="16" font-weight="600" fill="#ffffff">Audit trail</text>
+      <text x="898" y="490" font-size="14" fill="#d7e9f8">di ogni chiamata</text>
+    </g>
+
+    <line x1="340" y1="550" x2="340" y2="620" stroke="#5b7794" stroke-width="2" marker-end="url(#freccia)"/>
+    <line x1="860" y1="550" x2="860" y2="620" stroke="#5b7794" stroke-width="2" marker-end="url(#freccia)"/>
+
+    <!-- Livello 3: fornitori -->
+    <g>
+      <rect x="60" y="624" width="560" height="130" rx="20" fill="#ffffff" stroke="#cbd6e0"/>
+      <text x="92" y="666" font-size="19" font-weight="600" fill="#0f172a">Fornitori cloud di modelli</text>
+      <text x="92" y="696" font-size="15" fill="#475569">Instradamento guidato dai dati, non da</text>
+      <text x="92" y="718" font-size="15" fill="#475569">regole fisse. Esce solo la generazione.</text>
+
+      <rect x="652" y="624" width="488" height="130" rx="20" fill="#ffffff" stroke="#0092d6"/>
+      <text x="684" y="666" font-size="19" font-weight="600" fill="#0f172a">Modelli self-hosted on-premise</text>
+      <text x="684" y="696" font-size="15" fill="#475569">Stesso impianto, cambia la configurazione</text>
+      <text x="684" y="718" font-size="15" fill="#475569">e non il codice applicativo.</text>
+    </g>
+
+    <text x="60" y="792" font-size="14" fill="#5b7794">Embedding, reranking e classificazione restano in locale per impostazione predefinita.</text>
+  </g>
+</svg>

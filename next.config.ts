@@ -24,6 +24,12 @@ const linkedinDeckCsp =
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  images: {
+    // Gli unici SVG serviti da next/image sono asset statici di questo repo.
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
   async headers() {
     return [
       {

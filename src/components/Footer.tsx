@@ -39,16 +39,14 @@ export default function Footer() {
     <footer className="border-t border-[var(--color-border)] bg-white">
       <Container className="grid gap-8 py-10 lg:grid-cols-3">
         <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logos/logo-primary.png"
-              alt="Cobracco logo"
-              width={40}
-              height={40}
-              className="h-10 w-10"
-            />
-            <p className="text-lg font-semibold">{siteContent.footer.headline}</p>
-          </div>
+          <Image
+            src="/logos/cobracco-logo-full-light.png"
+            alt={siteContent.brand.name}
+            width={811}
+            height={433}
+            className="w-24"
+          />
+          <p className="text-lg font-semibold">{siteContent.footer.headline}</p>
           <p className="text-sm text-[var(--color-ink-soft)]">{siteContent.footer.copy}</p>
           <div className="text-sm text-[var(--color-ink-soft)] space-y-1">
             <p>{siteContent.footer.address}</p>

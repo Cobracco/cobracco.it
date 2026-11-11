@@ -47,8 +47,8 @@ export default function ProgettiStrategiciPage() {
                     <div className="mt-5">
                       <Link
                         href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
+                        target={project.href.startsWith('http') ? '_blank' : undefined}
+                        rel={project.href.startsWith('http') ? 'noreferrer' : undefined}
                         className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#0b2f6a] to-[#0092d6] px-6 py-3 text-sm font-semibold tracking-wide !text-white shadow-lg shadow-[rgba(11,61,145,0.45)] transition hover:!text-white"
                       >
                         {project.linkLabel}

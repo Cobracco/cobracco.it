@@ -98,7 +98,7 @@ export async function POST(request: Request) {
       html: `
         <div style="font-family: Arial, Helvetica, sans-serif; color:#0f172a; line-height:1.5;">
           <div style="margin-bottom:16px;">
-            <img src="https://www.cobracco.it/logos/logo-primary.png" alt="Cobracco" width="160" style="display:block; height:auto;" />
+            <img src="https://www.cobracco.it/logos/cobracco-logo-full-light.png" alt="Cobracco" width="200" style="display:block; height:auto;" />
           </div>
           <h2 style="font-size:18px; margin:0 0 8px;">Nuova richiesta dal sito</h2>
           <p style="margin:0 0 16px;">È arrivata una nuova richiesta di contatto dal form.</p>
@@ -142,7 +142,7 @@ export async function POST(request: Request) {
       html: `
         <div style="font-family: Arial, Helvetica, sans-serif; color:#0f172a; line-height:1.6;">
           <div style="margin-bottom:16px;">
-            <img src="https://www.cobracco.it/logos/logo-primary.png" alt="Cobracco" width="160" style="display:block; height:auto;" />
+            <img src="https://www.cobracco.it/logos/cobracco-logo-full-light.png" alt="Cobracco" width="200" style="display:block; height:auto;" />
           </div>
           <p style="margin:0 0 12px;">Ciao ${name},</p>
           <p style="margin:0 0 12px;">

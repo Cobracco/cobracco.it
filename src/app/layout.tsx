@@ -43,7 +43,16 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon-2026.png",
+    icon: [
+      { url: "/logos/cobracco-icon-light-64.png", type: "image/png", sizes: "64x64" },
+      {
+        url: "/logos/cobracco-icon-dark-64.png",
+        type: "image/png",
+        sizes: "64x64",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: "/logos/cobracco-apple-touch.png",
   },
   openGraph: {
     title: siteContent.brand.name,
@@ -54,7 +63,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logos/logo-primary.png",
+        url: "/logos/cobracco-og.png",
         width: 1200,
         height: 630,
         alt: `${siteContent.brand.name} - sviluppo software`,
@@ -65,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteContent.brand.name,
     description: siteContent.brand.description,
-    images: ["/logos/logo-primary.png"],
+    images: ["/logos/cobracco-og.png"],
   },
   alternates: {
     languages: {
