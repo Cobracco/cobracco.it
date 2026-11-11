@@ -4,7 +4,7 @@
     tagline: "AI engineering partner per imprese con sistemi complessi.",
     description:
       "Sviluppiamo software ad alte prestazioni per imprese con sistemi complessi: AI in tutte le fasi del progetto, automazione completa sul coding e governance continua di sviluppatori senior.",
-    siteUrl: "https://cobracco.it",
+    siteUrl: "https://www.cobracco.it",
   },
   seo: {
     primaryKeywords: [

@@ -30,6 +30,16 @@ const nextConfig: NextConfig = {
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "cobracco.it" }],
+        destination: "https://www.cobracco.it/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
