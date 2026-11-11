@@ -1,0 +1,44 @@
+# Dipendenze: ricostruite dentro l'immagine con "npm ci"
+node_modules
+**/node_modules
+
+# Esito di compilazioni locali: rigenerato da "next build"
+.next
+out
+build
+coverage
+*.tsbuildinfo
+
+# Cronologia del versionamento: inutile al build
+.git
+.gitignore
+.gitattributes
+
+# Configurazione degli strumenti di sviluppo
+.claude
+.vscode
+.idea
+.DS_Store
+
+# Materiale di distribuzione: lo usa lo script sulla macchina, non il build
+.deploy
+Dockerfile
+.dockerignore
+docker-compose*.yml
+README.md
+
+# Registri e copie di sicurezza
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.bak
+*.bak.*
+*~
+
+# Variabili locali e di prova.
+# Attenzione: .env.production NON va escluso, il Dockerfile ne legge
+# NEXT_PUBLIC_GA_ID e le etichette di conversione durante la compilazione.
+.env.local
+.env.development
+.env.test
