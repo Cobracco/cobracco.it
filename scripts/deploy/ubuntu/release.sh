@@ -13,6 +13,7 @@ DEPLOY_HEALTHCHECK_URL=""
 DEPLOY_HEALTHCHECK_ATTEMPTS="30"
 DEPLOY_HEALTHCHECK_INTERVAL_SECONDS="2"
 DEPLOY_REQUIRED_FILES=""
+DEPLOY_TMPDIR=""
 
 if [[ -f "${CONFIG_FILE}" ]]; then
   # shellcheck disable=SC1090
@@ -100,6 +101,30 @@ fi
 if ! docker compose version >/dev/null 2>&1; then
   echo "Docker Compose plugin not available."
   exit 1
+fi
+
+# Alcune macchine impostano TMPDIR in /etc/environment su una cartella
+# riservata a root (per esempio /var/lib/docker/tmp). Le sessioni SSH non
+# interattive ereditano quel valore e il build si interrompe subito con
+# "can't access os.tempDir ...: permission denied". Se la cartella indicata
+# non è utilizzabile si ripiega sulla prima alternativa scrivibile:
+# DEPLOY_TMPDIR da .deploy/deploy.env, poi ~/tmp, poi /tmp.
+if [[ -n "${TMPDIR:-}" ]] && { [[ ! -d "${TMPDIR}" ]] || [[ ! -w "${TMPDIR}" ]]; }; then
+  BROKEN_TMPDIR="${TMPDIR}"
+  for candidate in "${DEPLOY_TMPDIR}" "${HOME:-}/tmp" "/tmp"; do
+    [[ -n "${candidate}" ]] || continue
+    mkdir -p "${candidate}" 2>/dev/null || true
+    if [[ -d "${candidate}" && -w "${candidate}" ]]; then
+      export TMPDIR="${candidate}"
+      break
+    fi
+  done
+  if [[ "${TMPDIR}" == "${BROKEN_TMPDIR}" ]]; then
+    echo "TMPDIR is not writable: ${BROKEN_TMPDIR}"
+    echo "Set DEPLOY_TMPDIR in ${CONFIG_FILE} to a writable directory."
+    exit 1
+  fi
+  echo "TMPDIR ${BROKEN_TMPDIR} is not writable, using ${TMPDIR} instead."
 fi
 
 cd "${ROOT_DIR}"
