@@ -589,8 +589,8 @@
         items: [
           {
             title: "Nexus",
-            href: "/contatti",
-            linkLabel: "Richiedi una demo di Nexus",
+            href: "https://nexus.cobracco.it",
+            linkLabel: "Visita Nexus",
             image: {
               src: "/projects/nexus.svg",
               alt: "Schema dell'architettura di Nexus: gateway unico tra applicazioni e fornitori di modelli",
