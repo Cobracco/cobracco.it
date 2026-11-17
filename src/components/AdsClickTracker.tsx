@@ -11,6 +11,7 @@ type CtaRule = {
 const ctaRules: CtaRule[] = [
   { path: "/contatti", eventName: "cta_contact_click" },
   { path: "/mvp-startup", eventName: "cta_mvp_click" },
+  { path: "/migrazione-shopify", eventName: "cta_migrazione_shopify_click" },
   { path: "/sviluppo-software", eventName: "cta_sviluppo_software_click" },
   {
     path: "/freelance-sviluppatore-software",

@@ -66,8 +66,8 @@ Atteso: errore generico (reCAPTCHA obbligatorio).
 - Google Ads usa lo stesso `gtag` e rispetta lo stesso consenso. Se configuri `NEXT_PUBLIC_GOOGLE_ADS_ID`, il tag Ads viene inizializzato; se configuri anche le label conversione (`..._CONTACT`, `..._CANDIDATURA` oppure fallback globale), al submit dei form viene inviato l'evento `conversion`.
 - Mappa eventi Ads implementata:
   - remarketing page view: `page_view` con `send_to=AW-...` su ogni pagina
-  - micro-conversioni pagina: `view_contact_page`, `view_mvp_page`, `view_sviluppo_software_page`, `view_freelance_software_page`, `view_blog_article_page`
-  - micro-conversioni click CTA: `cta_contact_click`, `cta_mvp_click`, `cta_sviluppo_software_click`, `cta_freelance_software_click`
+  - micro-conversioni pagina: `view_contact_page`, `view_mvp_page`, `view_migrazione_shopify_page`, `view_sviluppo_software_page`, `view_freelance_software_page`, `view_blog_article_page`
+  - micro-conversioni click CTA: `cta_contact_click`, `cta_mvp_click`, `cta_migrazione_shopify_click`, `cta_sviluppo_software_click`, `cta_freelance_software_click`
   - conversioni hard: `conversion` su submit `ContactForm` e `CandidaturaForm` (con label dedicate se presenti)
 - Il cookie di preferenza `cobracco_consent` può valere `accepted` o `rejected` e resta valido 180 giorni. Il banner e il pulsante “Gestisci consenso” nel footer permettono di riaprire la scelta in qualsiasi momento.
 - Per testare: cancella `cobracco_consent`, ricarica la pagina e osserva che `gtag.js` viene caricato ma non invia eventi finché non accetti. Dopo aver accettato, controlla in DevTools > Network che venga inviato `gtag('consent','update', ...)` e che partano i `page_view` e il `generate_lead` al submit del form.

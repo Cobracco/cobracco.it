@@ -12,6 +12,9 @@ function getIntentEventForPath(path: string) {
   if (path === "/mvp-startup") {
     return "view_mvp_page";
   }
+  if (path === "/migrazione-shopify") {
+    return "view_migrazione_shopify_page";
+  }
   if (path === "/sviluppo-software") {
     return "view_sviluppo_software_page";
   }
