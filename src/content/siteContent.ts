@@ -51,6 +51,7 @@
     { label: "Sviluppo Software", href: "/sviluppo-software" },
     { label: "AI", href: "/ai" },
     { label: "MVP Startup", href: "/mvp-startup" },
+    { label: "Migrazione a Shopify", href: "/migrazione-shopify" },
     { label: "Freelance Software", href: "/freelance-sviluppatore-software" },
     { label: "Metodo", href: "/metodo" },
     { label: "Progetti strategici", href: "/progetti-strategici" },
@@ -67,6 +68,7 @@
         { label: "Sviluppo Software", href: "/sviluppo-software" },
         { label: "AI", href: "/ai" },
         { label: "MVP Startup", href: "/mvp-startup" },
+        { label: "Migrazione a Shopify", href: "/migrazione-shopify" },
         { label: "Freelance Software", href: "/freelance-sviluppatore-software" },
       ],
     },
@@ -474,6 +476,164 @@
         title: "Prenota una call con il team",
         text: "Raccontaci la tua idea e valutiamo insieme scope, tempi e budget per il tuo MVP.",
         buttonLabel: "Prenota una call",
+        buttonHref: "/contatti",
+      },
+    },
+    migrazioneShopify: {
+      meta: {
+        title: "Migrazione a Shopify",
+        description:
+          "Portiamo su Shopify il tuo e-commerce PrestaShop, Magento, OpenCart o WooCommerce: catalogo, clienti, ordini, tema e reindirizzamenti. Porting standard gratuito.",
+      },
+      hero: {
+        title: "Il tuo e-commerce su Shopify, senza rifarlo da capo.",
+        subtitle:
+          "Portiamo su Shopify i negozi nati su piattaforme PHP ormai datate. Il porting del perimetro standard è gratuito: catalogo, clienti, storico ordini, tema e reindirizzamenti dai vecchi indirizzi.",
+      },
+      perChi: {
+        title: "Per chi è pensato",
+        items: [
+          "Negozi su PrestaShop 1.6 o 1.7",
+          "Negozi su Magento 1",
+          "Negozi su OpenCart o WooCommerce",
+          "Carrelli sviluppati su misura in PHP",
+          "Chi oggi spende in server, aggiornamenti e moduli più di quanto vorrebbe",
+        ],
+      },
+      cosaInclude: {
+        title: "Cosa comprende il porting",
+        items: [
+          "Catalogo: prodotti, varianti, immagini, categorie, prezzi e dati SEO",
+          "Clienti: anagrafiche, indirizzi e consenso al marketing",
+          "Ordini: lo storico, importato come archivio",
+          "Tema: un tema Shopify con il tuo logo, i tuoi colori e i tuoi menu",
+          "Reindirizzamenti: dai vecchi indirizzi di prodotti, categorie e pagine",
+          "Pagine informative e legali già presenti sul tuo sito",
+        ],
+      },
+      perche: {
+        title: "Perché cambiare piattaforma",
+        text: "Una piattaforma datata non smette di funzionare da un giorno all'altro: diventa ogni anno più costosa da tenere in piedi.",
+        items: [
+          {
+            title: "Sicurezza e aggiornamenti",
+            text: "Le versioni non più mantenute non ricevono correzioni di sicurezza. Su Shopify piattaforma, server e aggiornamenti sono gestiti da Shopify.",
+          },
+          {
+            title: "Costi prevedibili",
+            text: "Un abbonamento mensile al posto di server, manutenzione, moduli da rinnovare e interventi d'urgenza.",
+          },
+          {
+            title: "Cassa e pagamenti",
+            text: "La cassa di Shopify è già pronta per i metodi di pagamento più usati e per l'acquisto da telefono.",
+          },
+          {
+            title: "Autonomia",
+            text: "Prodotti, prezzi, promozioni e contenuti si gestiscono da un pannello pensato per chi vende, non per chi programma.",
+          },
+        ],
+      },
+      limiti: {
+        title: "Cosa non possiamo promettere",
+        text: "Un porting non è una copia identica, e preferiamo dirlo prima.",
+        items: [
+          "L'aspetto del negozio parte da un tema Shopify adattato alla tua identità: non è la riproduzione grafica fedele del vecchio sito.",
+          "Le funzioni sviluppate su misura sul vecchio sito vanno rifatte con app o con sviluppo dedicato: le valutiamo una per una e le quotiamo a parte.",
+          "La cassa di Shopify si personalizza a fondo solo con il piano Plus.",
+          "Gli indirizzi delle pagine cambiano: per questo carichiamo i reindirizzamenti dai vecchi ai nuovi.",
+          "Le password dei clienti non si possono trasferire: al primo accesso ogni cliente ne imposta una nuova.",
+          "Integrazioni con gestionali, magazzino, corrieri e marketplace, listini B2B e più negozi collegati sono fuori dal perimetro standard.",
+        ],
+      },
+      comeLavoriamo: {
+        title: "Come funziona",
+        steps: [
+          {
+            title: "1. Anteprima del tuo negozio",
+            text: "Su richiesta prepariamo un'anteprima privata su Shopify con una selezione dei tuoi prodotti, protetta da password: vedi il risultato prima di decidere.",
+          },
+          {
+            title: "2. Analisi",
+            text: "Verifichiamo piattaforma e versione di partenza, contiamo prodotti, clienti e ordini e ti diciamo per iscritto che cosa rientra nel perimetro standard e che cosa no.",
+          },
+          {
+            title: "3. Porting",
+            text: "Trasferiamo catalogo, clienti e ordini, prepariamo il tema e i reindirizzamenti. Il vecchio negozio resta in linea e continua a vendere.",
+          },
+          {
+            title: "4. Collaudo",
+            text: "Controlliamo insieme conteggi, prezzi, immagini, pagamenti e spedizioni con un ordine di prova completo.",
+          },
+          {
+            title: "5. Passaggio",
+            text: "Il negozio Shopify viene intestato a te. Riallineiamo gli ultimi ordini e clienti e spostiamo il dominio nel momento concordato.",
+          },
+        ],
+      },
+      costi: {
+        title: "Quanto costa",
+        porting: {
+          title: "Porting standard",
+          text: "Gratuito, per ciò che rientra nel perimetro standard. Le parti su misura sono escluse oppure quotate a parte, prima di cominciare.",
+        },
+        shopify: {
+          title: "Abbonamento Shopify",
+          text: "Lo paghi direttamente a Shopify, con il piano che scegli tu. Il negozio e i suoi dati sono intestati a te.",
+        },
+        assistenza: {
+          title: "Assistenza",
+          text: "Facoltativa. Un canone mensile che comprende manutenzione ed evoluzioni del negozio entro limiti concordati, con una durata minima contrattuale.",
+        },
+      },
+      faq: {
+        title: "Domande frequenti",
+        items: [
+          {
+            question: "Perché il porting è gratuito?",
+            answer:
+              "Cobracco aderisce al programma Partner di Shopify, che riconosce un compenso a chi porta nuovi negozi sulla piattaforma. In più offriamo un'assistenza a canone a chi la desidera. Questo ci permette di non far pagare il porting del perimetro standard.",
+          },
+          {
+            question: "Che cosa resta a mio carico?",
+            answer:
+              "L'abbonamento a Shopify, le eventuali app a pagamento che scegli di usare e le parti su misura che decidi di farci realizzare. Il canone di assistenza solo se lo sottoscrivi.",
+          },
+          {
+            question: "Il negozio è mio?",
+            answer:
+              "Sì. Creiamo il negozio e, a lavoro finito, lo trasferiamo a te: abbonamento, dominio e dati sono intestati alla tua azienda.",
+          },
+          {
+            question: "Il vecchio sito resta attivo durante il porting?",
+            answer:
+              "Sì. Lavoriamo su un negozio separato e protetto da password. Il vecchio sito continua a vendere fino al giorno del passaggio.",
+          },
+          {
+            question: "Perdo il posizionamento sui motori di ricerca?",
+            answer:
+              "Trasferiamo titoli e descrizioni e carichiamo i reindirizzamenti dai vecchi indirizzi ai nuovi. Un cambio di piattaforma può comunque causare oscillazioni temporanee: nessuno può garantire il contrario.",
+          },
+          {
+            question: "Che cosa succede ai miei clienti e ai loro ordini?",
+            answer:
+              "Anagrafiche e storico ordini vengono trasferiti. Le password no, per ragioni tecniche: ogni cliente ne imposta una nuova al primo accesso.",
+          },
+          {
+            question: "Quanto tempo serve?",
+            answer:
+              "Dipende dalle dimensioni del catalogo e da quante parti su misura ci sono. Te lo diciamo dopo l'analisi, insieme all'elenco di ciò che rientra nel perimetro.",
+          },
+          {
+            question: "L'anteprima mi impegna a qualcosa?",
+            answer:
+              "No. È privata, non compare sui motori di ricerca e la cancelliamo se ce lo chiedi.",
+          },
+        ],
+      },
+      callToAction: {
+        title: "Chiedi un'anteprima del tuo negozio su Shopify",
+        text: "Scrivici l'indirizzo del tuo e-commerce: ti diciamo se rientra nel perimetro standard e ti prepariamo un'anteprima.",
+        buttonLabel: "Richiedi l'anteprima",
         buttonHref: "/contatti",
       },
     },
