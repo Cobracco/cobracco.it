@@ -786,7 +786,7 @@
           },
           {
             title: "FullEngage",
-            href: "https://app.fullengage.it",
+            href: "https://fullengage.it",
             linkLabel: "Visita FullEngage",
             description:
               "Piattaforma di recruiting intelligente basata su architettura monorepo e microservizi: sito pubblico, dashboard candidato, hub recruiter e console superadmin con autenticazione cross-domain e workflow AI sui dati profilo.",
