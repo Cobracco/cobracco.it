@@ -17,10 +17,10 @@ const baseSecurityHeaders = [
 ];
 
 const defaultCsp =
-  "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com; connect-src 'self' https: https://www.google.com; frame-src https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'";
+  "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://snap.licdn.com; connect-src 'self' https: https://www.google.com; frame-src https://www.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'";
 
 const linkedinDeckCsp =
-  "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com https://cdn.tailwindcss.com https://unpkg.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https: https://www.google.com; frame-src https://www.google.com; frame-ancestors 'self' https://www.linkedin.com https://*.linkedin.com; base-uri 'self'; form-action 'self'";
+  "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://snap.licdn.com https://cdn.tailwindcss.com https://unpkg.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https: https://www.google.com; frame-src https://www.google.com; frame-ancestors 'self' https://www.linkedin.com https://*.linkedin.com; base-uri 'self'; form-action 'self'";
 
 const nextConfig: NextConfig = {
   output: "standalone",
