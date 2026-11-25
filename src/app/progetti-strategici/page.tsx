@@ -6,6 +6,7 @@ import Section from "@/components/Section";
 import Card from "@/components/Card";
 import CallToAction from "@/components/CallToAction";
 import { siteContent } from "@/content/siteContent";
+import { getCaseStudyBySlug } from "@/content/caseStudies";
 
 export const metadata: Metadata = {
   title: siteContent.pages.progettiStrategici.meta.title,
@@ -65,7 +66,7 @@ export default function ProgettiStrategiciPage() {
                         ))}
                       </ul>
                     ) : null}
-                    <div className="mt-5">
+                    <div className="mt-5 flex flex-wrap gap-3">
                       <Link
                         href={project.href}
                         target={project.href.startsWith('http') ? '_blank' : undefined}
@@ -74,6 +75,14 @@ export default function ProgettiStrategiciPage() {
                       >
                         {project.linkLabel}
                       </Link>
+                      {getCaseStudyBySlug(project.title.toLowerCase()) ? (
+                        <Link
+                          href={`/progetti-strategici/${project.title.toLowerCase()}`}
+                          className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-semibold tracking-wide text-[var(--color-ink)] transition hover:border-[var(--color-primary)]"
+                        >
+                          Leggi il caso studio
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                   {project.image?.src ? (
