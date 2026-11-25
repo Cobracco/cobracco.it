@@ -144,6 +144,7 @@ const linkedinInsightInlineScript = `
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": `${siteContent.brand.siteUrl}/#organization`,
   name: siteContent.brand.name,
   url: siteContent.brand.siteUrl,
   email: siteContent.footer.email,

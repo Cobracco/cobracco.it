@@ -18,8 +18,29 @@ export const metadata: Metadata = {
 export default function ProgettiStrategiciPage() {
   const { hero, pillars, projects, callToAction } = siteContent.pages.progettiStrategici;
 
+  const projectsJsonLd = projects.items.map((project) => ({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: project.title,
+    url: project.href,
+    description: project.description,
+    applicationCategory: "BusinessApplication",
+    ...(project.image?.src
+      ? { image: `${siteContent.brand.siteUrl}${project.image.src}` }
+      : {}),
+    creator: { "@id": `${siteContent.brand.siteUrl}/#organization` },
+    publisher: { "@id": `${siteContent.brand.siteUrl}/#organization` },
+  }));
+
   return (
     <>
+      {projectsJsonLd.map((item) => (
+        <script
+          key={item.name}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
+        />
+      ))}
       <Container>
         <Section title={hero.title} description={hero.subtitle} />
 

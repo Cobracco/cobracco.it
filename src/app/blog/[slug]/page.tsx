@@ -142,8 +142,27 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     );
   }
 
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    keywords: post.keywords.join(", "),
+    url: `${siteContent.brand.siteUrl}/blog/${post.slug}`,
+    mainEntityOfPage: `${siteContent.brand.siteUrl}/blog/${post.slug}`,
+    inLanguage: "it-IT",
+    author: { "@id": `${siteContent.brand.siteUrl}/#organization` },
+    publisher: { "@id": `${siteContent.brand.siteUrl}/#organization` },
+  };
+
   return (
     <Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <Section title={post.title} description={post.description}>
         <div className="mt-6 max-w-3xl">
           <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--color-ink-soft)]">
