@@ -7,11 +7,6 @@ import { siteContent } from "@/content/siteContent";
 import { openConsentManager } from "@/lib/consentController";
 import Button from "@/components/Button";
 
-const reviewLinks = [
-  { label: "Sortlist", href: "https://www.sortlist.com/agency/cobracco" },
-  { label: "Clutch", href: "https://clutch.co/profile/cobracco" },
-];
-
 const socialLinks = [
   {
     label: "LinkedIn",
@@ -35,6 +30,33 @@ const socialLinks = [
           d="M165.9 397.4c0 2-2.3 3.7-5.2 3.7-3.3.3-5.6-1.5-5.6-3.7 0-2 2.3-3.7 5.2-3.7 3.3-.3 5.6 1.5 5.6 3.7zm-31.1-3.5c-.7 2 1.7 4.3 4.9 5.2 3.3 1 6.9 0 7.6-2 .7-2-1.7-4.3-4.9-5.2-3.2-1-6.9 0-7.6 2zm44.2-1.7c-2.9.8-4.9 3.2-4.3 5.4.6 2.3 3.5 3.4 6.4 2.6 2.9-.9 4.9-3.3 4.3-5.4-.6-2.3-3.5-3.4-6.4-2.6zm60.2-6.2c-1.1 2.8 1.2 6.1 5.1 7.4 3.9 1.3 8 0 9.1-2.8 1.1-2.8-1.2-6.1-5.1-7.4-3.9-1.3-8 0-9.1 2.8zm-58-12.1c-2.5 1.9-2.4 5.6.4 8.3 2.8 2.6 6.9 3.1 9.4 1.2 2.5-1.9 2.4-5.6-.4-8.3-2.8-2.6-6.9-3.1-9.4-1.2zm-30.5-15.2c-2.2 2.4-1.4 6.2 1.7 8.4 3.1 2.2 7.3 2.1 9.5-.3 2.2-2.4 1.4-6.2-1.7-8.4-3.1-2.2-7.3-2.1-9.5.3zm-28.3-25c-1.3 3.1 1.9 6.9 7.1 8.4 5.2 1.6 10.5.3 11.8-2.8 1.3-3.1-1.9-6.9-7.1-8.4-5.2-1.6-10.5-.3-11.8 2.8zM248 8C111 8 0 119 0 256c0 110.2 71.6 203.8 171.1 237.2 12.5 2.3 17.1-5.4 17.1-12 0-5.9-.2-25.6-.3-46.4-69.6 15.1-84.3-29.6-84.3-29.6-11.4-28.9-27.8-36.6-27.8-36.6-22.7-15.5 1.7-15.2 1.7-15.2 25.1 1.8 38.3 25.8 38.3 25.8 22.3 38.2 58.5 27.2 72.8 20.8 2.2-16.2 8.7-27.2 15.8-33.5-55.6-6.3-114.1-27.8-114.1-123.7 0-27.3 9.8-49.6 25.8-67.1-2.6-6.3-11.2-31.7 2.4-66.1 0 0 21-6.7 68.8 25.6 20-5.6 41.5-8.4 62.8-8.5 21.3.1 42.8 2.9 62.8 8.5 47.8-32.3 68.8-25.6 68.8-25.6 13.6 34.4 5 59.8 2.4 66.1 16 17.5 25.8 39.8 25.8 67.1 0 96.1-58.6 117.3-114.3 123.5 8.9 7.7 16.8 22.9 16.8 46.2 0 33.4-.3 60.3-.3 68.6 0 6.6 4.5 14.4 17.2 12C424.4 459.8 496 366.2 496 256 496 119 385 8 248 8z"
         />
       </svg>
+    ),
+  },
+  {
+    label: "Sortlist",
+    href: "https://www.sortlist.com/agency/cobracco",
+    icon: (
+      <svg viewBox="0 0 16 16" className="h-4 w-4">
+        <path
+          fill="currentColor"
+          d="M8,0C8,0,8,0,8,0C0.6,0,0,0.6,0,8c0,0,0,0,0,0c0,7.4,0.6,8,8,8c0,0,0,0,0,0c7.4,0,8-0.6,8-8c0,0,0,0,0,0C16,0.6,15.4,0,8,0z
+	 M6.9,12c-0.9,0-1.9-0.3-2.6-0.9l0.6-0.9c0.6,0.5,1.4,0.7,2,0.7c0.6,0,1-0.3,1-0.7c0-0.5-0.5-0.6-1.3-0.8C5.4,9.1,4.6,8.7,4.6,7.7
+	c0-1.1,0.9-1.9,2.2-1.9c0.8,0,1.6,0.3,2.2,0.7L8.6,7.5C8,7.1,7.4,6.9,6.9,6.9c-0.5,0-0.9,0.2-0.9,0.7c0,0.4,0.4,0.5,1.3,0.8
+	c1,0.3,2.1,0.6,2.1,1.8C9.3,11.3,8.3,12,6.9,12z M11.6,12h-1.4V4h1.4V12z"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Clutch",
+    href: "https://clutch.co/profile/cobracco",
+    icon: (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="https://clutch.co/static/icons/apple-touch-icon180x180.png"
+        alt=""
+        className="h-4 w-4 rounded-sm object-contain"
+      />
     ),
   },
 ];
@@ -75,7 +97,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="space-y-3">
-          <p className="text-sm font-semibold">Consenso & social</p>
+          <p className="text-sm font-semibold">Consenso, social & recensioni</p>
           <Button
             label="Gestisci consenso"
             type="button"
@@ -116,22 +138,6 @@ export default function Footer() {
           </div>
         </div>
       </Container>
-      <div className="border-t border-[var(--color-border)]">
-        <Container className="flex flex-wrap items-center gap-x-6 gap-y-2 py-4 text-sm text-[var(--color-ink-soft)]">
-          <span className="font-semibold text-[var(--color-ink)]">Ci trovi anche su</span>
-          {reviewLinks.map((review) => (
-            <Link
-              key={review.label}
-              href={review.href}
-              target="_blank"
-              rel="noreferrer"
-              className="underline-offset-2 transition hover:text-[var(--color-ink)] hover:underline"
-            >
-              {review.label}
-            </Link>
-          ))}
-        </Container>
-      </div>
     </footer>
   );
 }
