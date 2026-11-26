@@ -51,10 +51,11 @@ const socialLinks = [
     label: "Clutch",
     href: "https://clutch.co/profile/cobracco",
     icon: (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src="https://clutch.co/static/icons/apple-touch-icon180x180.png"
+      <Image
+        src="/logos/clutch-icon.png"
         alt=""
+        width={180}
+        height={204}
         className="h-4 w-4 rounded-sm object-contain"
       />
     ),
