@@ -1,6 +1,7 @@
 ﻿import type { MetadataRoute } from "next";
 import { siteContent } from "@/content/siteContent";
 import { getAllPosts } from "@/content/blog";
+import { getAllCaseStudySlugs } from "@/content/caseStudies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteContent.brand.siteUrl;
@@ -22,8 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const postRoutes = getAllPosts().map((post) => `/blog/${post.slug}`);
+  const caseStudyRoutes = getAllCaseStudySlugs().map(
+    (slug) => `/progetti-strategici/${slug}`,
+  );
 
-  return [...routes, ...postRoutes].map((route) => ({
+  return [...routes, ...postRoutes, ...caseStudyRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
   }));
