@@ -7,6 +7,11 @@ import { siteContent } from "@/content/siteContent";
 import { openConsentManager } from "@/lib/consentController";
 import Button from "@/components/Button";
 
+const reviewLinks = [
+  { label: "Sortlist", href: "https://www.sortlist.com/agency/cobracco" },
+  { label: "Clutch", href: "https://clutch.co/profile/cobracco" },
+];
+
 const socialLinks = [
   {
     label: "LinkedIn",
@@ -111,6 +116,22 @@ export default function Footer() {
           </div>
         </div>
       </Container>
+      <div className="border-t border-[var(--color-border)]">
+        <Container className="flex flex-wrap items-center gap-x-6 gap-y-2 py-4 text-sm text-[var(--color-ink-soft)]">
+          <span className="font-semibold text-[var(--color-ink)]">Ci trovi anche su</span>
+          {reviewLinks.map((review) => (
+            <Link
+              key={review.label}
+              href={review.href}
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-2 transition hover:text-[var(--color-ink)] hover:underline"
+            >
+              {review.label}
+            </Link>
+          ))}
+        </Container>
+      </div>
     </footer>
   );
 }
